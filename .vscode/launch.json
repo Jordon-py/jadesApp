@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Backend Server",
+      "program": "${workspaceFolder}/backend/${input:backendEntryPoint}",
+      "preLaunchTask": "install-backend-dependencies",
+      "cwd": "${workspaceFolder}/backend"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Frontend Dev Server",
+      "program": "${workspaceFolder}/frontend/node_modules/vite/bin/vite.js",
+      "cwd": "${workspaceFolder}/frontend",
+      "args": ["dev"],
+      "preLaunchTask": "install-frontend-dependencies"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "backendEntryPoint",
+      "description": "Select the backend entry point file",
+      "options": ["server.js", "index.js"]
+    }
+  ]
+}

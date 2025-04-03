@@ -1,0 +1,82 @@
+/* ImageTile Styles */
+.tileContainer {
+	position: relative;
+	width: 100%;
+	/* Maintain aspect ratio (e.g., 1:1 square) */
+	aspect-ratio: 1 / 1;
+	background-color: #f0f0f0; /* Placeholder background */
+	overflow: hidden; /* Clip image content */
+	border-radius: 4px;
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .tileContainer.clickable {
+	cursor: pointer;
+  }
+  
+  .tileContainer.clickable:hover,
+  .tileContainer.clickable:focus {
+	transform: scale(1.03);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	z-index: 10; /* Bring forward on hover/focus */
+	outline: 2px solid dodgerblue; /* Focus indicator */
+	outline-offset: 2px;
+  }
+  
+  
+  .image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Cover the container, crop if needed */
+	opacity: 0; /* Start hidden */
+	transition: opacity 0.5s ease-in-out; /* Fade-in transition */
+  }
+  
+  .image.loaded {
+	opacity: 1; /* Fade in when loaded */
+  }
+  
+  /* Loading State Placeholder */
+  .loadingState, .errorState {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: #888;
+  }
+  
+  /* Simple CSS Spinner */
+  .spinner {
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border-left-color: #555;
+	animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  /* Error State Placeholder */
+  .errorState {
+	background-color: #ffebee; /* Light red background */
+	color: #c62828; /* Darker red text */
+	flex-direction: column; /* Stack icon and text */
+	text-align: center;
+	padding: 10px;
+	font-size: 0.9em;
+  }
+  
+  .errorIcon {
+	  font-size: 1.5em; /* Larger icon */
+	  margin-bottom: 5px;
+  }

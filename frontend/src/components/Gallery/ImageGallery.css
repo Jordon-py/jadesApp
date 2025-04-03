@@ -1,0 +1,39 @@
+/* ImageGallery Styles */
+.galleryGrid {
+  display: grid;
+  /* Responsive grid: columns are at least 150px wide, auto-fill available space */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem; /* Space between grid items */
+  padding: 1rem; /* Padding around the grid */
+}
+
+.emptyMessage {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.errorMessage {
+    padding: 2rem;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    border: 1px dashed red;
+    background-color: #fff0f0;
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

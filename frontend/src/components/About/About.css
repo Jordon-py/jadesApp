@@ -1,0 +1,31 @@
+/* About component styles */
+.about-container {
+	display: flex;
+	margin: 1% auto;
+	max-width: 95%;
+	padding: 1%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.904) /* rgba(0, 0, 0, 0.5) */;
+	height: fit-content;
+	width: 100%;
+	border: 1px solid #6720ff00;
+	border-radius: 16px;
+	box-shadow: 0 6px 12px rgba(71, 0, 0, 0.505);
+}
+
+.about-container h3{
+	display: flex;
+	align-items: center;
+	color: #ffffff;
+	padding: 1%;
+	text-align: start;
+	line-height: 1.2;
+	
+}
+
+#about-text {
+	font-size: 1rem;
+	text-align: start;
+	line-height: 1.2;
+	color: #ffffff;
+}
