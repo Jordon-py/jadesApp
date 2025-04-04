@@ -1,7 +1,7 @@
 nav {
 	display	: flex;
-	justify-content: space-between;
-	max-height: fit-content;
+	justify-content:space-around;
+	max-height: 1%;
 	position: sticky;
 	top: 0;
 	left: 0; /* Optional: To ensure it spans the full width */
