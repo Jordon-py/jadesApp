@@ -14,10 +14,7 @@
 }
 
 /* Ensure consistent box-sizing across your project */
-*, *::before, *::after {
-  box-sizing: inherit;
 
-}
 
 
 body {
@@ -29,8 +26,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  background-image:   url("./background.png");
+  line-height: 1.3;
+  background-image:   url("./min.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -38,13 +35,16 @@ body {
 } 
 /* Navigation styles */
 .main-navigation {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 15px;
+  display: inline-block;
+  justify-content: last baseline;
+  gap: 10px;
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.835);
   border-radius: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-inline-width: 2px;
   border-color: rgb(157, 22, 180);
   border-style: double;
@@ -76,7 +76,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background: url("./ChatGPT Image Mar 30, 2025, 07_45_15 PM.png") no-repeat center center fixed;
+  background: url("eyebrow.png") no-repeat center center fixed;
   background-color: rgb(253, 253, 253);
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(156, 10, 241, 0.378);
