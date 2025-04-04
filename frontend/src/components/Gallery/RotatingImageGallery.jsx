@@ -13,7 +13,7 @@ import './RotatingImageGallery.css';
  */
 function RotatingImageGallery({
   images = [],
-  interval = 5000, // Default interval 5 seconds
+  interval = 3000, // Default interval 5 seconds
   showControls = true,
   pauseOnHover = true,
 }) {

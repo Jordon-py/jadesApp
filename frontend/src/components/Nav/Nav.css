@@ -1,0 +1,10 @@
+nav {
+	display	: flex;
+	justify-content: space-between;
+	max-height: fit-content;
+	position: sticky;
+	top: 0;
+	left: 0; /* Optional: To ensure it spans the full width */
+	width: 100%; /* Optional: To ensure it spans the full width */
+	z-index: 1000; /* Optional: To ensure it stays on top of other content */
+  }
