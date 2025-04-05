@@ -1,37 +1,11 @@
+/* path to app.jsx from that file: ../../App.jsx */
 /* === Root container === */
 .background {
-	position: fixed; /* Keeps background behind everything */
-	top: 0;
-	left: 0;
-	width: 100vw;  /* Full width */
-	height: 100vh; /* Full height */
-	overflow: hidden;
-	background-color: #0d0d0d; /* Core dark mode base */
-	z-index: -1; /* Ensures it's behind all UI elements */
-  }
-  
-  /* === Glowing animated gradient overlay === */
-  .animated-gradient {
-	width: 200%;
-	height: 200%;
-	position: absolute;
-	top: -50%;
-	left: -50%;
-	background: radial-gradient(circle at center, #1f1f1f, #0d0d0d, #000000);
-	animation: moveGradient 20s ease-in-out infinite;
-	opacity: 0.3; /* Subtle effect; increase for more intensity */
-  }
-  
-  /* === Animation definition === */
-  @keyframes moveGradient {
-	0% {
-	  transform: translate(0, 0) scale(1);
-	}
-	50% {
-	  transform: translate(25%, 25%) scale(1.1); /* Smooth shift & slight zoom */
-	}
-	100% {
-	  transform: translate(0, 0) scale(1);
-	}
-  }
-  
+  position: fixed; /* Keeps background behind everything */
+  top: 0;
+  left: 0;
+  width: 100vw;  /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden;
+  z-index: -1; /* Ensures it's behind all UI elements */
+}

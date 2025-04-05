@@ -1,22 +1,25 @@
 .booking-container {
-  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(128, 4, 153, 0.704);
+  color: #bfbbbb;
 }
 
 .booking-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  color: aquamarine;
 }
 
 .form-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .form-group label {

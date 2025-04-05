@@ -1,165 +1,156 @@
 /* --- Color Palette Variables --- */
 :root {
-	--gallery-silver: #c0c0c0;
-	--gallery-black: #1a1a1a;
-	--gallery-white: #ffffff;
-	--gallery-gold: #ffd700;
-	--gallery-dark-grey: #333;
-	--gallery-light-grey: #f4f4f4;
-  }
+  --black: #000000;
+  --white: #FFFFFF;
+  --gold: #D4AF37;
+  --silver: #C0C0C0;
   
-  /* --- Base Container --- */
+  /* Semi-transparent variants for overlays and subtle effects */
+  --black-70: rgba(0, 0, 0, 0.7);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --silver-10: rgba(192, 192, 192, 0.1);
+}
+
+/* --- Base Container --- */
+.rotating-gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  overflow: hidden;
+  background-color: var(--white);
+  border: 1px solid var(--silver);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: min-content;
+}
+
+.rotating-gallery-container.empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--black);
+  background-color: var(--silver-10);
+}
+
+/* --- Image Wrapper --- */
+.image-wrapper {
+  display: flex;
+  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+}
+
+/* --- Individual Images --- */
+.gallery-image {
+  width: 50%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+  border-right: 1px solid var(--silver);
+}
+
+.gallery-image:last-child {
+  border-right: none;
+}
+
+.gallery-image.single-image {
+  width: 100%;
+  border-right: none;
+}
+
+/* --- Controls --- */
+.controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.control-button {
+  pointer-events: all;
+  background-color: var(--black-40);
+  color: var(--white);
+  border: 1px solid var(--silver);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.control-button:hover {
+  background-color: var(--black-70);
+  border-color: var(--gold);
+  color: var(--gold);
+  opacity: 1;
+}
+
+/* --- Pause Indicator --- */
+.pause-indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--black-70);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid var(--silver);
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
   .rotating-gallery-container {
-	position: relative; /* Needed for absolute positioning of controls/indicators */
-	width: 100%;
-	max-width: 900px; /* Max width for larger screens */
-	margin: 2rem auto; /* Center the gallery */
-	overflow: hidden; /* Hide parts of images if needed during transitions */
-	background-color: var(--gallery-white);
-	border: 1px solid var(--gallery-silver);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	border-radius: 8px; /* Slightly rounded corners */
-	padding: 1rem; /* Padding around the images */
-	max-height: min-content;
+    margin: 1rem auto;
   }
-  
-  .rotating-gallery-container.empty {
-	text-align: center;
-	padding: 2rem;
-	color: var(--gallery-dark-grey);
-	background-color: var(--gallery-light-grey);
-  }
-  
-  /* --- Image Wrapper --- */
-  .image-wrapper {
-	display: flex; /* Arrange images side-by-side */
-	transition: opacity 0.5s ease-in-out; /* Simple fade transition on content change */
-	width: 100%; /* Ensure wrapper takes full width */
-  }
-  
-  /* Apply a subtle fade effect when images change */
-  /* Note: Add class via JS if needed for complex fades */
-  /* Example: Add/remove class for fade effect */
-  
-  
-  /* --- Individual Images --- */
+
   .gallery-image {
-	width: 50%; /* Each image takes half the container width */
-	height: auto; /* Maintain aspect ratio */
-	max-height: 500px; /* Limit image height */
-	object-fit: cover; /* Cover the area, cropping if necessary */
-	display: block; /* Remove extra space below image */
-	/* Add a subtle separator */
-	border-right: 1px solid var(--gallery-silver);
+    max-height: 350px;
   }
-  
-  /* Remove border from the last image */
-  .gallery-image:last-child {
-	border-right: none;
-  }
-  
-  /* Style for single image scenario */
-  .gallery-image.single-image {
-	  width: 100%;
-	  border-right: none;
-  }
-  
-  
-  /* --- Controls --- */
-  .controls {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 100%;
-	transform: translateY(-50%);
-	display: flex;
-	justify-content: space-between;
-	padding: 0 10px; /* Add some padding from the edges */
-	box-sizing: border-box;
-	pointer-events: none; /* Allow clicks to pass through container to buttons */
-  }
-  
+
   .control-button {
-	pointer-events: all; /* Make buttons clickable */
-	background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
-	color: var(--gallery-white);
-	border: 1px solid var(--gallery-silver);
-	border-radius: 50%; /* Circular buttons */
-	width: 40px;
-	height: 40px;
-	font-size: 18px;
-	line-height: 38px; /* Center icon vertically */
-	text-align: center;
-	cursor: pointer;
-	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-	opacity: 0.7; /* Slightly transparent initially */
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    line-height: 33px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-image {
+    border-bottom: 1px solid var(--silver);
+    max-height: 250px;
   }
   
-  .control-button:hover {
-	background-color: rgba(0, 0, 0, 0.7);
-	border-color: var(--gallery-gold); /* Gold border on hover */
-	color: var(--gallery-gold); /* Gold icon color on hover */
-	opacity: 1;
+  .gallery-image:last-child {
+    border-bottom: none;
+  }
+
+  .controls {
+    padding: 0 5px;
+  }
+
+  .control-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 28px;
   }
   
-  /* --- Pause Indicator --- */
-	.pause-indicator {
-	  position: absolute;
-	  bottom: 10px;
-	  right: 10px;
-	  background-color: rgba(0, 0, 0, 0.6);
-	  color: var(--gallery-white);
-	  padding: 5px 10px;
-	  border-radius: 4px;
-	  font-size: 12px;
-	  font-weight: bold;
-	  border: 1px solid var(--gallery-silver);
+  .pause-indicator {
+    font-size: 10px;
+    padding: 3px 6px;
   }
-  
-  
-  /* --- Responsiveness --- */
-  @media (max-width: 768px) {
-	.rotating-gallery-container {
-	  margin: 1rem auto;
-	}
-  
-	.gallery-image {
-	  max-height: 350px; /* Adjust height for smaller screens */
-	}
-  
-	.control-button {
-	  width: 35px;
-	  height: 35px;
-	  font-size: 16px;
-	  line-height: 33px;
-	}
-  }
-  
-  @media (max-width: 480px) {
-	 .gallery-image {
-		 /* If stacking: */
-		 /* width: 100%; */
-		 /* border-right: none; */
-		border-bottom: 1px solid var(--gallery-silver);
-		max-height: 250px; /* Further adjust height */
-	 }
-	  .gallery-image:last-child {
-		 /* border-bottom: none; */
-		border-bottom: none;
-	  }
-  
-	 .controls {
-	   padding: 0 5px;
-	 }
-  
-	  .control-button {
-		  width: 30px;
-		  height: 30px;
-		  font-size: 14px;
-		  line-height: 28px;
-	  }
-	  .pause-indicator {
-		  font-size: 10px;
-		  padding: 3px 6px;
-	  }
-  }
+}

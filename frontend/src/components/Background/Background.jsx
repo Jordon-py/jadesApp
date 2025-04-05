@@ -1,14 +1,15 @@
-// AnimatedBackground.jsx
+// Background.jsx
 import React from 'react';
-import './Background.css'; // Use CSS Modules or standard CSS as preferred
+import './Background.css';
 
-const AnimatedBackground = () => {
+const Background = () => {
+  // This component now acts as a container/placeholder for the video background
+  // The actual video is in App.jsx
   return (
     <div className="background">
-      {/* This will contain the animated gradient layer */}
-      <div className="animated-gradient" />
+      {/* Empty container - the video from App.jsx will be the background */}
     </div>
   );
 };
 
-export default AnimatedBackground;
+export default Background;

@@ -1,10 +1,75 @@
-nav {
-	display	: flex;
-	justify-content:space-around;
-	max-height: 1%;
-	position: sticky;
-	top: 0;
-	left: 0; /* Optional: To ensure it spans the full width */
-	width: 100%; /* Optional: To ensure it spans the full width */
-	z-index: 1000; /* Optional: To ensure it stays on top of other content */
+/* Primary navigation styles */
+.nav {
+  display: flex;
+  justify-content: center;
+  max-height: 1%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+}
+
+/* Navigation list container */
+.nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/* Navigation list items */
+.nav li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation buttons/links */
+.nav .button {
+  display: block;
+  color: #C0C0C0; /* Silver */
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+/* Hover state with subtle gold accent */
+.nav .button:hover,
+.nav .button:focus {
+  color: #FFFFFF; /* White */
+  border-color: #D4AF37; /* Gold */
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2); /* Subtle gold shadow */
+  transform: translateY(-2px);
+}
+
+/* Active state */
+.nav .button.active {
+  background-color: #000000; /* Black */
+  color: #D4AF37; /* Gold */
+  border-color: #cbcbcb; /* Gold */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
   }
+  
+  .nav li {
+    margin: 4px 0;
+    width: 100%;
+  }
+  
+  .nav .button {
+    width: 100%;
+    padding: 10px;
+  }
+}
