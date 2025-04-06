@@ -1,0 +1,78 @@
+.service-section {
+	max-width: 1200px; /* container width */
+	margin: 0 auto; /* center the section */
+	padding: 2rem 1rem; /* top/bottom and side spacing */
+	text-align: center;
+	background-color: #fafafa; /* optional background */
+	font-family: 'Montserrat', sans-serif; /* or your chosen Google Font */
+  }
+  
+  .section-title {
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+	font-size: 1rem;
+	color: #666;
+	margin-bottom: 2rem;
+	line-height: 1.5;
+  }
+  
+  .service-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+  }
+  
+  .service-card {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .service-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .service-image {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+	object-fit: cover;
+  }
+  
+  .service-title {
+	font-size: 1.25rem;
+	margin: 0.5rem 0;
+	color: #333;
+  }
+  
+  .service-description {
+	font-size: 0.95rem;
+	color: #555;
+	margin-bottom: 1.25rem;
+  }
+  
+  .service-button {
+	background-color: #ff6b6b; /* pick a brand color */
+	color: #fff;
+	border: none;
+	padding: 0.75rem 1.5rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 0.95rem;
+	transition: background-color 0.2s ease;
+  }
+  
+  .service-button:hover {
+	background-color: #e65b5b;
+  }
+  

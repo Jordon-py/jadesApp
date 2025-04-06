@@ -10,7 +10,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 // Use lazy loading for components
 const Home = lazy(() => import('./components/Home/Home.jsx'));
 const About = lazy(() => import('./components/About/About.jsx'));
-const WaxingServices = lazy(() => import('./components/Services/WaxingServices.jsx'));
+const ServiceCard = lazy(() => import('./components/Services/ServiceCard.jsx'));
 const BookingForm = lazy(() => import('./components/Booking/BookingForm.jsx'));
 const Gallery = lazy(() => import('./components/Gallery/ImageGallery.jsx'));
 const Nav = lazy(() => import('./components/Nav/Nav.jsx'));
@@ -19,6 +19,7 @@ const Nav = lazy(() => import('./components/Nav/Nav.jsx'));
 import './App.css';
 import './index.css';
 import Footer from './components/Footer/Footer.jsx';
+import ServiceCard from './components/Services/ServiceCard.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -96,14 +97,16 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/services" element={<WaxingServices />} />
+                <Route path="/services" element={<ServiceCard />} />
                 <Route path="/booking" element={<BookingForm />} />
                 <Route path="/gallery" element={<Gallery />} />
               </Routes>
             </Suspense>
           </main>
-        </div>
-
+          </div>
+          
+          {/* Service Card for the booking page */ }
+          <ServiceCard />
         {/* Footer */}
         <Footer />
       </Scrollbars>

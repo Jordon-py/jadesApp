@@ -1,107 +1,69 @@
-// path to app.jsx: ../../App.jsx
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import React from 'react';
+import './ServiceCard.css'; // or any stylesheet name
 
-/**
- * ServiceCard - A highly optimized component for displaying service information
- * 
- * Features:
- * - Memoized to prevent unnecessary rerenders
- * - Animated with framer-motion for enhanced UX
- * - Responsive design with TailwindCSS
- * - Accessibility features included
- */
-const ServiceCard = memo(({ 
-  id, 
-  title, 
-  price, 
-  description, 
-  category,
-  onSelect,
-  featured = false
-}) => {
-  // Animation variants for card interactions
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-    hover: { 
-      y: -5, 
-      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-      transition: { duration: 0.2 }
+const ServiceCard = () => {
+  // Example data array to map over
+  const services = [
+    {
+      id: 1,
+      title: 'Signature Brow Wax',
+      description: 'Refine and shape your brows to perfection.',
+      imageUrl: 'https://via.placeholder.com/300?text=Brow+Wax', // replace with real images
+      buttonText: 'Book Now',
     },
-    tap: { scale: 0.98, transition: { duration: 0.1 } }
-  };
+    {
+      id: 2,
+      title: 'Brow Tint & Shape',
+      description: 'Enhance your natural arch with custom tinting and expert waxing.',
+      imageUrl: 'https://via.placeholder.com/300?text=Brow+Tint',
+      buttonText: 'Book Now',
+    },
+    {
+      id: 3,
+      title: 'Full Face Wax',
+      description: 'Smooth and radiant skin—forehead, cheeks, lip, and chin.',
+      imageUrl: 'https://via.placeholder.com/300?text=Face+Wax',
+      buttonText: 'Book Now',
+    },
+    {
+      id: 4,
+      title: 'Ultimate Brow & Lash Bundle',
+      description: 'Transform your look with our combined brow + lash lift package.',
+      imageUrl: 'https://via.placeholder.com/300?text=Brow+%26+Lash',
+      buttonText: 'Book Now',
+    },
+  ];
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      whileHover="hover"
-      whileTap="tap"
-      variants={cardVariants}
-      className={`
-        relative overflow-hidden rounded-xl p-6 
-        ${featured 
-          ? 'bg-gradient-to-br from-black/90 to-black/80 border-2 border-gold'
-          : 'bg-black/75 border border-gray-600'
-        }
-        backdrop-blur-md text-white shadow-lg flex flex-col
-        transform transition-all duration-300 ease-in-out
-      `}
-      layout
-      onClick={() => onSelect && onSelect(id)}
-      role="button"
-      tabIndex={0}
-      aria-label={`View details for ${title}`}
-    >
-      {featured && (
-        <div className="absolute -right-8 top-4 bg-gold text-black px-10 py-1 rotate-45 text-sm font-bold">
-          Popular
-        </div>
-      )}
-
-      {category && (
-        <span className="inline-block px-3 py-1 mb-3 text-xs font-medium uppercase tracking-wider bg-gold/20 text-gold rounded-full">
-          {category}
-        </span>
-      )}
-      
-      <h3 className="text-2xl md:text-3xl font-medium text-gray-100 mb-2">
-        {title}
-      </h3>
-      
-      <div className="text-xl md:text-2xl font-bold text-gold mb-4">
-        {price}
-      </div>
-      
-      <p className="text-gray-300 flex-grow mb-4">
-        {description}
+    <section className="service-section">
+      <h2 className="section-title">Get started with Jade’s Brow Beauty</h2>
+      <p className="section-subtitle">
+        Professional brow waxing and skincare treatments to help you look and feel your best.
+        <br />
+        Follow us at <strong>@jadesbrowbeauty</strong>!
       </p>
-      
-      <button 
-        className="
-          mt-auto py-2 px-4 bg-gold hover:bg-gold/80 
-          text-black font-medium rounded-md transition-colors 
-          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold
-        "
-      >
-        Book Now
-      </button>
-    </motion.div>
+
+      <div className="service-Card">
+        {services.map(service => (
+          <div className="service-card" key={service.id}>
+            <img src={service.imageUrl} alt={service.title} className="service-image" />
+            <h3 className="service-title">{service.title}</h3>
+            <p className="service-description">{service.description}</p>
+            <button
+              className="service-button"
+              onClick={() => {
+                // You can integrate your booking or shop link here
+                // e.g., navigate to a booking page or open a product link
+                alert(`Navigating to ${service.title} booking/shopping page...`);
+              }}
+            >
+              {service.buttonText}
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
   );
-});
-
-ServiceCard.displayName = 'ServiceCard';
-
-ServiceCard.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  category: PropTypes.string,
-  onSelect: PropTypes.func,
-  featured: PropTypes.bool
 };
 
 export default ServiceCard;
