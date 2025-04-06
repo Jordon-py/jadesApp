@@ -18,7 +18,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.1;
   color: #02111f; /* Default text color */
-  background-color: #f8f9fa; /* Default background color */
+  background-color: #000000; /* Default background color */
   margin: 0;
   padding: 0;
   min-height: 100vh; /* Full height for the body */
@@ -40,8 +40,8 @@ a {
 }
 
 img {
-  max-width: 100%;
-  display: block; /* Prevent extra space below images */
+  max-width: 75%;
+  display: flex; /* Prevent extra space below images */
 }
 
 #root {
@@ -59,32 +59,6 @@ h1 {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-.sidebar {
-  display : flex;
-  flex-direction: row;
-  align-content: flex-start;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 100vh;  
-  width: 230px;
-  background-color: #0b141e;
-  color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  top: 2%;
-  z-index: 5; /* Ensure it stays on top */
-}
-
-.sidebar h2 {
-  font-size: 1.5em;
-  margin-bottom: 1rem;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 2%;
 }
 
 .button {

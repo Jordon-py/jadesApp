@@ -1,33 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import RotatingImageGallery from './RotatingImageGallery.jsx';
 import './RotatingImageGallery.css';
 
-// Define Gallery component
+/**
+ * Gallery Component
+ * Displays a rotating image gallery with images from public folder and assets directory.
+ * Features:
+ * - Automatic rotation of images
+ * - Manual controls for navigation
+ * - Image filtering (before/after/all)
+ * - Responsive design with bluish silver theme
+ */
 export default function Gallery() {
-  const [galleryImages, setGalleryImages] = useState([]);
-  
-  useEffect(() => {
-    // Set images only once when component mounts
-    const images = [
-      { src: 'before_3.png', alt: 'Placeholder Silver Image 1' },
-      { src: 'img_3After.png', alt: 'Placeholder Black Image 2' },
-      { src: 'IMG_2Before.png', alt: 'Placeholder White Image 3' },
-      { src: 'IMG_2After.png', alt: 'Placeholder Gold Image 4' },
-      { src: 'IMG_2.JPG', alt: 'Placeholder Grey Image 5' },
-      { src: 'IMG_1AfterBre850.png', alt: 'Placeholder Dark Image 6' }
-    ];
-    setGalleryImages(images);
-  }, []); // Empty dependency array ensures this runs once
-
   return (
     <div className="gallery-container">
-      <h1>Eyebrow Gallery</h1>
-      <RotatingImageGallery
-        images={galleryImages}
-        interval={4000} // Rotate every 4 seconds
+      <h1 className="galleryH1">JadesBrowBeauty Gallery</h1>
+      
+      <p className="text-center mb-8 text-blue-silver-light max-w-3xl mx-auto">
+        Browse our portfolio of eyebrow and waxing transformations. Hover to pause, 
+        use the controls to navigate, or filter by image type.
+      </p>
+      
+      <RotatingImageGallery 
+        interval={5000}
         showControls={true}
         pauseOnHover={true}
+        showFilters={true}
       />
+      
+      <div className="text-center mt-8 text-blue-silver-light">
+        <p><br />Want to see your own transformation? 
+          <a href="/booking" className="ml-2 text-blue-silver-light hover:text-white underline">
+            <br />Book an appointment today
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,36 @@
+
+body, input, select, textarea {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #a2b9d4; /* Bluish silver */
+}
+
+/* Unified container style */
+.unified-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin: 1rem auto;
+}
+
+/* Enhanced button styling */
+button, .primary-button, .secondary-button, .submit-button {
+  background-color: #c7d2fe; /* Soft pastel blue */
+  color: #2a2a2a;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
+}
+
+button:hover, .primary-button:hover, .secondary-button:hover, .submit-button:hover {
+  background-color: #a5b4fc; /* Slightly deeper pastel */
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
 .booking-container {
   display: flex;
   flex-direction: column;
