@@ -80,7 +80,7 @@ export default function BookingForm() {
   };
 
   return (
-    <div className="booking-container">
+    <div className="booking-container unified-container">
       <h2>Book Your Appointment</h2>
       
       {submitSuccess ? (

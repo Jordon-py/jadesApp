@@ -17,8 +17,8 @@
   position: fixed;
   padding-left: 1%;
   padding-bottom: 1%;
-  min-width: 80%;
-  min-height: 90%;
+  min-width: 10%;
+  min-height: 10%;
   z-index: -1; /* Keep background video behind everything */
   object-fit: cover;
 } /* Closing bracket for #bgVideo */
@@ -32,7 +32,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.3;
+  line-height: 1.1;
   position: relative;
 } 
 
@@ -40,7 +40,7 @@ body {
 .main-navigation {
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2); /* Gold shadow with reduced opacity */
+  box-shadow: 0 4px 16px rgba(203, 203, 203, 0.814); /* Gold shadow with reduced opacity */
   z-index: 10;
   position: relative;
 }
@@ -85,59 +85,7 @@ body {
   position: relative;
 }
 
-/* Sidebar styles - updated color scheme */
-.sidebar {
-  height: 100vh;
-  width: 250px;
-  background-color: var(--black);
-  color: var(--white);
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 20px;
-  overflow-y: auto;
-  z-index: 1000;
-}
 
-.sidebar h1 {
-  font-size: 2.5em;
-  line-height: 1.1;
-  color: var(--white);
-}
-
-.sidebar h2 {
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Combined sidebar link styles for better maintainability */
-.sidebar ul li a {
-  color: var(--gold);
-  text-decoration: none;
-  display: block;
-  padding: 8px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.sidebar ul li a:hover, 
-.sidebar li:hover {
-  background-color: rgba(212, 175, 55, 0.15); /* Gold with low opacity */
-  color: var(--white);
-}
-
-.sidebar li {
-  margin-bottom: 12px;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
 
 /* Main content area - updated spacing */
 main .main-content {
@@ -190,19 +138,28 @@ main .main-content {
 }
 
 /* Gallery styles - updated color scheme */
-.gallery-container {
-  margin: 40px 0;
-  padding: 20px;
-  background-color: var(--black-70);
-  border-radius: 16px;
-  color: var(--white);
+div .rotating-gallery-container {
+  margin: 0px auto;
+  display: flex;
+  padding: 3px;
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+  max-width: 1400px;
+  background-color: rgba(0, 0, 0, 0.738);
+  border-radius: 30px;
+  color: black;
   position: relative;
   z-index: 5;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 14px rgba(115, 127, 190, 0.528); /* Silver shadow */  
 }
 
 .featured-gallery {
-  margin: 40px 0;
+  margin: 0px auto;
   position: relative;
+  color: black;
   z-index: 5;
 }
 
@@ -220,5 +177,25 @@ main .main-content {
 .logo:hover {
   filter: drop-shadow(0 0 15px var(--gold));
 }
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  color: rgb(169, 181, 235);
+  padding: 1%;
+  margin-bottom: 0;
+  position: sticky;
+  z-index: 10;
+  max-height: 100px;
+}
+.footer a {
+  display: flex;
+  justify-content: center; 
+  align-items: last baseline;  
+  color: var(--silver);
+  text-decoration: none;  
+  transition: color 0.3s ease;
+}
 /* Duplicate WaxingServices.css rules removed to avoid errors */

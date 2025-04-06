@@ -1,5 +1,8 @@
 # ✅ GitHub Copilot Instructions for React + Express Full Stack Projects
 
+- Color-Palette: Bluish silver for lettering and for the app color scheme buttons and links.
+- Use a black 40% transparent background for the app conatainers
+
 ## 🚀 General Code Generation
 - Always use React functional components (no class components).
 - Always use React hooks like `useState`, `useEffect` appropriately.

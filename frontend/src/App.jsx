@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Context Providers
 import { ServicesProvider } from './contexts/ServicesContext';
@@ -13,7 +13,7 @@ const About = lazy(() => import('./components/About/About.jsx'));
 const ServiceCard = lazy(() => import('./components/Services/ServiceCard.jsx'));
 const BookingForm = lazy(() => import('./components/Booking/BookingForm.jsx'));
 const Gallery = lazy(() => import('./components/Gallery/ImageGallery.jsx'));
-const Nav = lazy(() => import('./components/Nav/Nav.jsx'));
+export const Nav = lazy(() => import('./components/Nav/Nav.jsx'));
 
 // CSS imports
 import './App.css';
@@ -23,7 +23,6 @@ import ServiceCard from './components/Services/ServiceCard.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [videoLoaded, setVideoLoaded] = useState(false);
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,9 +31,6 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleVideoLoad = () => {
-    setVideoLoaded(true);
-  };
 
   if (loading) {
     return (
@@ -60,24 +56,13 @@ export default function App() {
             <div {...props} style={{ ...style, backgroundColor: '#FFD700', borderRadius: '4px' }} />
           )}
           renderTrackVertical={({ style, ...props }) => (
-            <div {...props} style={{ ...style, backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '4px' }} />
+            <div {...props} style={{ ...style, backgroundColor: 'rgba(255, 255, 255, 0.87)', borderRadius: '4px' }} />
           )}
           renderView={({ style, ...props }) => (
             <div {...props} style={{ ...style, padding: '20px', backgroundColor: 'rgba(0, 0, 0, 0.8)' }} />
           )}>
         {/* Background video with performance optimizations */}
-        <video
-          id="bgVideo"
-          autoPlay
-          muted
-          playsInline
-          onCanPlay={handleVideoLoad}
-          className={`fixed inset-0 w-full h-full object-cover ${videoLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}
-          style={{ zIndex: -1 }} 
-        >
-          <source src="/Ja.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        
         
         {/* Navigation */}
         <header className="relative z-20">
@@ -86,6 +71,7 @@ export default function App() {
           </Suspense>
         </header>
           
+<<<<<<< HEAD
         <div className="intro-section">
           {/* Main content */}
           <main className="flex-1 ml-64 p-6" style={{ position: 'relative', zIndex: 10 }}>
@@ -109,6 +95,30 @@ export default function App() {
           <ServiceCard />
         {/* Footer */}
         <Footer />
+=======
+        
+            {/* Main content */}
+            <main className="flex-1 ml-64 p-6" style={{ position: 'relative', zIndex: 10 }}>
+              <Suspense fallback={
+                <div className="flex justify-center items-center h-64" style={{ zIndex: 15 }}>
+                  <div className="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              }>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<WaxingServices />} />
+                  <Route path="/booking" element={<BookingForm />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                </Routes>
+            </Suspense>
+          </main>
+  
+          {/* Footer */ }
+          <div className="footer"> 
+            <Footer />
+          </div>
+>>>>>>> 4e753b0fd0df1bc41b7cfea71f6b7152849ccd5c
       </Scrollbars>
       </Router>
     </ServicesProvider>
