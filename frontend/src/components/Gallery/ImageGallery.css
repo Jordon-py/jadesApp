@@ -1,63 +1,142 @@
-/* --- Color Palette Variables --- */
+/* ==============================================
+   CSS Variables - Bluish Silver Color Palette
+   ============================================== */
 :root {
-  --black: #000000;
-  --white: #FFFFFF;
-  --gold: #D4AF37;
-  --silver: #C0C0C0;
+  /* Core colors */
+  --color-blue-silver: #a2b9d4;
+  --color-blue-silver-light: #c7d2fe;
+  --color-blue-silver-dark: #6b72ad;
+  --color-text-light: #ffffff;
+  --color-text-muted: #e0e0e0;
   
-  /* Semi-transparent variants */
-  --black-80: rgba(0, 0, 0, 0.8);
-  --black-60: rgba(0, 0, 0, 0.6);
-  --black-30: rgba(0, 0, 0, 0.3);
-  --gold-20: rgba(212, 175, 55, 0.2);
+  /* Background & overlay colors */
+  --bg-dark: rgba(0, 0, 0, 0.4);  /* 40% transparent black as specified */
+  --bg-darker: rgba(0, 0, 0, 0.6);
+  --bg-lighter: rgba(0, 0, 0, 0.2);
+  
+  /* Opacity layers */
+  --opacity-80: rgba(0, 0, 0, 0.8);
+  --opacity-60: rgba(0, 0, 0, 0.6);
+  --opacity-30: rgba(0, 0, 0, 0.3);
+  
+  /* Accent colors */
+  --accent-silver: #C0C0C0;
+  --accent-gold-subtle: rgba(212, 175, 55, 0.2);
+  --accent-gold: rgb(134, 143, 241);
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 15px 30px rgba(0, 0, 0, 0.4);
+  --black-40: rgba(0, 0, 0, 0.4);
 }
 
-/* --- Main Gallery Container --- */
+/* ==============================================
+   Gallery Layout Components
+   ============================================== */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  padding: 1rem 1rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--bg-dark);
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+/* Gallery Container */
+.gallery-container {
+  padding: 1rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: var(--black-30);
-  border-radius: 8px;
 }
 
-/* --- Gallery Header --- */
+/* Typography for gallery heading */
+.gallery-container h1 {
+  color: var(--color-blue-silver);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Description text */
+.gallery-container p {
+  color: var(--color-blue-silver-light);
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Link styling */
+.gallery-container a {
+  color: var(--color-blue-silver-light);
+  text-decoration: underline;
+  margin-left: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.gallery-container a:hover {
+  color: white;
+}
+
+/* Call to action section */
+.gallery-cta {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--color-blue-silver-light);
+}
+
+/* ==============================================
+   Gallery Header Styling
+   ============================================== */
 .gallery-header {
-  grid-column: 1 / -1;
+  width: 100%;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .gallery-header h2 {
-  color: var(--gold);
-  font-size: 2rem;
+  color: var(--color-blue-silver);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   margin-bottom: 10px;
 }
 
 .gallery-header p {
-  color: var(--silver);
-  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* --- Gallery Items --- */
+/* ==============================================
+   Gallery Items
+   ============================================== */
 .gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
   aspect-ratio: 1 / 1;
-  border: 1px solid var(--silver);
+  border: 1px solid transparent;
 }
 
 .gallery-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border-color: var(--gold);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-blue-silver);
 }
 
 .gallery-item img {
@@ -72,15 +151,17 @@
   transform: scale(1.05);
 }
 
-/* --- Image Overlay --- */
+/* ==============================================
+   Image Overlay
+   ============================================== */
 .image-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 10px;
-  background-color: var(--black-60);
-  color: var(--white);
+  background-color: var(--bg-darker);
+  color: var(--color-text-light);
   transform: translateY(100%);
   transition: transform 0.3s ease;
 }
@@ -91,24 +172,26 @@
 
 .image-overlay h3 {
   margin: 0 0 5px;
-  font-size: 1rem;
-  color: var(--gold);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--color-blue-silver-light);
 }
 
 .image-overlay p {
   margin: 0;
-  font-size: 0.8rem;
-  color: var(--silver);
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  color: var(--color-text-muted);
 }
 
-/* --- Modal --- */
+/* ==============================================
+   Modal Component
+   ============================================== */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--black-80);
+  background-color: var(--opacity-80);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,12 +209,12 @@
 .modal-content {
   max-width: 90%;
   max-height: 90%;
-  background-color: var(--black);
-  border-radius: 8px;
+  background-color: var(--bg-dark);
+  border-radius: 12px;
   position: relative;
   padding: 20px;
-  border: 1px solid var(--silver);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--color-blue-silver-dark);
+  box-shadow: var(--shadow-strong);
 }
 
 .modal-close {
@@ -140,14 +223,14 @@
   right: 10px;
   background-color: transparent;
   border: none;
-  color: var(--silver);
+  color: var(--color-text-muted);
   font-size: 24px;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .modal-close:hover {
-  color: var(--gold);
+  color: var(--color-blue-silver-light);
 }
 
 .modal-image {
@@ -159,25 +242,26 @@
 
 .modal-caption {
   margin-top: 10px;
-  color: var(--silver);
+  color: var(--color-text-muted);
   text-align: center;
   font-size: 0.9rem;
 }
 
-/* --- Empty Gallery State --- */
+/* ==============================================
+   Gallery States (Empty, Loading)
+   ============================================== */
 .empty-gallery {
-  grid-column: 1 / -1;
+  width: 100%;
   text-align: center;
   padding: 40px;
-  color: var(--silver);
-  background-color: var(--black-30);
+  color: var(--color-text-muted);
+  background-color: var(--bg-lighter);
   border-radius: 8px;
-  border: 1px dashed var(--silver);
+  border: 1px dashed var(--color-blue-silver);
 }
 
-/* --- Loading Indicator --- */
 .gallery-loading {
-  grid-column: 1 / -1;
+  width: 100%;
   text-align: center;
   padding: 40px;
 }
@@ -187,9 +271,9 @@
   display: inline-block;
   width: 40px;
   height: 40px;
-  border: 3px solid var(--gold-20);
+  border: 3px solid var(--color-blue-silver-light);
   border-radius: 50%;
-  border-top-color: var(--gold);
+  border-top-color: transparent;
   animation: spin 1s linear infinite;
 }
 
@@ -197,35 +281,57 @@
   to { transform: rotate(360deg); }
 }
 
-/* --- Responsive Adjustments --- */
+/* ==============================================
+   Responsive Adjustments
+   ============================================== */
+/* Desktop-First Approach */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+}
+
+/* Tablet Devices */
 @media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
-    padding: 15px;
   }
   
-  .gallery-header h2 {
-    font-size: 1.5rem;
+  .gallery {
+    padding: 15px;
+  }
+
+  .gallery-container {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .gallery-container h1 {
+    font-size: 1.75rem;
   }
 }
 
+/* Mobile Devices */
 @media (max-width: 480px) {
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  .gallery-grid {
+    grid-template-columns: 1fr;
     grid-gap: 10px;
+  }
+  
+  .gallery {
     padding: 10px;
   }
   
   .image-overlay {
     padding: 5px;
   }
-  
-  .image-overlay h3 {
-    font-size: 0.9rem;
+
+  .gallery-container {
+    padding: 1rem 0.5rem;
   }
   
-  .image-overlay p {
-    font-size: 0.7rem;
+  .gallery-container h1 {
+    font-size: 1.5rem;
   }
 }

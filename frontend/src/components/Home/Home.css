@@ -1,160 +1,212 @@
-/* Background Video Styling */
-#bgVideo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80%; /* Full width */
-  height: 100%;
-  object-fit: cover; 
-  z-index: -1; /* Lower than the content container */
+/* path to app.jsx from that file: ../../App.jsx */
+
+/* ==============================================
+   CSS Variables - Bluish Silver Color Palette
+   ============================================== */
+:root {
+  /* Core colors */
+  --color-blue-silver: #a2b9d4;
+  --color-blue-silver-light: #c7d2fe;
+  --color-blue-silver-dark: #6b72ad;
+  --color-text-light: #ffffff;
+  --color-text-muted: #e0e0e0;
+  
+  /* Background & overlay colors */
+  --bg-dark: rgba(0, 0, 0, 0.4);  /* 40% transparent black as specified */
+  --bg-darker: rgba(0, 0, 0, 0.6);
+  --bg-lighter: rgba(0, 0, 0, 0.2);
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 6px 16px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.4);
+  
+  /* Typography */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 30px;
+  
+  /* Transitions */
+  --transition-fast: all 0.3s ease;
+  --transition-medium: all 0.6s ease-in-out;
 }
 
-.container {
+/* ==============================================
+   Base Styles
+   ============================================== */
+body, input, select, textarea {
+  font-family: var(--font-main);
+  color: var(--color-blue-silver);
+}
+
+/* ==============================================
+   Layout Components
+   ============================================== */
+.home-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden;
-  /* Video background is handled in App.jsx */
-}
-
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  color: #ffffff;
-  text-align: center;
+  padding: var(--space-sm);
   position: relative;
   z-index: 2;
 }
 
-.hero-section {
+/* ==============================================
+   Hero Section
+   ============================================== */
+.home-hero {
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-lg);
+}
+
+.home-hero-content {
+  background-color: var(--bg-dark);
   backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
   width: 100%;
   max-width: 800px;
 }
 
-.hero-section h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  color: #ffe17e; /* Gold color */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.home-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: var(--space-sm);
+  color: var(--color-blue-silver);
+  text-shadow: 0 2px 6px rgba(120, 136, 217, 0.769);
+  line-height: 1.1;
 }
 
-.hero-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+.home-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   font-weight: 400;
-  color: #C0C0C0; /* Silver color */
+  margin: var(--space-xs) 0;
+  color: var(--color-blue-silver);
 }
 
-.hero-section p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+.home-tagline {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  margin: var(--space-sm) 0 var(--space-md);
   line-height: 1.6;
+  color: var(--color-text-light);
 }
 
-.cta-buttons {
+/* ==============================================
+   CTA Buttons
+   ============================================== */
+.home-cta {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: var(--space-md);
+  margin: var(--space-md) 0 var(--space-sm);
 }
 
-.button {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  border-radius: 30px;
+/* Base button styles */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
   font-weight: 500;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition-medium);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
 }
 
-.primary-button {
-  background-color: #c7c7c7d3; /* Gold */
-  color: #000000;
-  border: 2px solid #000000d3;
-  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+/* Primary button */
+.btn-primary {
+  background-color: var(--color-blue-silver-light);
+  color: #2a2a2a;
+  border: none;
 }
 
-.primary-button:hover {
-  background-color: #000000d7;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
+.btn-primary:hover {
+  background-color: var(--color-blue-silver);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-strong);
 }
 
-.secondary-button {
+/* Secondary button */
+.btn-secondary {
   background-color: transparent;
-  color: #C0C0C0; /* Silver */
-  border: 2px solid #C0C0C0;
+  color: var(--color-blue-silver-dark);
+  border: 1px solid var(--color-blue-silver-dark);
 }
 
-.secondary-button:hover {
-  background-color: rgba(192, 192, 192, 0.1);
-  color: #FFFFFF;
-  transform: translateY(-3px);
+.btn-secondary:hover {
+  background-color: var(--color-blue-silver-dark);
+  color: var(--color-text-light);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-medium);
 }
 
-.intro-section {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3rem;
-  max-width: 800px;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
+/* ==============================================
+   Gallery Section
+   ============================================== */
+.home-gallery {
+  width: 100%;
+  margin: var(--space-lg) 0;
 }
 
-.intro-section p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #E0E0E0;
+/* ==============================================
+   About Section
+   ============================================== */
+.home-about {
+  width: 100%;
+  margin: var(--space-md) 0;
 }
 
-/* Responsive adjustments */
+/* ==============================================
+   Media Queries
+   ============================================== */
+/* Medium devices (tablets) */
 @media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2.5rem;
+  .home-cta {
+    gap: var(--space-sm);
+    flex-wrap: wrap;
   }
   
-  .hero-section h2 {
-    font-size: 1.4rem;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .button {
-    width: 80%;
-    margin: 0 auto;
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.7rem 1.5rem;
   }
 }
 
+/* Small devices (mobile) */
 @media (max-width: 480px) {
-  .hero-section {
-    padding: 1rem;
+  .home-hero-content {
+    padding: var(--space-sm);
   }
   
-  .hero-section h1 {
-    font-size: 2rem;
+  .home-cta {
+    flex-direction: column;
+    width: 100%;
   }
   
-  .hero-section p {
-    font-size: 1rem;
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
   }
 }
