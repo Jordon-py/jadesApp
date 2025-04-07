@@ -2,7 +2,7 @@
 import React, { createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
 import defaultServices from '../components/Services/servicesData.js';
-import useServiceManagement from '../hooks/useServiceManagement';
+import useServiceManagement from '../hooks/useServiceManagement.js';
 
 // Define the context
 const ServicesContext = createContext(null);

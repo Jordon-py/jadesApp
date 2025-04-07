@@ -2,11 +2,11 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
-import { ServicesProvider } from './contexts/ServicesContext';
-import { routes } from './routes/routes'; // Modular route list
-import ProtectedRoute from './components/Routes/ProtectedRoute.jsx'; // Optional: for admin route protection
-const Nav = React.lazy(() => import('./components/Nav/Nav.jsx'));
-const Footer = React.lazy(() => import('./components/Footer/Footer.jsx'));
+import { ServicesProvider } from './contexts/ServicesContext.js';
+import { routes } from './routes/routes.js'; // Modular route list
+import ProtectedRoute from './components/Routes/ProtectedRoute.js'; // Optional: for admin route protection
+const Nav = React.lazy(() => import('./components/Nav/Nav.js'));
+const Footer = React.lazy(() => import('./components/Footer/Footer.js'));
 
 import './App.css';
 import './index.css';
