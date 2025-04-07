@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Scrollbar } from 'react-scrollbars-custom';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 import { ServicesProvider } from './contexts/ServicesContext';
 import { routes } from './routes/routes'; // Modular route list
 import ProtectedRoute from './components/Routes/ProtectedRoute.jsx'; // Optional: for admin route protection
@@ -32,12 +33,15 @@ export default function App() {
   return (
     <ServicesProvider>
       <Router>
-        <Scrollbar
-          style={{ height: '100vh' }}
-          noScrollX
-          trackYProps={{ style: { background: 'transparent' } }}
-          thumbYProps={{ style: { backgroundColor: '#FFD700', borderRadius: '6px' } }}
-          contentProps={{ style: { backgroundColor: '#111', padding: '1rem' } }}
+        <SimpleBar
+          style={{ height: '100vh', overflow: 'auto' }}
+          autoHide={false}
+          scrollbarMinSize={40}
+          classNames={{ 
+            scrollbar: 'bg-transparent',
+            track: 'bg-transparent',
+            thumb: 'bg-blue-silver rounded'
+          }}
         >
           <header className="relative z-20">
             <Suspense fallback={<div className="p-4 text-white">Loading navigation...</div>}>
@@ -62,7 +66,7 @@ export default function App() {
           <Suspense fallback={<div className="text-white p-4">Loading footer...</div>}>
             <Footer />
           </Suspense>
-        </Scrollbar>
+        </SimpleBar>
       </Router>
     </ServicesProvider>
   );

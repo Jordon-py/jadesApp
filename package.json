@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "JadesBrowBeauty waxing website",
   "engines": {
-    "node": ">=16.x"
+    "node": ">=18.x",
+    "npm": ">=9.x"
   },
   "scripts": {
     "start": "cd backend && npm start",
     "build": "cd frontend && npm run build",
-    "heroku-postbuild": "npm run build",
-    "postinstall": "cd backend && npm install && cd ../frontend && npm install"
+    "heroku-postbuild": "cd frontend && npm install && npm run build",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-all": "npm install && npm run install-backend && npm run install-frontend"
   },
   "cacheDirectories": [
     "backend/node_modules",
@@ -21,6 +24,7 @@
     "tailwindcss": "^4.1.3"
   },
   "dependencies": {
+    "morgan": "^1.10.0",
     "react-scrollbars-custom": "^4.1.1"
   }
 }

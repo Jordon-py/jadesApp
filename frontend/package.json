@@ -1,28 +1,25 @@
 {
-  "name": "jadesbrowbeauty",
+  "name": "jadesbrowbeauty-frontend",
   "version": "1.0.0",
-  "description": "Booking and beauty service app for Jade’s Brow Beauty",
+  "description": "Booking and beauty service app for Jade's Brow Beauty",
   "main": "index.js",
   "engines": {
-    "node": ">=18.x <20.0.0",
-    "npm": ">=9.x <11.0.0"
+    "node": ">=18.x",
+    "npm": ">=9.x"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "postinstall": "cd backend && npm install && cd ../frontend && npm install",
-    "heroku-postbuild": "cd frontend && npm run build"
+    "build": "react-scripts build"
   },
   "dependencies": {
+    "framer-motion": "^12.6.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^6.22.0",
-    "framer-motion": "^12.6.3",
-   "react-scrollbars-custom": "^4.1.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "simplebar-react": "^3.2.4"
   },
-  "devDependencies": {},
   "keywords": [],
-  "author": "Christopher Jordon",
+  "author": "Christopher M. Jordon",
   "license": "MIT"
 }
