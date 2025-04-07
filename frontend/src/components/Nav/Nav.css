@@ -1,75 +1,83 @@
-/* Primary navigation styles */
-nav.nav {
-  display: flex;
+/* Tailwind navigation styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
   justify-content: center;
-  max-height: 1%;
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  background-color: rgb(215, 148, 148); /* Semi-transparent black background */
-}
-
-/* Navigation list container */
-.nav ul {
-  display: flex;
-  list-style: none;
+/* Original CSS with some modifications */
+:root {ion: sticky;
+  font-family: 'Montserrat',venir, Helvetica;
+  line-height: 1.1;
+  font-weight: 200;
+  color-scheme: light dark;
+  color: rgb(255, 255, 255); 148, 148); /* Semi-transparent black background */
+  background-color: #000000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} list-style: none;
   padding: 0;
-  margin: 0;
+/* Consolidated background video styling */
   width: 100%;
-  justify-content: space-evenly;
-}
-
-/* Navigation list items */
-.nav li {
+body {ify-content: space-evenly;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.1;
+  color: #02111f; /* Default text color */
+  background-color: #000000; /* Default background color */
   margin: 0;
   padding: 0;
+  min-height: 100vh; /* Full height for the body */
 }
-
 /* Navigation buttons/links */
-.nav .button {
-  display: block;
-  color: #C0C0C0; /* Silver */
-  text-decoration: none;
-  padding: 12px 24px;
-
+html, body { {
+  margin: 0;lock;
+  padding: 0;0C0; /* Silver */
+  height: 100%;on: none;
+  overflow: hidden;x;
+}
   transition: all 0.6s ease;
-  text-align: center;
-  font-weight: 500;
-  border: 1px solid transparent;
-}
-
-/* Hover state with subtle gold accent */
-.nav .button:hover,
+a {ext-align: center;
+  color: #abcaeb; /* Default link color */
+  text-decoration: none;sparent;
+  transition: color 0.7s ease-in-out,
+              text-shadow 0.7s ease-in-out;
+  text-shadow: 0 0 5px rgba(114, 182, 254, 0.783);  /* Default link shadow */   
+}nav .button:hover,
 .nav .button:focus {
-  color: #FFFFFF; /* White */
-  border-color: #8fbcdf; /* Gold */
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2); /* Subtle gold shadow */
-  transform: translateY(-2px);
+img {or: #FFFFFF; /* White */
+  max-width: 75%;8fbcdf; /* Gold */
+  display: flex; /* Prevent extra space below images */tle gold shadow */
+} transform: translateY(-2px);
 }
-
-/* Active state */
-.nav .button.active {
-  background-color: #000000; /* Black */
-  color: #D4AF37; /* Gold */
+#root {
+  max-width: 1600px; /* Max width for the app content */
+  margin: 0 auto; /* Center the app content */
+  padding: 1rem;or: #000000; /* Black */
+} color: #D4AF37; /* Gold */
   border-color: #cbcbcb; /* Gold */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .nav ul {
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;s */
+  color: #44627f;: 768px) {
+} .nav ul {
     flex-direction: column;
-    align-items: center;
-  }
-  
-  .nav li {
+h1 {align-items: center;
+  font-size: 3.2em;
+  line-height: 1.1;
+} .nav li {
     margin: 4px 0;
-    width: 100%;
-  }
-  
-  .nav .button {
-    width: 100%;
-    padding: 10px;
-  }
+.button {: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 48px;
+  border: 1px double #8f94fa;
+  color: #9a9ffd;
+  padding: 0.6em 1.2em;  font-size: 1em;  font-weight: 700;  background-color: #ca84c400;  cursor: pointer;  transition: background-color 0.3s ease-in-out,               color 0.3s ease-in-out,               border-color 0.3s ease-in-out,              transform 0.3s ease-in-out,              box-shadow 0.3s ease-in-out;}.button:hover {  background-color: #d8b2ff;  color: #9b9eff;  border-color: #b8bbf8;  transform: translateY(-5px)ease;  box-shadow: 0 6px 12px rgba(114, 182, 254, 0.783);}.button:active {  transform: translateY(-3px)ease;  box-shadow: 0 3px 6px rgba(100, 108, 255, 0.519);}@media (prefers-color-scheme: light) {  :root {    color: #213547;    background-color: #ffffff;  }  a:hover {    color: #747bff;  }  button {    background-color: #f9f9f9;  }}@media (prefers-color-scheme: dark) {  :root {    color: #ffffff;    background-color: #0a1d2f;  }  a:hover {    color: #7e95ff;  }  button {    background-color: #061625;  }}/* Add any additional global styles here */
+
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 }
