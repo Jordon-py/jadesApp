@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import useImageLoader, { getAllGalleryImages, getGroupedGalleryImages } from '../../hooks/useImageLoader';
-import './RotatingImageGallery.css';
 
 /**
  * RotatingImageGallery Component
@@ -134,8 +133,8 @@ function RotatingImageGallery({
   // Render Logic
   if (!displayImages || displayImages.length === 0) {
     return (
-      <div className="rotating-gallery-container empty">
-        <p>No images available to display.</p>
+      <div className="flex flex-col items-center justify-center w-full p-4">
+        <p className="text-blue-silver text-lg">No images available to display.</p>
       </div>
     );
   }
@@ -145,30 +144,46 @@ function RotatingImageGallery({
     if (!showFilters || displayImages.length < 3) return null;
     
     return (
-      <div className="image-filter">
+      <div className="flex flex-wrap justify-center gap-2 mb-6">
         <button 
-          className={`filter-button ${filter === 'all' ? 'active' : ''}`}
+          className={`px-4 py-2 rounded-md transition-all duration-300 ${
+            filter === 'all' 
+              ? 'bg-blue-silver-dark text-white' 
+              : 'bg-bg-dark text-blue-silver hover:bg-blue-silver hover:text-gray-900'
+          }`}
           onClick={() => handleFilterChange('all')}
           aria-label="Show all images"
         >
           All
         </button>
         <button 
-          className={`filter-button ${filter === 'before' ? 'active' : ''}`}
+          className={`px-4 py-2 rounded-md transition-all duration-300 ${
+            filter === 'before' 
+              ? 'bg-blue-silver-dark text-white' 
+              : 'bg-bg-dark text-blue-silver hover:bg-blue-silver hover:text-gray-900'
+          }`}
           onClick={() => handleFilterChange('before')}
           aria-label="Show before images"
         >
           Before
         </button>
         <button 
-          className={`filter-button ${filter === 'after' ? 'active' : ''}`}
+          className={`px-4 py-2 rounded-md transition-all duration-300 ${
+            filter === 'after' 
+              ? 'bg-blue-silver-dark text-white' 
+              : 'bg-bg-dark text-blue-silver hover:bg-blue-silver hover:text-gray-900'
+          }`}
           onClick={() => handleFilterChange('after')}
           aria-label="Show after images"
         >
           After
         </button>
         <button 
-          className={`filter-button ${filter === 'other' ? 'active' : ''}`}
+          className={`px-4 py-2 rounded-md transition-all duration-300 ${
+            filter === 'other' 
+              ? 'bg-blue-silver-dark text-white' 
+              : 'bg-bg-dark text-blue-silver hover:bg-blue-silver hover:text-gray-900'
+          }`}
           onClick={() => handleFilterChange('other')}
           aria-label="Show other images"
         >
@@ -181,13 +196,13 @@ function RotatingImageGallery({
   // For single image case
   if (displayImages.length === 1) {
     return (
-      <div className="rotating-gallery-container">
+      <div className="max-w-4xl mx-auto">
         {renderFilters()}
-        <div className="image-wrapper">
+        <div className="w-full flex justify-center">
           <img
             src={displayImages[0].src}
             alt={displayImages[0].alt || 'Gallery image'}
-            className="gallery-image single-image"
+            className="max-w-full h-auto rounded-lg shadow-medium"
           />
         </div>
       </div>
@@ -207,38 +222,38 @@ function RotatingImageGallery({
 
   return (
     <div
-      className="rotating-gallery-container"
+      className="max-w-6xl mx-auto relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {renderFilters()}
       
-      <div className="image-wrapper">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <img
           src={firstImage.src}
           alt={firstImage.alt || `Gallery image ${firstImageIndex + 1}`}
-          className="gallery-image"
+          className="w-full h-auto rounded-lg shadow-medium object-cover aspect-square"
         />
         {secondImage && (
           <img
             src={secondImage.src}
             alt={secondImage.alt || `Gallery image ${secondImageIndex + 1}`}
-            className="gallery-image"
+            className="w-full h-auto rounded-lg shadow-medium object-cover aspect-square"
           />
         )}
       </div>
 
       {showControls && displayImages.length > 2 && (
-        <div className="gallery-controls">
+        <div className="flex justify-between w-full absolute top-1/2 transform -translate-y-1/2 px-4">
           <button
-            className="control-button prev"
+            className="bg-bg-dark backdrop-blur-sm bg-opacity-70 text-blue-silver w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-silver hover:text-gray-900 transition-colors duration-300"
             onClick={handlePrevClick}
             aria-label="Previous Images"
           >
             &#10094;
           </button>
           <button
-            className="control-button next"
+            className="bg-bg-dark backdrop-blur-sm bg-opacity-70 text-blue-silver w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-silver hover:text-gray-900 transition-colors duration-300"
             onClick={handleNextClick}
             aria-label="Next Images"
           >
@@ -249,11 +264,15 @@ function RotatingImageGallery({
       
       {/* Pagination dots */}
       {displayImages.length > 2 && (
-        <div className="pagination-indicators">
+        <div className="flex justify-center mt-4 space-x-2">
           {[...Array(paginationDots)].map((_, index) => (
             <span
               key={`dot-${index}`}
-              className={`pagination-dot ${Math.floor(currentIndex / 2) === index ? 'active' : ''}`}
+              className={`w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${
+                Math.floor(currentIndex / 2) === index 
+                  ? 'bg-blue-silver' 
+                  : 'bg-gray-400 hover:bg-blue-silver-light'
+              }`}
               onClick={() => handleDotClick(index * 2)}
               role="button"
               tabIndex={0}
@@ -265,8 +284,8 @@ function RotatingImageGallery({
       
       {/* Status indicator */}
       {isPaused && (
-        <div className="gallery-status paused">
-          <span className="status-icon">⏸</span>
+        <div className="absolute top-2 right-2 bg-bg-dark bg-opacity-70 backdrop-blur-sm rounded-md px-3 py-1 text-blue-silver flex items-center">
+          <span className="mr-1">⏸</span>
           Paused
         </div>
       )}

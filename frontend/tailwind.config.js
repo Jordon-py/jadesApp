@@ -2,9 +2,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
@@ -28,9 +28,10 @@ export default {
         'md': '16px',
         'lg': '30px',
       },
-    },
-    fontFamily: {
-      main: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+      fontFamily: {
+        'main': ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+      },
     },
   },
   plugins: [],

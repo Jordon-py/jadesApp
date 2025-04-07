@@ -5,6 +5,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { ServicesProvider } from './contexts/ServicesContext';
 import { routes } from './routes/routes';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
+import TestTailwind from './components/TestTailwind';
 
 const Nav = React.lazy(() => import('./components/Nav/Nav.jsx'));
 const Footer = React.lazy(() => import('./components/Footer/Footer.jsx'));
@@ -39,6 +40,11 @@ export default function App() {
           </Suspense>
 
           <main className="flex-1 p-6 relative z-10">
+            {/* Tailwind Test Component */}
+            <div className="my-8">
+              <TestTailwind title="Tailwind CSS Is Working!" />
+            </div>
+            
             <Suspense fallback={<div className="text-white p-4">Loading content...</div>}>
               <Routes>
                 {routes.map(({ path, element, protected: isProtected }) =>

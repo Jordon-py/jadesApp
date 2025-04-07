@@ -1,10 +1,16 @@
+/* file path: /src/index.css */
+
+/* 
+ * Tailwind Directives
+ * These are processed by PostCSS to generate utility classes
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Original CSS with some modifications */
+/* Original CSS with modifications - bluish silver theme */
 :root {
-  font-family: 'Montserrat',venir, Helvetica;
+  font-family: 'Montserrat', Avenir, Helvetica;
   line-height: 1.1;
   font-weight: 200;
   color-scheme: light dark;
@@ -14,10 +20,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Bluish silver theme colors */
+  --primary-color: #abcaeb;
+  --primary-hover: #7e95ff;
+  --accent-color: #8f94fa;
+  --text-color: #44627f;
+  --shadow-color: rgba(114, 182, 254, 0.783);
 }
 
 /* Consolidated background video styling */
-
 body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.1;
@@ -36,11 +48,11 @@ html, body {
 }
 
 a {
-  color: #abcaeb; /* Default link color */
+  color: var(--primary-color); /* Bluish silver link color */
   text-decoration: none;
   transition: color 0.7s ease-in-out,
               text-shadow 0.7s ease-in-out;
-  text-shadow: 0 0 5px rgba(114, 182, 254, 0.783);  /* Default link shadow */   
+  text-shadow: 0 0 5px var(--shadow-color);  /* Default link shadow */   
 }
 
 img {
@@ -57,10 +69,7 @@ img {
 h1 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #44627f;
-}
-
-h1 {
+  color: var(--text-color);
   font-size: 3.2em;
   line-height: 1.1;
 }
@@ -70,12 +79,12 @@ h1 {
   align-items: center;
   justify-content: center;
   border-radius: 48px;
-  border: 1px double #8f94fa;
+  border: 1px double var(--accent-color);
   color: #9a9ffd;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 700;
-  background-color: #ca84c400;
+  background-color: transparent;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, 
               color 0.3s ease-in-out, 
@@ -86,14 +95,14 @@ h1 {
 
 .button:hover {
   background-color: #d8b2ff;
-  color: #9b9eff;
+  color: var(--primary-hover);
   border-color: #b8bbf8;
-  transform: translateY(-5px)ease;
-  box-shadow: 0 6px 12px rgba(114, 182, 254, 0.783);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 .button:active {
-  transform: translateY(-3px)ease;
+  transform: translateY(-3px);
   box-shadow: 0 3px 6px rgba(100, 108, 255, 0.519);
 }
 
@@ -103,7 +112,7 @@ h1 {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--primary-hover);
   }
   button {
     background-color: #f9f9f9;
@@ -116,7 +125,7 @@ h1 {
     background-color: #0a1d2f;
   }
   a:hover {
-    color: #7e95ff;
+    color: var(--primary-hover);
   }
   button {
     background-color: #061625;

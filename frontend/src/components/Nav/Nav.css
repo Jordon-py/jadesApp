@@ -1,25 +1,30 @@
-/* Tailwind navigation styles */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-  justify-content: center;
+/* Navigation styles */
+
 /* Original CSS with some modifications */
-:root {ion: sticky;
-  font-family: 'Montserrat',venir, Helvetica;
+:root {
+  position: sticky;
+  font-family: 'Montserrat', Helvetica, sans-serif;
   line-height: 1.1;
   font-weight: 200;
   color-scheme: light dark;
-  color: rgb(255, 255, 255); 148, 148); /* Semi-transparent black background */
+  color: rgb(255, 255, 255);
   background-color: #000000;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} list-style: none;
+}
+
+.nav ul {
+  list-style: none;
   padding: 0;
-/* Consolidated background video styling */
+  justify-content: center;
   width: 100%;
-body {ify-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+/* Consolidated background video styling */
+body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.1;
   color: #02111f; /* Default text color */
@@ -28,56 +33,112 @@ body {ify-content: space-evenly;
   padding: 0;
   min-height: 100vh; /* Full height for the body */
 }
+
 /* Navigation buttons/links */
-html, body { {
-  margin: 0;lock;
-  padding: 0;0C0; /* Silver */
-  height: 100%;on: none;
-  overflow: hidden;x;
-}
+.nav-item {
   transition: all 0.6s ease;
-a {ext-align: center;
-  color: #abcaeb; /* Default link color */
-  text-decoration: none;sparent;
-  transition: color 0.7s ease-in-out,
-              text-shadow 0.7s ease-in-out;
-  text-shadow: 0 0 5px rgba(114, 182, 254, 0.783);  /* Default link shadow */   
-}nav .button:hover,
-.nav .button:focus {
-img {or: #FFFFFF; /* White */
-  max-width: 75%;8fbcdf; /* Gold */
-  display: flex; /* Prevent extra space below images */tle gold shadow */
-} transform: translateY(-2px);
+  text-align: center;
 }
+
+a {
+  color: #abcaeb; /* Default link color */
+  text-decoration: none;
+  background: transparent;
+  transition: color 0.7s ease-in-out;
+}
+
+img {
+  color: #FFFFFF; /* White */
+  max-width: 75%;
+  border-color: #8fbcdf; /* Gold */
+  display: flex; /* Prevent extra space below images */
+}
+
 #root {
   max-width: 1600px; /* Max width for the app content */
   margin: 0 auto; /* Center the app content */
-  padding: 1rem;or: #000000; /* Black */
-} color: #D4AF37; /* Gold */
-  border-color: #cbcbcb; /* Gold */
+  padding: 1rem;
+  background-color: #000000; /* Black */
+  color: #D4AF37; /* Gold */
+}
+
 h1 {
   text-align: center;
-  margin-bottom: 1.5rem;s */
-  color: #44627f;: 768px) {
-} .nav ul {
-    flex-direction: column;
-h1 {align-items: center;
+  margin-bottom: 1.5rem;
+  color: #44627f;
   font-size: 3.2em;
   line-height: 1.1;
-} .nav li {
+}
+
+@media (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav li {
     margin: 4px 0;
-.button {: 100%;
+    width: 100%;
+  }
+}
+
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 48px;
   border: 1px double #8f94fa;
   color: #9a9ffd;
-  padding: 0.6em 1.2em;  font-size: 1em;  font-weight: 700;  background-color: #ca84c400;  cursor: pointer;  transition: background-color 0.3s ease-in-out,               color 0.3s ease-in-out,               border-color 0.3s ease-in-out,              transform 0.3s ease-in-out,              box-shadow 0.3s ease-in-out;}.button:hover {  background-color: #d8b2ff;  color: #9b9eff;  border-color: #b8bbf8;  transform: translateY(-5px)ease;  box-shadow: 0 6px 12px rgba(114, 182, 254, 0.783);}.button:active {  transform: translateY(-3px)ease;  box-shadow: 0 3px 6px rgba(100, 108, 255, 0.519);}@media (prefers-color-scheme: light) {  :root {    color: #213547;    background-color: #ffffff;  }  a:hover {    color: #747bff;  }  button {    background-color: #f9f9f9;  }}@media (prefers-color-scheme: dark) {  :root {    color: #ffffff;    background-color: #0a1d2f;  }  a:hover {    color: #7e95ff;  }  button {    background-color: #061625;  }}/* Add any additional global styles here */
-
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+  background-color: #ca84c400;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background-color 0.3s ease-in-out, 
+              color 0.3s ease-in-out, 
+              border-color 0.3s ease-in-out,
+              transform 0.3s ease-in-out,
+              box-shadow 0.3s ease-in-out;
 }
+
+.button:hover {
+  background-color: #d8b2ff;
+  color: #9b9eff;
+  border-color: #b8bbf8;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(114, 182, 254, 0.783);
+}
+
+.button:active {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(100, 108, 255, 0.519);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #ffffff;
+    background-color: #0a1d2f;
+  }
+  a:hover {
+    color: #7e95ff;
+  }
+  button {
+    background-color: #061625;
+  }
+}
+
+/* Add any additional global styles here */
