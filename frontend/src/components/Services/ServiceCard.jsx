@@ -24,14 +24,14 @@ export default function ServiceCard() {
       id: 3,
       title: 'Full Face Wax',
       description: 'Smooth and radiant skin—forehead, cheeks, lip, and chin.',
-      imageUrl: 'fullface.png',
+      imageUrl: 'fullFaceWax.png',
       buttonText: 'Book Now',
     },
     {
       id: 4,
       title: 'Ultimate Brow & Lash Bundle',
       description: 'Transform your look with our combined brow + lash lift package.',
-      imageUrl: 'Browandlash.png',
+      imageUrl: 'ultimateBrowandLash.png',
       buttonText: 'Book Now',
     },
   ];
@@ -66,7 +66,7 @@ export default function ServiceCard() {
         <p className="text-text-light text-center mb-8">
           Professional brow waxing and skincare treatments to help you look and feel your best.
           <br />
-          Follow us at <strong>@jadesbrowbeauty</strong>!
+          Follow us on Instagram at <strong>@jadesbrowbeauty</strong>!
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
