@@ -1,5 +1,6 @@
 import React, { lazy } from 'react';
 
+// Lazy load your route components
 const Home = lazy(() => import('../components/Home/Home.jsx'));
 const About = lazy(() => import('../components/About/About.jsx'));
 const ServiceCard = lazy(() => import('../components/Services/ServiceCard.jsx'));
@@ -8,10 +9,14 @@ const Gallery = lazy(() => import('../components/Gallery/ImageGallery.jsx'));
 const AdminDashboard = lazy(() => import('../components/Admin/AdminDashboard.jsx'));
 
 export const routes = [
-  { path: '/', element: React.createElement(Home) },
-  { path: '/about', element: React.createElement(About) },
-  { path: '/services', element: React.createElement(ServiceCard) },
-  { path: '/booking', element: React.createElement(BookingForm) },
-  { path: '/gallery', element: React.createElement(Gallery) },
-  { path: '/admin', element: React.createElement(AdminDashboard), protected: true },
+  { path: '/', element: <Home /> },
+  { path: '/about', element: <About /> },
+  { path: '/services', element: <ServiceCard /> },
+  { path: '/booking', element: <BookingForm /> },
+  { path: '/gallery', element: <Gallery /> },
+  {
+    path: '/admin',
+    element: <AdminDashboard />,
+    protected: true, // used by ProtectedRoute in App.jsx
+  },
 ];

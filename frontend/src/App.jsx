@@ -2,13 +2,12 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Scrollbar } from 'react-scrollbars-custom';
 import { ServicesProvider } from './contexts/ServicesContext';
-import { routes } from './routes/routes';
-import ProtectedRoute from './components/Routes/ProtectedRoute';
-import TestTailwind from './components/TestTailwind';
-
+import { routes } from './routes/routes'; // Modular route list
+import ProtectedRoute from './components/Routes/ProtectedRoute.jsx'; // Optional: for admin route protection
 const Nav = React.lazy(() => import('./components/Nav/Nav.jsx'));
 const Footer = React.lazy(() => import('./components/Footer/Footer.jsx'));
-// Only importing the main index.css which now contains Tailwind directives
+
+import './App.css';
 import './index.css';
 
 export default function App() {
@@ -24,7 +23,7 @@ export default function App() {
       <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
         <div className="text-center">
           <h1 className="text-3xl font-light text-white mb-4">Loading JadesBrowBeauty</h1>
-          <div className="w-16 h-16 border-4 border-blue-silver border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto" />
         </div>
       </div>
     );
@@ -33,28 +32,29 @@ export default function App() {
   return (
     <ServicesProvider>
       <Router>
-        <Scrollbar style={{ height: '100vh' }} autoHide>
-          <Suspense fallback={<div className="p-4 text-white">Loading navigation...</div>}>
-            <Nav />
-          </Suspense>
+        <Scrollbar
+          style={{ height: '100vh' }}
+          noScrollX
+          trackYProps={{ style: { background: 'transparent' } }}
+          thumbYProps={{ style: { backgroundColor: '#FFD700', borderRadius: '6px' } }}
+          contentProps={{ style: { backgroundColor: '#111', padding: '1rem' } }}
+        >
+          <header className="relative z-20">
+            <Suspense fallback={<div className="p-4 text-white">Loading navigation...</div>}>
+              <Nav />
+            </Suspense>
+          </header>
 
-          <main className="flex-1 p-6 relative z-10">
-            {/* Tailwind Test Component */}
-            <div className="my-8">
-              <TestTailwind title="Tailwind CSS Is Working!" />
-            </div>
-            
+          <main className="flex-1 relative z-10">
             <Suspense fallback={<div className="text-white p-4">Loading content...</div>}>
               <Routes>
-                {routes.map(({ path, element, protected: isProtected }) =>
+                {routes.map(({ path, element, protected: isProtected }) => (
                   <Route
                     key={path}
                     path={path}
-                    element={isProtected
-                      ? <ProtectedRoute>{element}</ProtectedRoute>
-                      : element}
+                    element={isProtected ? <ProtectedRoute>{element}</ProtectedRoute> : element}
                   />
-                )}
+                ))}
               </Routes>
             </Suspense>
           </main>
