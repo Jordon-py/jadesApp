@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Scrollbars } from 'react-custom-scrollbars-2';
-
+import { Scrollbar } from 'react-scrollbars-custom';
 import { ServicesProvider } from './contexts/ServicesContext';
 import { routes } from './routes/routes';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
@@ -34,7 +33,7 @@ export default function App() {
   return (
     <ServicesProvider>
       <Router>
-        <Scrollbars style={{ height: '100vh' }} autoHide>
+        <Scrollbar style={{ height: '100vh' }} autoHide>
           <Suspense fallback={<div className="p-4 text-white">Loading navigation...</div>}>
             <Nav />
           </Suspense>
@@ -63,7 +62,7 @@ export default function App() {
           <Suspense fallback={<div className="text-white p-4">Loading footer...</div>}>
             <Footer />
           </Suspense>
-        </Scrollbars>
+        </Scrollbar>
       </Router>
     </ServicesProvider>
   );
