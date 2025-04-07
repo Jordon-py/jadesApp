@@ -1,5 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Original CSS with some modifications */
 :root {
-  font-family: 'Montserrat',venir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat',venir, Helvetica;
   line-height: 1.1;
   font-weight: 200;
   color-scheme: light dark;
@@ -12,7 +17,6 @@
 }
 
 /* Consolidated background video styling */
-
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -36,7 +40,7 @@ a {
   text-decoration: none;
   transition: color 0.7s ease-in-out,
               text-shadow 0.7s ease-in-out;
-  text-shadow: 0 0 5px rgba(171, 202, 235, 0.5);  /* Default link shadow */   
+  text-shadow: 0 0 5px rgba(114, 182, 254, 0.783);  /* Default link shadow */   
 }
 
 img {
@@ -45,7 +49,7 @@ img {
 }
 
 #root {
-  max-width: 1400px; /* Max width for the app content */
+  max-width: 1600px; /* Max width for the app content */
   margin: 0 auto; /* Center the app content */
   padding: 1rem;
 }
@@ -53,7 +57,7 @@ img {
 h1 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #212529;
+  color: #44627f;
 }
 
 h1 {
@@ -65,14 +69,13 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 18px;
+  border-radius: 48px;
   border: 1px double #8f94fa;
   color: #9a9ffd;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #190d18;
+  font-weight: 700;
+  background-color: #ca84c400;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, 
               color 0.3s ease-in-out, 
@@ -82,16 +85,16 @@ h1 {
 }
 
 .button:hover {
-  background-color: #17001e;
-  color: #c5c7ff;
+  background-color: #d8b2ff;
+  color: #9b9eff;
   border-color: #b8bbf8;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(29, 40, 255, 0.3);
+  transform: translateY(-5px)ease;
+  box-shadow: 0 6px 12px rgba(114, 182, 254, 0.783);
 }
 
 .button:active {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 6px rgba(100, 108, 255, 0.2);
+  transform: translateY(-3px)ease;
+  box-shadow: 0 3px 6px rgba(100, 108, 255, 0.519);
 }
 
 @media (prefers-color-scheme: light) {
@@ -110,13 +113,13 @@ h1 {
 @media (prefers-color-scheme: dark) {
   :root {
     color: #ffffff;
-    background-color: #212529;
+    background-color: #0a1d2f;
   }
   a:hover {
-    color: #fff07d;
+    color: #7e95ff;
   }
   button {
-    background-color: #343a40;
+    background-color: #061625;
   }
 }
 

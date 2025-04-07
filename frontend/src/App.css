@@ -1,201 +1,233 @@
-/* Base reset styles */
-#root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
+/* app.css - Iteration 4: Emotional, Interactive, UX-Mastered UI */
+
+:root {
+  --clr-bg: #fefefe;
+  --clr-fg: #1a1a1a;
+  --clr-accent: #f5b042;
+  --clr-muted: #999;
+  --clr-white: #fff;
+  --radius: 14px;
+  --blur: 22px;
+  --speed: 0.25s;
+  --font-main: 'Inter', sans-serif;
+  --font-alt: 'DM Sans', sans-serif;
+}
+
+* {
   box-sizing: border-box;
-  all: unset;
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  position: relative;
-  z-index: 1;
+  -webkit-font-smoothing: antialiased;
 }
 
-#bgVideo {
-  width: 90%;
-  position: fixed;
-  padding-left: 1%;
-  padding-bottom: 1%;
-  min-width: 10%;
-  min-height: 10%;
-  z-index: -1; /* Keep background video behind everything */
-  object-fit: cover;
-} /* Closing bracket for #bgVideo */
-
-/* Ensure consistent box-sizing across your project */
-body {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  min-height: 100vh;
+body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.1;
-  position: relative;
-} 
-
-/* Navigation styles - simplified */
-.main-navigation {
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(203, 203, 203, 0.814); /* Gold shadow with reduced opacity */
-  z-index: 10;
-  position: relative;
+  font-family: var(--font-main);
+  background-color: var(--clr-bg);
+  color: var(--clr-fg);
+  line-height: 1.65;
+  scroll-behavior: smooth;
 }
 
-.main-navigation .nav {
-  width: 90%;
-  justify-content: center;
-  gap: 10px;
-  padding-inline-start: 5%;
-  padding-inline-end: 5%;
-  z-index: 10;
-}
-
-.main-navigation .nav a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--silver);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 83px;
-  border-radius: 16px;
-  transition: all 0.5s ease;
-  background-color: var(--black-80);
-  z-index: 10;
-}
-
-.main-navigation .nav a:hover {
-  background-color: var(--black);
-  transform: translateY(-4px);
-  color: var(--white);
-  border: 1px solid var(--gold);
-}
-
-/* Content layout - improved structure */
-.content-container {
-  display: flex;
-  margin-top: .05%;
-  width: 100%;
-  z-index: 5;
-  position: relative;
-}
-
-
-
-/* Main content area - updated spacing */
-main .main-content {
-  background-color: var(--black-70);
-  color: var(--white);
-  width: 80%;
-  height: 100vh;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(192, 192, 192, 0.4); /* Silver shadow */
-  margin-left: 270px;
-  flex: 1;
-  padding: 20px;
-  position: relative;
-  z-index: 5;
-}
-
-/* App container - background preserved exactly */
-.content-container {
-  width: 50%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgb(253, 253, 253);
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(192, 192, 192, 0.4); /* Silver shadow */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--gold);
-  transition: background-color 0.3s ease;
-  position: relative;
-  z-index: 5;
-}
-
-/* Nav styling - simplified */
+/* Navigation */
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-.app-container h1 {
-  font-size: 2.5em;
-  line-height: 1.1;
-  color: var(--white);
-}
-
-.app-container:hover {
-  background-color: var(--black-80);
-}
-
-/* Gallery styles - updated color scheme */
-div .rotating-gallery-container {
-  margin: 0px auto;
-  display: flex;
-  padding: 3px;
-  width: 100%;
-  height: 100%;
-  max-height: 350px;
-  max-width: 1400px;
-  background-color: rgba(0, 0, 0, 0.738);
-  border-radius: 30px;
-  color: black;
-  position: relative;
-  z-index: 5;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 14px rgba(115, 127, 190, 0.528); /* Silver shadow */  
-}
-
-.featured-gallery {
-  margin: 0px auto;
-  position: relative;
-  color: black;
-  z-index: 5;
-}
-
-/* Logo styles - simplified */
-.logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  filter: drop-shadow(0 0 10px var(--silver));
-  transition: filter 0.3s ease;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 15px var(--gold));
-}
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  color: rgb(169, 181, 235);
-  padding: 1%;
-  margin-bottom: 0;
   position: sticky;
-  z-index: 10;
-  max-height: 100px;
-}
-.footer a {
+  top: 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(var(--blur));
+  padding: 1rem 2rem;
+  z-index: 1000;
   display: flex;
-  justify-content: center; 
-  align-items: last baseline;  
-  color: var(--silver);
-  text-decoration: none;  
-  transition: color 0.3s ease;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
 }
-/* Duplicate WaxingServices.css rules removed to avoid errors */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+}
+.nav .button {
+  font-weight: 600;
+  color: var(--clr-fg);
+  transition: all var(--speed);
+}
+.nav .button:hover {
+  color: var(--clr-accent);
+}
+
+/* Hero Section */
+.home-layout {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: radial-gradient(circle at top, #fff, #f9f9f9);
+}
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.home-subtitle {
+  font-size: 1.5rem;
+  color: var(--clr-muted);
+  margin-bottom: 1rem;
+}
+.home-tagline {
+  font-size: 1rem;
+  font-style: italic;
+  color: #666;
+}
+.home-cta {
+  margin-top: 2rem;
+}
+.btn-primary, .btn-secondary {
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  margin: 0.5rem;
+  transition: background-color var(--speed);
+}
+.btn-primary {
+  background-color: var(--clr-fg);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #333;
+}
+.btn-secondary {
+  border: 2px solid var(--clr-fg);
+  color: var(--clr-fg);
+  background: transparent;
+}
+.btn-secondary:hover {
+  background: var(--clr-accent);
+  color: #000;
+}
+
+/* ServiceCard and Grid */
+.service-section {
+  padding: 5rem 2rem;
+}
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--clr-muted);
+  max-width: 700px;
+  margin: auto;
+}
+.service-Card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  padding: 2rem;
+  text-align: center;
+  transition: transform var(--speed), box-shadow var(--speed);
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+}
+.service-image {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.service-description {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0.75rem 0;
+}
+.service-button {
+  background: var(--clr-accent);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: bold;
+  cursor: pointer;
+}
+.service-button:hover {
+  background: #e4a92f;
+}
+
+/* Booking Form (Modal & Standalone) */
+.booking-container {
+  max-width: 600px;
+  margin: 5rem auto;
+  padding: 3rem;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+.booking-form input, 
+.booking-form select,
+.booking-form textarea {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+.booking-form .submit-button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--clr-fg);
+  color: white;
+  font-weight: bold;
+  border-radius: var(--radius);
+  border: none;
+}
+.booking-form .submit-button:hover {
+  background-color: #222;
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #ccc;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.footer__section {
+  margin-bottom: 2rem;
+}
+.footer__title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.footer__link {
+  color: var(--clr-accent);
+}
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Improvements */
+@media screen and (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .home-title {
+    font-size: 2.4rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .booking-container {
+    margin: 2rem 1rem;
+    padding: 2rem;
+  }
+}

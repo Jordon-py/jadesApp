@@ -8,8 +8,7 @@ import ProtectedRoute from './components/Routes/ProtectedRoute';
 
 const Nav = React.lazy(() => import('./components/Nav/Nav.jsx'));
 const Footer = React.lazy(() => import('./components/Footer/Footer.jsx'));
-
-import './App.css';
+// Only importing the main index.css which now contains Tailwind directives
 import './index.css';
 
 export default function App() {
@@ -25,7 +24,7 @@ export default function App() {
       <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
         <div className="text-center">
           <h1 className="text-3xl font-light text-white mb-4">Loading JadesBrowBeauty</h1>
-          <div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto" />
+          <div className="w-16 h-16 border-4 border-blue-silver border-t-transparent rounded-full animate-spin mx-auto" />
         </div>
       </div>
     );

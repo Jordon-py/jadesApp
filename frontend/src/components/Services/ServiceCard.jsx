@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './ServiceCard.css';
-import BookingForm from '../BookingForm/BookingForm.jsx';
+import BookingForm from '../Booking/BookingForm.jsx';
+import PropTypes from 'prop-types';
 
 export default function ServiceCard() {
   const [selectedService, setSelectedService] = useState(null);
@@ -24,14 +24,14 @@ export default function ServiceCard() {
       id: 3,
       title: 'Full Face Wax',
       description: 'Smooth and radiant skin—forehead, cheeks, lip, and chin.',
-      imageUrl: 'https://github.com/Jordon-py/jadesApp/blob/e8eadd24a448c8079138caf8fc7950ef540e9298/frontend/public/IMG_3FaceWax.png',
+      imageUrl: 'fullface.png',
       buttonText: 'Book Now',
     },
     {
       id: 4,
       title: 'Ultimate Brow & Lash Bundle',
       description: 'Transform your look with our combined brow + lash lift package.',
-      imageUrl: 'https://github.com/Jordon-py/jadesApp/blob/e8eadd24a448c8079138caf8fc7950ef540e9298/frontend/public/IMG_4BrowLash.png',
+      imageUrl: 'Browandlash.png',
       buttonText: 'Book Now',
     },
   ];
@@ -41,33 +41,49 @@ export default function ServiceCard() {
   return (
     <>
       {selectedService && selectedCard && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => setSelectedService(null)}>&times;</span>
-            <h2>{selectedCard.title}</h2>
-            <p>{selectedCard.description}</p>
-            <img src={selectedCard.imageUrl} alt={selectedCard.title} className="modal-image" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+          <div className="bg-bg-dark backdrop-blur-md rounded-md p-6 shadow-medium max-w-md w-full mx-4">
+            <span 
+              className="text-2xl text-text-light absolute right-4 top-2 cursor-pointer hover:text-blue-silver transition-colors" 
+              onClick={() => setSelectedService(null)}
+            >
+              &times;
+            </span>
+            <h2 className="text-xl font-semibold text-blue-silver mb-2">{selectedCard.title}</h2>
+            <p className="text-text-light mb-4">{selectedCard.description}</p>
+            <img 
+              src={selectedCard.imageUrl} 
+              alt={selectedCard.title} 
+              className="w-full h-auto rounded-md mb-4 object-cover" 
+            />
             <BookingForm />
           </div>
         </div>
       )}
 
-      <section className="service-section">
-        <h2 className="section-title">Get started with Jade’s Brow Beauty</h2>
-        <p className="section-subtitle">
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <h2 className="text-2xl font-semibold text-center mb-2 text-blue-silver">Get started with Jade's Brow Beauty</h2>
+        <p className="text-text-light text-center mb-8">
           Professional brow waxing and skincare treatments to help you look and feel your best.
           <br />
           Follow us at <strong>@jadesbrowbeauty</strong>!
         </p>
 
-        <div className="service-Card">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map(service => (
-            <div className="service-card" key={service.id}>
-              <img src={service.imageUrl} alt={service.title} className="service-image" />
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
+            <div 
+              key={service.id}
+              className="bg-bg-dark backdrop-blur-md rounded-md p-4 shadow-medium flex flex-col items-center transition-transform transform hover:-translate-y-1 hover:shadow-strong"
+            >
+              <img 
+                src={service.imageUrl} 
+                alt={service.title} 
+                className="w-full h-48 object-cover rounded-md mb-4" 
+              />
+              <h3 className="text-lg font-medium text-blue-silver mb-2">{service.title}</h3>
+              <p className="text-text-light mb-4 text-center">{service.description}</p>
               <button
-                className="service-button"
+                className="bg-blue-silver-light text-gray-800 border-none py-3 px-6 rounded-lg font-medium cursor-pointer transition-all hover:bg-blue-silver hover:shadow-medium hover:transform hover:scale-105"
                 onClick={() => setSelectedService(service.id)}
               >
                 {service.buttonText}
@@ -79,3 +95,16 @@ export default function ServiceCard() {
     </>
   );
 }
+
+// PropTypes for when this component is used elsewhere and receives props
+ServiceCard.propTypes = {
+  customServices: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      buttonText: PropTypes.string.isRequired,
+    })
+  ),
+};
