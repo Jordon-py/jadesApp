@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './Video.css';
 
 export default function Video({ src = '/JadesBrow.mp4', type = 'video/mp4' }) {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -9,16 +10,16 @@ export default function Video({ src = '/JadesBrow.mp4', type = 'video/mp4' }) {
   };
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
+    <div className="video-container">
       <video
         autoPlay
         muted
         playsInline
         loop
         onCanPlay={handleVideoLoad}
-        className={`w-full h-full object-cover ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-700 -z-10 fixed top-0 left-0`}
+        className={`video-element ${
+          videoLoaded ? 'video-loaded' : 'video-loading'
+        }`}
       >
         <source src={src} type={type} />
         Your browser does not support the video tag.

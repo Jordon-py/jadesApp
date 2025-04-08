@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BookingForm from '../Booking/BookingForm.jsx';
 import PropTypes from 'prop-types';
+import './ServiceCard.css';
 
 export default function ServiceCard() {
   const [selectedService, setSelectedService] = useState(null);
@@ -41,49 +42,49 @@ export default function ServiceCard() {
   return (
     <>
       {selectedService && selectedCard && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
-          <div className="bg-bg-dark backdrop-blur-md rounded-md p-6 shadow-medium max-w-md w-full mx-4">
+        <div className="modal-overlay">
+          <div className="modal-container">
             <span 
-              className="text-2xl text-text-light absolute right-4 top-2 cursor-pointer hover:text-blue-silver transition-colors" 
+              className="modal-close" 
               onClick={() => setSelectedService(null)}
             >
               &times;
             </span>
-            <h2 className="text-xl font-semibold text-blue-silver mb-2">{selectedCard.title}</h2>
-            <p className="text-text-light mb-4">{selectedCard.description}</p>
+            <h2 className="modal-title">{selectedCard.title}</h2>
+            <p className="modal-description">{selectedCard.description}</p>
             <img 
               src={selectedCard.imageUrl} 
               alt={selectedCard.title} 
-              className="w-full h-auto rounded-md mb-4 object-cover" 
+              className="modal-image" 
             />
             <BookingForm />
           </div>
         </div>
       )}
 
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <h2 className="text-2xl font-semibold text-center mb-2 text-blue-silver">Get started with Jade's Brow Beauty</h2>
-        <p className="text-text-light text-center mb-8">
+      <section className="services-section">
+        <h2 className="services-heading">Get started with Jade's Brow Beauty</h2>
+        <p className="services-subheading">
           Professional brow waxing and skincare treatments to help you look and feel your best.
           <br />
           Follow us on Instagram at <strong>@jadesbrowbeauty</strong>!
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="services-grid">
           {services.map(service => (
             <div 
               key={service.id}
-              className="bg-bg-dark backdrop-blur-md rounded-md p-4 shadow-medium flex flex-col items-center transition-transform transform hover:-translate-y-1 hover:shadow-strong"
+              className="service-card"
             >
               <img 
                 src={service.imageUrl} 
                 alt={service.title} 
-                className="w-full h-48 object-cover rounded-md mb-4" 
+                className="service-image" 
               />
-              <h3 className="text-lg font-medium text-blue-silver mb-2">{service.title}</h3>
-              <p className="text-text-light mb-4 text-center">{service.description}</p>
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
               <button
-                className="bg-blue-silver-light text-gray-800 border-none py-3 px-6 rounded-lg font-medium cursor-pointer transition-all hover:bg-blue-silver hover:shadow-medium hover:transform hover:scale-105"
+                className="service-button"
                 onClick={() => setSelectedService(service.id)}
               >
                 {service.buttonText}

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './ProtectedRoute.css';
 
 /**
  * Protected route component that checks if user is authenticated
@@ -25,8 +26,8 @@ const ProtectedRoute = ({ children }) => {
   if (loading) {
     // Show loading indicator while checking authentication status
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="w-12 h-12 border-4 border-blue-400 rounded-full animate-spin border-t-transparent"></div>
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
       </div>
     );
   }
