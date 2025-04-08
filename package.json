@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "cd backend && npm start",
-    "build": "npm install && npm run build",
-    "heroku-postbuild": "npm install && npm run build",
+    "build": "npm run build",
+    "heroku-postbuild": "npm run build",
     "install-backend": "cd backend && npm install",
     "jadesbrowbeauty-vite": "npm install",
     "install-all": "npm install && npm run install-backend && npm run jadesbrowbeauty-vite"
