@@ -5,7 +5,7 @@ You are tasked with generating a **reusable and scalable React component**.
 
 Use:
 - Framework: React (JSX)
-- Styling: TailwindCSS
+- Styling: expertly structured css utlizing web dev best practices
 - State Management: React hooks (`useState`, `useEffect`)
 
 Before generating the component, clarify the following if not provided:

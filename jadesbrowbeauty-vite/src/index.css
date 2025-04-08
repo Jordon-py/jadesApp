@@ -1,14 +1,6 @@
 /* file path: /src/index.css */
 
-/* 
- * Tailwind Directives
- * These are processed by PostCSS to generate utility classes
- */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Original CSS with modifications - bluish silver theme */
+/* Custom CSS with bluish silver theme */
 :root {
   font-family: 'Montserrat', Avenir, Helvetica;
   line-height: 1.1;
@@ -25,15 +17,39 @@
   --primary-color: #abcaeb;
   --primary-hover: #7e95ff;
   --accent-color: #8f94fa;
-  --text-color: #44627f;
+  --text-color: #557da2;
   --shadow-color: rgba(114, 182, 254, 0.783);
+  
+  /* Colors from removed tailwind.config.js */
+  --blue-silver: #a2b9d4;
+  --blue-silver-light: #c7d2fe;
+  --blue-silver-dark: #6b72ad;
+  --text-light: #ffffff;
+  --text-muted: #e0e0e0;
+  --bg-dark: rgba(0, 0, 0, 0.4);
+  --bg-darker: rgba(0, 0, 0, 0.6);
+  --bg-lighter: rgba(0, 0, 0, 0.2);
+  
+  /* Shadow styles from removed tailwind.config.js */
+  --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 6px 16px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.4);
+  
+  /* Border radius from removed tailwind.config.js */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 30px;
+  
+  /* Font families from removed tailwind.config.js */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 /* Consolidated background video styling */
 body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.1;
-  color: #02111f; /* Default text color */
+  color: #04223d; /* Default text color */
   background-color: #000000; /* Default background color */
   margin: 0;
   padding: 0;
