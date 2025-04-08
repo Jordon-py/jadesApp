@@ -23,7 +23,7 @@
   
   /* Typography */
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+  --font-heading: Tahoma, Geneva, Verdana, sans-serif;
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -45,7 +45,8 @@
    Base Styles
    ============================================== */
 body, input, select, textarea {
-  font-family: var(--font-main);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1rem;
   color: var(--color-blue-silver);
 }
 
@@ -56,11 +57,10 @@ body, input, select, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 1600px;
+  width: 80%;
+  max-width: 100%;
   margin: 0 auto;
   padding: var(--space-sm);
-  position: relative;
   z-index: 2;
 }
 
@@ -69,9 +69,11 @@ body, input, select, textarea {
    ============================================== */
 .home-hero {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
   margin-bottom: var(--space-lg);
 }
 
@@ -82,8 +84,8 @@ body, input, select, textarea {
   padding: var(--space-md) var(--space-lg);
   text-align: center;
   box-shadow: var(--shadow-medium);
-  width: 100%;
-  max-width: 800px;
+  width: 80%;
+  max-width: 1000px;
 }
 
 .home-title {
@@ -113,6 +115,7 @@ body, input, select, textarea {
    ============================================== */
 .home-cta {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-md);
   margin: var(--space-md) 0 var(--space-sm);
@@ -139,42 +142,47 @@ body, input, select, textarea {
 .btn-primary {
   background-color: var(--color-blue-silver-light);
   color: #2a2a2a;
-  border: none;
+  border: double;
 }
 
 .btn-primary:hover {
   background-color: var(--color-blue-silver);
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-4px) scale(1.03);
   box-shadow: var(--shadow-strong);
+  transition: var(--transition-medium);
+  color: var(--color-text-light);
 }
 
 /* Secondary button */
 .btn-secondary {
   background-color: transparent;
   color: var(--color-blue-silver-dark);
-  border: 1px solid var(--color-blue-silver-dark);
+  border: double 2px solid var(--color-blue-silver-dark);
+  padding: 0.8rem 1.8rem;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-blue-silver-dark);
   color: var(--color-text-light);
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-4px) scale(1.03);
   box-shadow: var(--shadow-medium);
+  transition: var(--slow-transition);
 }
 
 /* ==============================================
    Gallery Section
    ============================================== */
 .home-gallery {
-  width: 100%;
-  margin: var(--space-lg) 0;
+  width: 50%;
+  display: flex;
+  margin: var(--space-sm) 0;
 }
 
 /* ==============================================
    About Section
    ============================================== */
 .home-about {
-  width: 100%;
+  width: 90%;
   margin: var(--space-md) 0;
 }
 
