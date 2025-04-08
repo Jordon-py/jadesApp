@@ -8,10 +8,10 @@
   },
   "scripts": {
     "start": "cd backend && npm start",
-    "build": "cd jadesbrowbeauty-vite && npm run build",
-    "heroku-postbuild": "cd jadesbrowbeauty-vite && npm install && npm run build",
+    "build": "npm run build",
+    "heroku-postbuild": "npm install && npm run build",
     "install-backend": "cd backend && npm install",
-    "install-frontend": "cd jadesbrowbeauty-vite && npm install",
+    "install-frontend": "npm install",
     "install-all": "npm install && npm run install-backend && npm run install-frontend"
   },
   "cacheDirectories": [
