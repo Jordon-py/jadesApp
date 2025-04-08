@@ -8,15 +8,14 @@
   },
   "scripts": {
     "start": "cd backend && npm start",
-    "build": "npm run build",
-    "heroku-postbuild": "npm run build",
+    "build": "vite build",
     "install-backend": "cd backend && npm install",
     "jadesbrowbeauty-vite": "npm install",
     "install-all": "npm install && npm run install-backend && npm run jadesbrowbeauty-vite"
   },
   "cacheDirectories": [
     "backend/node_modules",
-    "frontend/node_modules"
+    "jadesbrowbeauty-vite/node_modules"
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.21",
@@ -29,7 +28,7 @@
   "dependencies": {
     "morgan": "^1.10.0",
     "react-scrollbars-custom": "^4.1.1"
-  },
-  "build": "vite build"
+  }
+ 
 
 }
