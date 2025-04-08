@@ -1,11 +1,12 @@
 {
   "name": "jadesbrowbeauty",
   "version": "1.0.0",
+  "description": "Jade's Brow Beauty website",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "build": "vite build",
-    "heroku-postbuild": "cd jadesbrowbeauty-vite && npm install && npm run build && cp -r ./dist ../dist"
+    "start": "serve -s dist -l $PORT",
+    "build": "cd jadesbrowbeauty-vite && npm run build",
+    "heroku-postbuild": "cd jadesbrowbeauty-vite && npm install && npm run build && cp -r ./dist .."
   },
   "dependencies": {
     "axios": "^1.6.7",
