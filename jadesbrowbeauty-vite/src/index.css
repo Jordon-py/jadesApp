@@ -72,7 +72,7 @@ a {
 }
 
 img {
-  max-width: 75%;
+  max-width: 100%; /* Updated to 100% for responsive images */
   display: flex; /* Prevent extra space below images */
 }
 
@@ -118,7 +118,7 @@ h1 {
 }
 
 .button:active {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 3px 6px rgba(100, 108, 255, 0.519);
 }
 

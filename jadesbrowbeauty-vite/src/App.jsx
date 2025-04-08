@@ -34,7 +34,8 @@ export default function App() {
     <ServicesProvider>
       <Router>
         <SimpleBar
-          style={{ height: '100vh', overflow: 'auto' }}
+          className="simplebar"
+          style={{ height: '100vh', overflow: 'auto', marginRight: 0 }}
           autoHide={false}
           scrollbarMinSize={40}
           classNames={{ 
@@ -43,7 +44,7 @@ export default function App() {
             thumb: 'bg-blue-silver rounded'
           }}
         >
-          <header className="relative z-20">
+          <header className="nav">
             <Suspense fallback={<div className="p-4 text-white">Loading navigation...</div>}>
               <Nav />
             </Suspense>
@@ -63,7 +64,7 @@ export default function App() {
             </Suspense>
           </main>
 
-          <Suspense fallback={<div className="text-white p-4">Loading footer...</div>}>
+          <Suspense fallback={<div className="footer">Loading footer...</div>}>
             <Footer />
           </Suspense>
         </SimpleBar>
