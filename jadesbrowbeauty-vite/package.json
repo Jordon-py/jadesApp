@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
+ "scripts": {
   "start": "serve -s dist -l $PORT",
   "build": "vite build",
   "heroku-postbuild": "cd jadesbrowbeauty-vite && npm install && npm run build && cp -r ./dist ../dist"
-},
-
+  },
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "axios": "^1.8.4",
