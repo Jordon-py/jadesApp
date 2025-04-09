@@ -1,0 +1,71 @@
+/* src/components/Button/Button.css */
+.btn {
+	display: inline-block; /* Allow padding and margins */
+	padding: 0.8em 1.6em;
+	border: 2px solid transparent; /* Start with transparent border */
+	border-radius: 8px;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none; /* Remove default focus outline */
+	position: relative; /* For potential pseudo-elements */
+	overflow: hidden; /* Hide effects that might go outside */
+  
+	/* --- Micro-interaction Transitions --- */
+	transition:
+	  background-color 0.25s ease-out,
+	  color 0.25s ease-out,
+	  transform 0.15s ease-out,
+	  border-color 0.25s ease-out,
+	  box-shadow 0.25s ease-out;
+  
+	will-change: transform, background-color, border-color; /* Performance hint */
+  }
+  
+  /* Primary Button Styles */
+  .btn-primary {
+	background-color: var(--clr-primary);
+	color: var(--clr-background); /* High contrast text */
+	border-color: var(--clr-primary);
+  }
+  
+  .btn-primary:hover {
+	background-color: var(--clr-primary-hover);
+	border-color: var(--clr-primary-hover);
+	transform: translateY(-2px); /* Subtle lift */
+	box-shadow: 0 4px 10px lch(from var(--clr-primary) l c h / 0.3); /* Soft shadow using color */
+  }
+  
+  .btn-primary:active {
+	transform: translateY(0px); /* Push down on click */
+	background-color: lch(from var(--clr-primary) calc(l - 5%) c h); /* Slightly darker */
+	box-shadow: none; /* Remove shadow on active */
+  }
+  
+  /* Secondary Button Styles (Example) */
+  .btn-secondary {
+	background-color: transparent;
+	color: var(--clr-primary);
+	border-color: var(--clr-primary);
+  }
+  
+  .btn-secondary:hover {
+	background-color: lch(from var(--clr-primary) l c h / 0.1); /* Subtle background fill */
+	color: var(--clr-primary-hover);
+	border-color: var(--clr-primary-hover);
+	transform: translateY(-2px);
+  }
+  
+  .btn-secondary:active {
+	transform: translateY(0px);
+	background-color: lch(from var(--clr-primary) l c h / 0.2);
+  }
+  
+  /* Focus state for accessibility */
+  .btn:focus-visible {
+	outline: 2px solid var(--clr-accent);
+	outline-offset: 2px;
+  }

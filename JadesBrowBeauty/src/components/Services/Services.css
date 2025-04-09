@@ -1,0 +1,68 @@
+/* src/components/Services/Services.css */
+.services-section {
+	padding: 3rem 1rem; /* Section padding */
+	text-align: center;
+  }
+  
+  .services-list {
+	list-style: none;
+	padding: 0;
+	margin: 2rem auto; /* Center list container */
+	max-width: 1000px; /* Limit max width */
+  
+	/* --- Flexbox Layout for Wrapping Grid --- */
+	display: flex;
+	flex-wrap: wrap; /* Allow items to wrap to the next line */
+	justify-content: center; /* Center items horizontally */
+	gap: 2rem; /* Space between service items */
+  }
+  
+  .service-item {
+	background-color: var(--clr-card-bg); /* Use LCH variable */
+	border-radius: 10px;
+	padding: 1.5rem;
+	border: 1px solid var(--clr-border);
+	flex: 1 1 250px; /* Grow/shrink, base width 250px */
+	max-width: 300px; /* Max width for items */
+	text-align: center;
+	display: flex;
+	flex-direction: column; /* Stack image and details */
+	align-items: center;
+  
+	/* --- Micro-interaction --- */
+	transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+	will-change: transform, box-shadow; /* Performance hint */
+  }
+  
+  .service-item:hover {
+	transform: translateY(-5px) scale(1.02); /* Lift and slightly scale up */
+	box-shadow: 0 8px 20px lch(from var(--clr-primary) l c h / 0.15); /* Add shadow on hover */
+	border-color: var(--clr-primary); /* Highlight border */
+  }
+  
+  .service-image {
+	width: 80%; /* Adjust size as needed */
+	height: 100%;
+	min-height: 150px; /* Minimum height for images */
+	object-fit: cover;
+	border-radius: 30%; /* Make images circular */
+	margin-bottom: 1rem;
+  }
+  
+  /* Style text within the item */
+  .service-details {
+	  margin-top: auto; /* Push details down if image exists */
+  }
+  
+  .service-name {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--clr-secondary); /* Use LCH secondary color */
+	margin-bottom: 0.5rem;
+  }
+  
+  .service-price {
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: var(--clr-accent); /* Use LCH accent color for price */
+  }

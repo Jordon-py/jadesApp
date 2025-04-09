@@ -1,0 +1,55 @@
+/* src/components/Nav/Nav.css */
+.main-nav {
+	display: flex; /* Use Flexbox for layout */
+	justify-content: space-between; /* Space logo and links */
+	align-items: center; /* Vertically center items */
+	background-color: var(--clr-card-bg); /* Use LCH variable */
+	padding: 0.8rem 2rem; /* Vertical and horizontal padding */
+	border-bottom: 1px solid var(--clr-border); /* Subtle separator */
+  }
+  
+  .nav-logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--clr-primary); /* Use LCH variable */
+	text-decoration: none;
+  }
+  
+  .nav-links {
+	list-style: none; /* Remove bullet points */
+	display: flex; /* Use Flexbox for links */
+	gap: 1.5rem; /* Space between links */
+	margin: 0;
+	padding: 0;
+  }
+  
+  .nav-link {
+	color: var(--clr-text); /* Use LCH variable */
+	text-decoration: none;
+	font-size: 1rem;
+	padding: 0.5rem 0; /* Add padding for easier clicking */
+	position: relative; /* For the underline effect */
+	transition: color 0.2s ease; /* Color transition micro-interaction */
+  }
+  
+  .nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: var(--clr-accent); /* Use LCH accent color */
+	transform: scaleX(0); /* Start with underline hidden */
+	transform-origin: left; /* Underline grows from the left */
+	transition: transform 0.3s ease-out; /* Underline animation micro-interaction */
+	will-change: transform; /* Performance hint */
+  }
+  
+  .nav-link:hover {
+	color: var(--clr-accent); /* Change text color on hover */
+  }
+  
+  .nav-link:hover::after {
+	transform: scaleX(1); /* Show underline on hover */
+  }

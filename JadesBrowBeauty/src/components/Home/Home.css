@@ -1,0 +1,56 @@
+/* src/components/Home/Home.css */
+.home-section {
+	display: flex; /* Use Flexbox for side-by-side layout */
+	align-items: center; /* Vertically center content and image */
+	justify-content: space-around; /* Space out content and image */
+	gap: 2rem; /* Space between content and image */
+	padding: 3rem 1rem; /* Add some padding */
+	min-height: 70vh; /* Give it some height */
+	flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+  
+  .home-content {
+	flex: 1 1 500px; /* Allow content to grow/shrink, base size 500px */
+	text-align: left; /* Align text to the left */
+	display: flex;
+	flex-direction: column; /* Stack content vertically */
+	align-items: flex-start; /* Align items to the start (left) */
+	gap: 1rem; /* Space between text elements and button */
+  }
+  
+  .home-content h1 {
+	color: var(--clr-primary); /* Make heading stand out */
+  }
+  
+  .home-image-container {
+	flex: 1 1 400px; /* Allow image container to grow/shrink */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 450px; /* Limit image size */
+  }
+  
+  .home-image {
+	max-width: 100%;
+	height: auto; /* Maintain aspect ratio */
+	object-fit: contain;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+	.home-section {
+	  flex-direction: column; /* Stack image and content vertically */
+	  text-align: center; /* Center text on smaller screens */
+	}
+  
+	.home-content {
+	  text-align: center;
+	  align-items: center; /* Center items in the column */
+	  order: 2; /* Show text below image */
+	}
+  
+	.home-image-container {
+	  order: 1; /* Show image above text */
+	  margin-bottom: 2rem;
+	}
+  }

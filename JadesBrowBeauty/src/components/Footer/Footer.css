@@ -1,0 +1,145 @@
+/* src/components/Footer/Footer.css */
+#contact.footer-section {
+  display: flex;
+  padding: 0px;
+  padding-top: 15px;
+  background-color: transparent;/* Use LCH variable */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  line-height: 100%;
+
+}
+
+#follow-us.footer{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Center items vertically */
+  width: 90%;
+  padding: 1%;
+  padding-top: 20px;
+  background-color: transparent;/* Use LCH variable */
+  align-items: stretch; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  line-height: 100%;
+  box-shadow: 0 0 10px lch(from var(--clr-primary) l c h / 0.25);
+}
+
+
+#sec.footer-section {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--clr-card-bg); /* Use LCH variable */
+  color: var(--clr-text);
+  width: 80%;
+  margin: 0 auto; /* Center footer */
+  border-top: 2px double var(--clr-border);
+  border-left: 1px solid var(--clr-border);
+  border-right: 1px solid var(--clr-border);
+  padding: 10px; /* Vertical and horizontal padding */
+  box-shadow:   0 0 10px lch(from var(--clr-primary) l c h / 0.15);
+
+}
+
+.footer-container {
+  max-width: 1000px; /* Limit content width */
+  width: 100%; /* Full width within container */
+  padding-right: 5%; /* Add horizontal padding */
+  padding-left: 5%; /* Add horizontal padding */
+  margin: 0 auto; /* Center container */
+  padding: 0;
+  margin-top: auto;
+  /* --- Flexbox Layout --- */
+  display: flex;
+  justify-content: center; /* Space out sections */
+  align-items: center; /* Align items to the top */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+   /* Space between sections */
+   max-height: 180px; /* Limit height for wrapping */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column; /* Stack title and links vertically */
+  flex: 1 1 200px; /* Grow/shrink, base width 200px */
+  margin-bottom: 0; /* Add space below sections when wrapped */
+  min-width: 180px; /* Ensure minimum width before wrapping */
+  max-height:200px;
+  align-items: center; /* Center items in the section */
+  justify-content: center; /* Center items in the section */
+  text-align: center; /* Center text within sections */
+  box-shadow:   0 0 10px lch(from var(--clr-primary) l c h / 0.15); /* Add shadow */
+}
+
+#us.footer-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10%;
+  margin-top: auto;
+  padding-right: 1%;
+  color: var(--clr-primary); /* Use LCH primary color for titles */
+}
+
+#contact-title.footer-title {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-top:  1%; /* Add space above title */
+  margin-top: 0;
+  margin-bottom: auto;
+  color: var(--clr-primary); /* Use LCH primary color for titles */
+}
+
+
+.footer-links { /* Targeting the ul specifically */
+    list-style: circle;
+    padding: 2%;
+    margin: 0;
+}
+
+.footer-links li {
+    padding: 1%;
+    margin-left: 1%;
+    margin-top: 10%;
+    margin-bottom: 1rem; /* Space between links */
+}
+
+.footer-link {
+  color: var(--clr-secondary); /* Use LCH secondary color */
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--clr-accent); /* Use LCH accent on hover */
+  text-decoration: underline;
+  transform: scaleY(1.3); /* Slightly scale up on hover */
+  transition: transform 0.2s ease; /* Smooth scaling effect */
+  will-change: transform; /* Performance hint */
+}
+
+.footer p {
+  color: var(--clr-text); /* Standard text color */
+  margin-bottom: 0rem;
+  line-height: 1.4;
+}
+
+.footer-copyright {
+  text-align: right; /* Align copyright text to the right */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center sections */
+    text-align: center; /* Center text within sections */
+  }
+  .footer-section {
+      flex-basis: auto; /* Reset basis */
+      width: 100%; /* Take full width */
+      max-width: 350px; /* Limit width for centered content */
+  }
+  .footer-copyright {
+    text-align: center; /* Center copyright text */
+    margin-top: 1rem; /* Add space above copyright when stacked */
+  }
+}

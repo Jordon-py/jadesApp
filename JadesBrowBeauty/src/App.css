@@ -1,0 +1,45 @@
+/* src/App.css */
+
+#root {
+  /* Make #root the main flex container */
+  display: flex;
+  flex-direction: column; /* Stack Nav, main, Footer vertically */
+  min-height: 100vh; /* Ensure it takes at least full viewport height */
+  max-width: 1280px; /* Keep max width */
+  margin: 0 auto; /* Center the content */
+  padding: 0; /* Remove default padding, components will manage theirs */
+}
+
+/* Add a main content area that can grow */
+.main-content {
+  flex-grow: 1; /* Allows this section to take up available space */
+  padding: 2rem; /* Add padding here or within specific page components */
+  width: 100%; /* Ensure it takes full width within #root */
+  box-sizing: border-box;
+}
+
+/* Keep logo styles if needed, but remove animations unless desired */
+.logo {
+  height: 4em; /* Adjusted size */
+  padding: 0.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1em var(--clr-primary)); /* Use LCH variable */
+}
+
+/* Remove other styles like .card, .read-the-docs unless specifically used */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
