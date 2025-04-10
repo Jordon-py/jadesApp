@@ -2,7 +2,7 @@
 #contact.footer-section {
   display: flex;
   padding: 0px;
-  padding-top: 15px;
+  padding-top: 1px;
   background-color: transparent;/* Use LCH variable */
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
@@ -41,13 +41,15 @@
 }
 
 .footer-container {
-  max-width: 1000px; /* Limit content width */
+  background-color: var(--clr-card-bg); /* Use LCH variable */
+  border: 1px solid var(--clr-border);
+  border-radius: 19px; /* Rounded corners */
+  max-width: 1200px; /* Limit content width */
   width: 100%; /* Full width within container */
   padding-right: 5%; /* Add horizontal padding */
   padding-left: 5%; /* Add horizontal padding */
   margin: 0 auto; /* Center container */
-  padding: 0;
-  margin-top: auto;
+  margin-top: 0;
   /* --- Flexbox Layout --- */
   display: flex;
   justify-content: center; /* Space out sections */
@@ -82,9 +84,9 @@
 #contact-title.footer-title {
   font-size: 2rem;
   font-weight: 600;
-  padding-top:  1%; /* Add space above title */
+  padding-top:  0%; /* Add space above title */
   margin-top: 0;
-  margin-bottom: auto;
+  margin-bottom: 3px;
   color: var(--clr-primary); /* Use LCH primary color for titles */
 }
 

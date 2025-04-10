@@ -16,11 +16,15 @@ function ServiceItem({ name, price, src }) {
 }
 
 export default function Services() {
-  // Using the initial list directly, assuming no fetch for now
   const serviceList = [
-    { id: 1, src: "BrowtintShape.png", name: "Eyebrow Shaping", price: 25 },
-    { id: 2, src: "ultimateBrowandLash.png", name: "Eyebrow Tinting", price: 40 }, // Ensure this image exists in public/images
-    { id: 3, src: "fullFaceWax.png", name: "Eyebrow Threading", price: 35 },
+    { id: 1, name: "Eyebrow Shaping", price: 25 },
+    { id: 2, name: "Eyebrow Tinting", price: 40 }, // Ensure this image exists in public/images
+    { id: 3, name: "Eyebrow Threading", price: 35 },
+    { id: 4, name: "Eyebrow Waxing", price: 30 },
+    { id: 5, name: "Eyebrow Lamination", price: 50 },
+    { id: 6, name: "Full Face Waxing", price: 60 },
+    { id: 7, name: "Lip Waxing", price: 15 },
+    { id: 8, name: "Chin Waxing", price: 20 },
     // Add more services if needed
   ];
 

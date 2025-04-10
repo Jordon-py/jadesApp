@@ -1,6 +1,7 @@
 /* src/components/Services/Services.css */
 .services-section {
-	padding: 3rem 1rem; /* Section padding */
+	border-top: 	1px solid var(--clr-border); /* Use LCH variable */
+	padding: 0 auto; /* Section padding */
 	text-align: center;
   }
   
@@ -19,8 +20,8 @@
   
   .service-item {
 	background-color: var(--clr-card-bg); /* Use LCH variable */
-	border-radius: 10px;
-	padding: 1.5rem;
+	border-radius: 19px;
+	padding: 0px;
 	border: 1px solid var(--clr-border);
 	flex: 1 1 250px; /* Grow/shrink, base width 250px */
 	max-width: 300px; /* Max width for items */
@@ -28,24 +29,25 @@
 	display: flex;
 	flex-direction: column; /* Stack image and details */
 	align-items: center;
+	width: 100%; /* Full width of parent */
   
 	/* --- Micro-interaction --- */
-	transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+	transition: transform 0.5s ease-out, box-shadow 0.5s ease-in-out;
 	will-change: transform, box-shadow; /* Performance hint */
   }
   
   .service-item:hover {
-	transform: translateY(-5px) scale(1.02); /* Lift and slightly scale up */
-	box-shadow: 0 8px 20px lch(from var(--clr-primary) l c h / 0.15); /* Add shadow on hover */
+	transform: translateY(-15px) scale(1.02); /* Lift and slightly scale up */
+	box-shadow: 0 5px 20px lch(from var(--clr-primary) l c h / 0.20); /* Add shadow on hover */
 	border-color: var(--clr-primary); /* Highlight border */
   }
   
   .service-image {
-	width: 80%; /* Adjust size as needed */
+	width: 100%; /* Full width of parent */
 	height: 100%;
 	min-height: 150px; /* Minimum height for images */
 	object-fit: cover;
-	border-radius: 30%; /* Make images circular */
+	border-radius: 19px; /* Updated to match recent edits */
 	margin-bottom: 1rem;
   }
   
