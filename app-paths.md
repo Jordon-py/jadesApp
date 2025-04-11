@@ -2,6 +2,11 @@
 
 ## From frontend/src/components
 
+### FuturisticSidebar Components
+- From FuturisticSidebar.jsx: `../../App.jsx`
+- From SidebarDemo.jsx: `../../App.jsx`
+- From index.js: `../../App.jsx`
+
 ### Gallery Components
 - From ImageGallery.jsx: `../../App.jsx`
 - From Image.jsx: `../../App.jsx`

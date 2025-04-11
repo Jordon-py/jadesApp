@@ -8,13 +8,13 @@
   /* Hue (0-360): The color angle (like HSL). */
 
   /* Example Palette: */
-  --clr-background: lch(88% 2 250); /* Very dark, slightly cool */
+  --clr-background: lch(90% 0 250); /* Very dark, slightly cool */
   --clr-text: lch(10% 5 250);       /* Very light, slightly cool */
-  --clr-primary: lch(13% 23 280);    /* Vibrant purple */
+  --clr-primary: lch(18% 23 250);    /* Vibrant purple */
   --clr-primary-hover: lch(70% 85 280); /* Slightly lighter/brighter purple */
   --clr-secondary: lch(95% 23 250);  /* Lighter, less saturated cool tone */
-  --clr-accent: lch(95% 90 300);     /* Vibrant pinkish accent */
-  --clr-card-bg: lch(10% 23 250);    /* Dark card background */
+  --clr-accent: lch(95% 190 300);     /* Vibrant pinkish accent */
+  --clr-card-bg: lch(15% 23 250);    /* Dark card background */
   --clr-border: lch(40% 20 250);     /* Subtle border color */
 
   /* Font setup */
@@ -27,7 +27,7 @@
   color: var(--clr-text);
   background-color: var(--clr-background);
 
-  font-synthesis: none;
+  font-synthesis: style;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,7 +63,7 @@ a:hover {
 
 h1, h2, h3 {
   line-height: 1.2;
-  color: var(--clr-secondary); /* Slightly different color for headings */
+  color: var(--clr-primary); /* Slightly different color for headings */
 }
 
 h1 {
@@ -72,8 +72,14 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 1em;
+  font-size: 3rem;
+  color: var(--clr-primary);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--clr-secondary);
 }
 
 /* Remove default button styles - we'll use our Button component */

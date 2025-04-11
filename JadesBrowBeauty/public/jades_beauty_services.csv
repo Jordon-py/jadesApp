@@ -1,0 +1,17 @@
+id,name,price,description,category,duration,popularity,highlight
+1,Brow Wax,30,Precision brow waxing to clean and shape your brows.,BROWS,20 min,6,
+2,Brow Wax & Tint,50,Combine waxing with a tint for added definition. Includes an add-on tint option.,BROWS,20 min,7,
+3,Lash Lamination & Tint,120,Enhance your lashes with lamination and tint for a natural lift.,BROWS_LASHES,1 hr,8,
+4,Brow Wax & Lamination,100,Achieve styled brows with waxing and lamination. Tint option available at $120.,BROWS,45 min,7,
+5,Brow & Lash Lux,140,A premium treatment combining brow and lash services. Enhanced service with an optional tint upgrade available at $160.,BROWS_LASHES,1 hr,9,TRUE
+6,Full Face Waxing,80,Comprehensive waxing covering the entire face for a smooth finish.,FACIAL,30 min,6,
+8,Nose Waxing,15,Gentle waxing to remove nasal hair with minimal discomfort.,FACIAL,10 min,5,
+9,Lip Waxing,15,Quick and precise waxing for the upper lip for a clean look.,FACIAL,10 min,5,
+11,Underarm Waxing,30,Smooth and hygienic waxing for the underarm area.,BODY,15 min,5,
+14,Full Leg Waxing,80,Complete leg waxing for long-lasting smoothness.,BODY,40 min,7,
+15,Lower Leg Waxing,45,Focused waxing on the lower leg for a neat finish.,BODY,25 min,6,
+16,Chest Wax,50,Professional chest waxing for a clean and refined appearance.,BODY,20 min,6,
+17,Full Back Wax,80,Comprehensive waxing to achieve a completely hair-free back.,BODY,40 min,7,
+18,Upper/Lower Wax,45,Combined waxing for both upper and lower sections of the body.,BODY,25 min,6,
+19,Bikini Line Wax,45,Precision waxing for a well-groomed bikini line.,BODY,15 min,5,
+20,Brazilian Wax,60,Full Brazilian waxing for a complete hair removal solution.,BODY,30 min,6,

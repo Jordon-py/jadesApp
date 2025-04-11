@@ -1,6 +1,6 @@
 # ✅ GitHub Copilot Instructions for React + Express Full Stack Projects
 
-- Color-Palette: Bluish silver for lettering and for the app color scheme buttons and links.
+- Color-Palette: Black or white silver for lettering and for the app color scheme utilize the lch already being used buttons and links. 
 You are tasked with generating a **reusable and scalable React component**.
 
 Use:
@@ -15,10 +15,10 @@ Before generating the component, clarify the following if not provided:
 
 Guidelines:
 - Use functional components only
-- PropTypes for type checking
 - Prioritize clean layout and reusability
-- Apply responsive classes via TailwindCSS
-- Ensure minimal logic duplication and readability
+- Apply responsive classes for mobile and desktop views
+- Ensure minimal logic duplication and maximize readability
+- Ensure concise and educational comments throughout application explaining logic and syntax for students
 
 Examples:
 - Form component with user input and validation

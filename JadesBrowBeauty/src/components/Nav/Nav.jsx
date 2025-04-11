@@ -47,7 +47,7 @@ export default function Nav() {
       <ul className={`nav-links ${mobileMenuOpen ? 'show' : ''}`}>
         <li><a href="#home" className="nav-link">Home</a></li>
         <li><a href="#contact" className="nav-link">Contact</a></li>
-        <li><a href="#booking" className="nav-link book-now">Book Now</a></li>
+        <li><a href="https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start" className="nav-link book-now">Book Now</a></li>
       </ul>
     </nav>
   );

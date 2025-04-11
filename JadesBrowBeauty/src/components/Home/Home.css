@@ -1,16 +1,17 @@
 /* Mobile-first styles (default for small screens) */
-.home-section {
+.home-section {                /* Ensures content is above video */
 	position: relative;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;      /* Stack items vertically */
 	align-items: center;
 	justify-content: center;
-	padding: 1rem 1rem;          /* Compact padding for mobile */
+	padding: 0rem;          /* Compact padding for mobile */
 	min-height: 25vh;
 	max-height: 33vh;          /* Prevents overflow on small screens */
   }
   .background-video {
+	overflow: hidden; /* Prevents overflow */
 	position: fixed; /* Fixes the video relative to the viewport */
 	top: 50%;
 	left: 50%;
@@ -22,9 +23,25 @@
 	max-height: 100vh;          /* Ensures video never exceeds viewport height */
 	max-width: 100vw;           /* Ensures video never exceeds viewport width */
   }
-   
-  
-  /* Ensuring content stays above the video */
+  .home-header{
+	display: flex;
+	gap: 10%; /* Updated gap to 30% */
+	padding: 0;
+	margin-top: 0;
+  } 
+
+  #p1, #p2, #p3 {
+	
+	font-family: 'Poppins', sans-serif; /* Consistent font family */
+	color: lch(32.24% 30.12 267.39); /* Text color for headings */
+	text-align: center;
+	border-bottom: 1px double lch(32.24% 30.12 267.39); /* Subtle underline effect */
+	margin: 0;
+	padding: 0;
+	font-size: 1rem; /* Adjusted for mobile readability */
+	box-shadow: 4px 19px 26px rgba(34, 105, 131, 0.158); /* Subtle shadow for depth */
+  }
+
   .home-content {
 	position: relative;
 	z-index: 1;

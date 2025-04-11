@@ -1,6 +1,7 @@
 import NavComponent from './Nav';
 import { useState } from 'react';
 import { useEffect } from 'react';	
+import Button from '../Button/Button';
 
 
  /* A responsive navigation menu component that handles toggling menu visibility*/
@@ -37,6 +38,6 @@ export default function NavMenu({ Nav, ...props }) {
 	}, [isOpen]);
 	
   return (
-	<NavComponent {...props} isOpen={isOpen} toggleMenu={toggleMenu} />
+	  <><NavComponent { ...props } isOpen={ isOpen } toggleMenu={ toggleMenu } /></>
   );
 }

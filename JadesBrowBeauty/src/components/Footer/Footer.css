@@ -21,7 +21,7 @@
   align-items: stretch; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   line-height: 100%;
-  box-shadow: 0 0 10px lch(from var(--clr-primary) l c h / 0.25);
+  box-shadow: 0 0 10px lch(from var(--clr-primary) l c h / 0.4);
 }
 
 
@@ -35,8 +35,8 @@
   border-top: 2px double var(--clr-border);
   border-left: 1px solid var(--clr-border);
   border-right: 1px solid var(--clr-border);
-  padding: 10px; /* Vertical and horizontal padding */
-  box-shadow:   0 0 10px lch(from var(--clr-primary) l c h / 0.15);
+  padding: 1px; /* Vertical and horizontal padding */
+  box-shadow:   0 0 10px lch(from var(--clr-primary) l c h / 0.5);
 
 }
 

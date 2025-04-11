@@ -2,16 +2,16 @@
 /* Base styles */
 .main-nav {
   display: flex; 
+  flex-direction: row-reverse;
   justify-content: space-between; /* Changed from space-around to align logo left and menu right */
-  align-items: center; 
-  background-color: lch(10% 23 250); 
-  padding: 0.8rem 2rem; 
-  position: sticky;
+  align-items: baseline; /* Align items vertically */
+  background-color: lch(18% 23 250); 
+  position: static; /* Fixed position for sticky effect */
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
+  justify-content: flex-start;
 }
 
 .nav-logo {

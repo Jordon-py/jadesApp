@@ -1,70 +1,136 @@
 /* src/components/Services/Services.css */
+
+/* -------------------------------------------------------------
+   Main Container: Defines the section appearance and layout.
+------------------------------------------------------------- */
 .services-section {
-	border-top: 	1px solid var(--clr-border); /* Use LCH variable */
-	padding: 0 auto; /* Section padding */
+	border-top: 1px solid var(--clr-border); /* Uses LCH variable for a consistent border color */
+	padding: 2rem 0; /* Vertical padding for breathing room */
 	text-align: center;
   }
+  .italianno-regular {
+	font-size: 5rem;
+	font-family: "Italianno", cursive;
+	font-weight: 400;
+	font-style: normal;
+  }
   
+  /* -------------------------------------------------------------
+	 Services List: A responsive flexbox grid for service items.
+  ------------------------------------------------------------- */
   .services-list {
 	list-style: none;
 	padding: 0;
 	margin: 2rem auto; /* Center list container */
-	max-width: 1000px; /* Limit max width */
+	max-width: 1000px; /* Limits the maximum width */
   
-	/* --- Flexbox Layout for Wrapping Grid --- */
+	/* Flexbox layout for wrapping grid */
 	display: flex;
-	flex-wrap: wrap; /* Allow items to wrap to the next line */
-	justify-content: center; /* Center items horizontally */
-	gap: 2rem; /* Space between service items */
+	flex-wrap: wrap; /* Allows items to wrap onto a new line */
+	justify-content: center; /* Centers items horizontally */
+	gap: 2rem; /* Provides space between service items */
   }
   
+  /* -------------------------------------------------------------
+	 Service Item: Card container with micro interactions.
+  ------------------------------------------------------------- */
   .service-item {
-	background-color: var(--clr-card-bg); /* Use LCH variable */
+	background-color: var(--clr-card-bg); /* Uses LCH variable for card background */
 	border-radius: 19px;
-	padding: 0px;
-	border: 1px solid var(--clr-border);
-	flex: 1 1 250px; /* Grow/shrink, base width 250px */
-	max-width: 300px; /* Max width for items */
+	padding: 0;
+	border: 1px solid var(--clr-border); /* Subtle border using LCH variable */
+	flex: 1 1 250px; /* Flexible width with a base of 250px */
+	max-width: 300px; /* Maximum width for each item */
 	text-align: center;
 	display: flex;
-	flex-direction: column; /* Stack image and details */
+	flex-direction: column; /* Stacks image and details vertically */
 	align-items: center;
-	width: 100%; /* Full width of parent */
+	width: 100%;
   
-	/* --- Micro-interaction --- */
-	transition: transform 0.5s ease-out, box-shadow 0.5s ease-in-out;
-	will-change: transform, box-shadow; /* Performance hint */
+	/* Micro-interaction: Smooth transitions for transform and box-shadow */
+	transition: transform 0.5s ease-out, box-shadow 0.5s ease-in-out, border-color 0.5s ease;
+	will-change: transform, box-shadow, border-color; /* Performance hint for browsers */
   }
   
+  /* Hover state: Lifts the card, scales slightly, and adds an accent shadow */
   .service-item:hover {
-	transform: translateY(-15px) scale(1.02); /* Lift and slightly scale up */
-	box-shadow: 0 5px 20px lch(from var(--clr-primary) l c h / 0.20); /* Add shadow on hover */
-	border-color: var(--clr-primary); /* Highlight border */
+	transform: translateY(-15px) scale(1.02); /* Lift and slightly scale up on hover */
+	box-shadow: 0 5px 20px lch(from var(--clr-primary) l c h / 0.20); /* Dynamic shadow using LCH function */
+	border-color: var(--clr-primary); /* Highlight the border with the primary accent */
   }
   
+  /* Active state: Provides tactile feedback on click/tap */
+  .service-item:active {
+	transform: translateY(-5px) scale(1); /* A smaller lift to simulate a "press" effect */
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Optional: Pulse effect for featured or highlighted items (if used with a .highlight class) */
+  /*
+  @keyframes pulse {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(1.03); }
+  }
+  .service-item.highlight:hover {
+	animation: pulse 1s infinite;
+  }
+  */
+  
+  /* -------------------------------------------------------------
+	 Service Image: Responsive image with a subtle zoom effect.
+  ------------------------------------------------------------- */
   .service-image {
-	width: 100%; /* Full width of parent */
+	width: 100%; /* Full width of container */
 	height: 100%;
-	min-height: 150px; /* Minimum height for images */
-	object-fit: cover;
-	border-radius: 19px; /* Updated to match recent edits */
+	min-height: 150px; /* Ensures a consistent minimum height */
+	object-fit: cover; /* Fills space while preserving aspect ratio */
+	border-radius: 19px; /* Matches container's rounded corners */
 	margin-bottom: 1rem;
+	transition: transform 0.5s ease-in-out; /* Smooth zoom transition */
   }
   
-  /* Style text within the item */
+  /* Extra micro-interaction: Slight zoom when hovering over the image */
+  .service-image:hover {
+	transform: scale(1.05);
+  }
+  
+  /* -------------------------------------------------------------
+	 Service Details Container: Holds text and aligns content.
+  ------------------------------------------------------------- */
   .service-details {
-	  margin-top: auto; /* Push details down if image exists */
+	margin-top: auto; /* Ensures details stick to the bottom if image is larger */
+	padding: 0 1rem 1rem;
   }
   
+  /* -------------------------------------------------------------
+	 Service Name: Visual hierarchy for text headers.
+  ------------------------------------------------------------- */
   .service-name {
 	font-size: 1.2rem;
 	font-weight: 600;
-	color: var(--clr-secondary); /* Use LCH secondary color */
+	color: var(--clr-secondary); /* Secondary color from LCH palette */
 	margin-bottom: 0.5rem;
+	transition: color 0.3s ease; /* Smooth color transition on hover */
   }
   
+  /* Underline effect on hover for enhanced interactivity */
+  .service-name:hover {
+	color: var(--clr-primary);
+  }
+  
+  /* -------------------------------------------------------------
+	 Service Price: Emphasized with a pop of accent color.
+  ------------------------------------------------------------- */
   .service-price {
 	font-size: 1.1rem;
 	font-weight: bold;
-	color: var(--clr-accent); /* Use LCH accent color for price */
+	color: var(--clr-accent); /* Accent color from LCH palette */
+	transition: transform 0.3s ease, color 0.3s ease;
   }
+  
+  /* Subtle scale and color shift on hover for the price */
+  .service-price:hover {
+	transform: scale(1.05);
+	color: var(--clr-primary);
+  }
+  

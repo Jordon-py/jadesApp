@@ -14,6 +14,12 @@ app.get('/', (req, res) => {
   res.send('Jades Brow Beauty API Running!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.get('/enhance', (req, res) => { 
+  const { query, original_response } = req.body;
+  console.log('Query:', query);
+  console.log('Original Response:', original_response);
+  const enhancedResponse = `Enhanced response for query: ${query}`;
+  
+  res.send(enhancedResponse); 
+
 });

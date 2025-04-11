@@ -1,0 +1,283 @@
+/* src/components/FuturisticSidebar/FuturisticSidebar.css */
+
+/* -------------------------------------------------------------
+   Futuristic Sidebar: Main container with glassmorphism effect
+------------------------------------------------------------- */
+.futuristic-sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 280px;
+  left: 0;
+  top: 0;
+  background: rgba(10, 10, 20, 0.65); /* Dark semi-transparent background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+  box-shadow: 0 0 25px rgba(0, 0, 10, 0.3);
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: lch(90% 0 250); /* Using LCH color for text */
+}
+
+/* Collapsed state - slide out of view */
+.futuristic-sidebar.collapsed {
+  transform: translateX(-240px); /* Leave a hint visible */
+}
+
+/* -------------------------------------------------------------
+   Sidebar Header: Branding and toggle section
+------------------------------------------------------------- */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: lch(90% 0 250);
+}
+
+.sidebar-logo img {
+  max-height: 2.5rem;
+  width: auto;
+}
+
+/* -------------------------------------------------------------
+   Sidebar Toggle: Animated hamburger button
+------------------------------------------------------------- */
+.sidebar-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  outline: none;
+}
+
+.sidebar-toggle:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-toggle:hover:before {
+  transform: scale(1);
+}
+
+.sidebar-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: lch(90% 0 250);
+  transition: all 0.4s ease;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* Animated toggle icon */
+.collapsed .sidebar-toggle span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.collapsed .sidebar-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.collapsed .sidebar-toggle span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* -------------------------------------------------------------
+   Menu Container: Holds dropdown menus
+------------------------------------------------------------- */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* -------------------------------------------------------------
+   Dropdown Container: Individual dropdown menu
+------------------------------------------------------------- */
+.dropdown-container {
+  margin: 0.25rem 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------------------
+   Dropdown Header: Trigger for expanding dropdown
+------------------------------------------------------------- */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: lch(85% 0 250);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dropdown-header:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(120, 120, 250, 0.2);
+  color: lch(90% 0 250);
+  transform: translateY(-1px);
+}
+
+/* The indicator arrow */
+.dropdown-header .icon {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-header .icon.open {
+  transform: rotate(180deg);
+}
+
+/* -------------------------------------------------------------
+   Dropdown Content: Expandable menu items list
+------------------------------------------------------------- */
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  background: rgba(0, 0, 30, 0.6);
+  border-radius: 0 0 8px 8px;
+}
+
+.dropdown-content.open {
+  max-height: 500px;
+  transition: max-height 0.5s ease;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* -------------------------------------------------------------
+   Menu Items: Individual clickable options
+------------------------------------------------------------- */
+.menu-item {
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  color: lch(80% 0 250);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.menu-item:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Neon glow effect on hover */
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: lch(95% 0 250);
+}
+
+.menu-item:hover:before {
+  background: linear-gradient(180deg, rgba(100, 220, 255, 0.8), rgba(120, 120, 255, 0.8));
+  box-shadow: 0 0 8px rgba(100, 200, 255, 0.6);
+}
+
+/* Active state for selected item */
+.menu-item.active {
+  background: rgba(100, 140, 255, 0.15);
+  color: lch(95% 0 250);
+}
+
+.menu-item.active:before {
+  background: linear-gradient(180deg, rgba(100, 220, 255, 1), rgba(120, 120, 255, 1));
+  box-shadow: 0 0 12px rgba(100, 200, 255, 0.8);
+}
+
+/* -------------------------------------------------------------
+   Responsive Design: Adjustments for mobile
+------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .futuristic-sidebar {
+    width: 260px;
+    transform: translateX(-100%);
+  }
+  
+  .futuristic-sidebar.collapsed {
+    transform: translateX(0);
+  }
+
+  /* Mobile backdrop overlay */
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 20, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .sidebar-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* -------------------------------------------------------------
+   Animation: Subtle pulse animation for selected elements
+------------------------------------------------------------- */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(100, 200, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(100, 200, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(100, 200, 255, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}

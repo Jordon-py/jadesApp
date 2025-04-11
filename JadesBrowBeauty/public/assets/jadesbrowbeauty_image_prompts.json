@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Brow Wax & Shape",
+        "prompt": "High-resolution portrait-oriented photo of a confident woman with medium to deep skin tone receiving a brow wax. A professional esthetician is gently shaping her brows with precision, in a warm, softly lit boutique spa. Background is blurred for React UI focus. Tools (wax spatula, tweezers) are clean and modern. Emphasis on the client\u2019s well-groomed brows and relaxed expression."
+    },
+    {
+        "id": 2,
+        "name": "Brow Wax & Tint",
+        "prompt": "Beauty spa scene featuring a diverse client with olive or fair skin mid-brow tinting. One brow is fully shaped and tinted, while the other is being treated with a brush. Warm brand tones, eco-friendly tools, and a glowing finish. Clean background with subtle gradients, ideal for product cards or hero banners in React."
+    },
+    {
+        "id": 4,
+        "name": "Brow Wax & Lamination",
+        "prompt": "A glowing Black woman with laminated brows being brushed upward by a brow stylist in a chic, minimalist beauty studio. Include soft light reflections and clean styling tools. Scene should feel elevated and refined, showing transformation. Ideal for a 'Service Highlight' React card with focus on results and precision."
+    },
+    {
+        "id": 6,
+        "name": "Brow & Lash Luxe",
+        "prompt": "Modern glam portrait showing a woman with deep-set eyes and light-medium complexion reclining with perfectly laminated brows and voluminous lashes. Light makeup, natural glow, and close-up clarity. Background fades into soft neutrals. Designed for full-width React header with CTA overlay."
+    },
+    {
+        "id": 7,
+        "name": "Brow & Lash Luxe + Jelly Mask & Globes",
+        "prompt": "Client with East Asian features enjoying a full facial treatment: luminous hydro jelly mask, cooling beauty globes, and dramatic lash and brow results. A professional applies the mask, surrounded by natural elements (jade tools, soft towels). Scene is calming and indulgent. Optimized for React modal or carousel view with layered visuals."
+    },
+    {
+        "id": 13,
+        "name": "Underarm Waxing",
+        "prompt": "Minimalist spa room with a plus-size woman confidently raising her arm while an esthetician gently applies a waxing strip to her underarm. Clean, sanitary tools and modest coverage. Neutral pastel backdrop for site consistency. Designed for pop-out React service card with natural lighting."
+    },
+    {
+        "id": 21,
+        "name": "Bikini Line Waxing",
+        "prompt": "Discreet and elegant setting featuring a South Asian or Middle Eastern client receiving bikini line waxing in a private spa nook. Draped with soft towels, emphasizing comfort, consent, and professional care. Background softened to a monochrome blush. Built for React section with fade-in animation."
+    },
+    {
+        "id": 22,
+        "name": "Brazilian Waxing",
+        "prompt": "Empowered post-service image of a woman with natural curls wrapped in a spa robe, smiling with confidence in a tranquil treatment room. Scene highlights care, cleanliness, and body positivity. Light text space for React overlay buttons or description panels."
+    }
+]
