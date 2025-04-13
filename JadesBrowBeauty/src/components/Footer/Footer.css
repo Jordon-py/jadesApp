@@ -41,8 +41,7 @@
 }
 
 .footer-container {
-  background-color: var(--clr-card-bg); /* Use LCH variable */
-  border: 1px solid var(--clr-border);
+  background-color: rgb(223, 223, 223); /* Updated background color */
   border-radius: 19px; /* Rounded corners */
   max-width: 1200px; /* Limit content width */
   width: 100%; /* Full width within container */
@@ -56,16 +55,18 @@
   align-items: center; /* Align items to the top */
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
    /* Space between sections */
-   max-height: 180px; /* Limit height for wrapping */
+   max-height: fit-content; /* Limit height for wrapping */
+   margin-bottom: 0; /* Add space below sections when wrapped */
+  padding: 0; /* Remove padding for a cleaner look */
 }
 
 .footer-section {
   display: flex;
   flex-direction: column; /* Stack title and links vertically */
   flex: 1 1 200px; /* Grow/shrink, base width 200px */
-  margin-bottom: 0; /* Add space below sections when wrapped */
+  margin-bottom: 1rem; /* Add space below sections when wrapped */
   min-width: 180px; /* Ensure minimum width before wrapping */
-  max-height:200px;
+  max-height: fit-content;
   align-items: center; /* Center items in the section */
   justify-content: center; /* Center items in the section */
   text-align: center; /* Center text within sections */

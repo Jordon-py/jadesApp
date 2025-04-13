@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   const [dropDown, setDropdown] = useState(false);
-  const [dropdownContent, setDropdownContent] = useState([]);
+  const [dropdownContent, setDropdownContent] = useState(<script src='https://square.site/appointments/buyer/widget/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797.js'></script>);
   const dropdownRef = useRef(null);
   const [services, setServices] = useState(servicesData || []);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -29,7 +29,7 @@ function App() {
     {
       label: 'Appointments',
       items: [
-        { label: 'Book Now', value: 'props.bookNow' },
+        { label: 'Book Now', value: <script src='https://square.site/appointments/buyer/widget/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797.js'></script> },
         { label: 'View Calendar', value: 'calendar' },
         { label: 'My Appointments', value: 'my-appointments' }
       ]
@@ -90,8 +90,8 @@ function App() {
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
           borderRadius: '50%',
-          width: '36px',
-          height: '36px',
+          width: '30px',
+          height: '23px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -112,33 +112,6 @@ function App() {
       >
         <span style={{ color: 'lch(90% 0 250)' }}>☰</span>
       </button>
-      
-      <div id="dropdown-container" className="dropdown-container" ref={dropdownRef}>
-        <button
-          id="dropdown-trigger"
-          onClick={() => {
-            setDropdown((prev) => {
-              const nextState = !prev;
-              if (nextState) {
-                setDropdownContent(services.map(({ name, duration, description, price, image }) => ({
-                  name,
-                  duration,
-                  description,
-                  price,
-                  image
-                })));
-              } else {
-                setDropdownContent([]);
-              }
-              return nextState;
-            });
-          }}
-          
-        ><a>
-            https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start
-          </a>
-            Services
-          </button>
           
           {dropDown && (
             <div id="dropdown-content" className="dropdown-content">
@@ -147,14 +120,15 @@ function App() {
                   <h3 id="name">{service.name}</h3>
                   <p>{service.description}</p>
                   <p>Duration: {service.duration}</p>
-                  <p>Price: ${service.price}</p>
+                  <p>Price: ${ service.price }</p>
+                  <a href={service.href} className="book-now-button">Book Now</a>
                 </div>
               ))}
             </div>
           )}
-        </div>
       
       <main className="main-content">
+      
         <Home />
         <Services />
       </main>

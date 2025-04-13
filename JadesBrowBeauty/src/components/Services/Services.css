@@ -4,15 +4,17 @@
    Main Container: Defines the section appearance and layout.
 ------------------------------------------------------------- */
 .services-section {
-	border-top: 1px solid var(--clr-border); /* Uses LCH variable for a consistent border color */
-	padding: 2rem 0; /* Vertical padding for breathing room */
+	
+	padding: 1rem; /* Vertical padding for breathing room */
 	text-align: center;
   }
-  .italianno-regular {
-	font-size: 5rem;
+  h2.italianno-regular {
+	font-size: 6rem;
 	font-family: "Italianno", cursive;
 	font-weight: 400;
 	font-style: normal;
+	background-color: rgb(223, 223, 223);
+	border-radius: 75%;
   }
   
   /* -------------------------------------------------------------

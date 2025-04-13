@@ -23,7 +23,7 @@
 /* Each dropdown content */
 #dropdown-content {
   padding: 10px 16px;
-  color: #333;
+  color: #dbcf96;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -46,7 +46,7 @@
   bottom: 4px;
   width: 0;
   height: 2px;
-  background: linear-gradient(100deg, #00ffcc, #0099ff);
+  background: linear-gradient(100deg, #00ffcc, #027fd3);
   box-shadow: 20 -10 10px lch(0 0% 22) inset;
   transition: width 0.4s ease-in-out;
 }

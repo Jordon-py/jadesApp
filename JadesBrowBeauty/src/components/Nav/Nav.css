@@ -1,33 +1,35 @@
-/* src/components/Nav/Nav.css */
-/* Base styles */
+/* Base styles for the navigation container */
 .main-nav {
-  display: flex; 
-  flex-direction: row-reverse;
-  justify-content: space-between; /* Changed from space-around to align logo left and menu right */
-  align-items: baseline; /* Align items vertically */
-  background-color: lch(18% 23 250); 
-  position: static; /* Fixed position for sticky effect */
+  display: flex;
+  flex-direction: column;  /* Stack the logo on top and nav links underneath */
+  align-items: center;
+  background: rgba(209, 209, 209, 0.95); /* Mostly silver background */
+  border-bottom: 1px solid #B0B0B0;       /* A slightly darker silver border */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: static;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  justify-content: flex-start;
+  width: 100%;
 }
 
+/* Logo styles */
 .nav-logo {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Smaller font size for a reduced logo */
   font-weight: bold;
-  color: var(--clr-primary, #a8c7fa); /* Bluish silver fallback */
+  color: #000000; /* Black for strong branding */
   text-decoration: none;
+  margin-bottom: 0.5rem; /* Space between logo and nav links */
 }
 
-/* Make the logo image responsive */
+/* Responsive logo image */
 .nav-logo-img {
-  max-height: 125px;
+  max-height: 80px; /* Reduced size for the logo image */
   width: auto;
-  height: 50%;
+  height: auto;
 }
 
+/* Navigation links container */
 .nav-links {
   list-style: none;
   display: flex;
@@ -37,9 +39,9 @@
   align-items: center;
 }
 
-/* Basic link styling */
+/* Navigation link styles */
 .nav-link {
-  color: whitesmoke; /* Bluish silver fallback */
+  color: #000000; /* Black text for strong contrast */
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem 0.8rem;
@@ -48,14 +50,14 @@
   border-radius: 4px;
 }
 
-/* Hover glow effect */
+/* Hover effect for nav links with a slight gold accent */
 .nav-link:hover {
-  color: #83a4d4; /* Bluish silver color */
-  text-shadow: 0 0 8px rgba(131, 164, 212, 0.6); /* Glow effect */
-  box-shadow: 0 0 12px rgba(168, 199, 250, 0.2); /* Subtle glow around the link */
+  color: #000000; /* Remains black for legibility */
+  text-shadow: 0 0 8px rgba(201, 162, 64, 0.3); /* Subtle gold glow */
+  box-shadow: 0 0 12px rgba(201, 162, 64, 0.2); /* Minimal gold highlight */
 }
 
-/* Underline effect on hover */
+/* Underline effect for nav links on hover */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -63,31 +65,29 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--clr-accent, #a8c7fa); /* Bluish silver fallback */
+  background-color: rgba(201, 162, 64, 0.5); /* Only a slight gold underline */
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease-out;
-  will-change: transform;
-  box-shadow: 0 0 8px rgba(44, 73, 120, 0.8); /* Glow on the underline */
 }
 
 .nav-link:hover::after {
   transform: scaleX(1);
 }
 
-/* Special Book Now button */
+/* Book Now button styling */
 .book-now {
-  background-color: #e3e3e3; /* Bluish silver */
-  color: rgb(0, 0, 0);
+  background-color: #D1D1D1; /* Silver background */
+  color: #000000; /* Black text */
   padding: 8px 16px;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  border: 1px solid #B0B0B0;  /* A subtle silver border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .book-now:hover {
-  background-color: #6b8cb3;
-  box-shadow: 0 0 12px rgba(131, 164, 212, 0.8); /* Stronger glow effect */
-  text-shadow: none;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(201, 162, 64, 0.3); /* Minimal gold glow on hover */
 }
 
 /* Dropdown menu styling */
@@ -100,21 +100,21 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: #D1D1D1; /* Silver background for the dropdown */
   backdrop-filter: blur(10px);
   min-width: 180px;
   border-radius: 4px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   padding: 0.8rem 0;
   opacity: 0;
-  visibility: hidden;
+  visibility: collapse;
   transform: translateY(-10px);
   transition: all 0.3s ease;
   z-index: 100;
   overflow: hidden;
 }
 
-/* Show dropdown on hover on desktop */
+/* Show dropdown on hover for desktops */
 @media (min-width: 769px) {
   .dropdown:hover .dropdown-menu {
     opacity: 1;
@@ -123,33 +123,19 @@
   }
   
   .dropdown:hover .nav-link {
-    color: #83a4d4; /* Bluish silver color */
-    text-shadow: 0 0 8px rgba(131, 164, 212, 0.6); /* Glow effect */
+    color: #000000;
+    text-shadow: 0 0 8px rgba(201, 162, 64, 0.3);
   }
 }
 
-/* Show dropdown when active on mobile */
+/* Dropdown active state (for mobile) */
 .dropdown.active .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.dropdown-link {
-  display: block;
-  padding: 10px 15px;
-  color: #333;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.dropdown-link:hover {
-  background-color: #f0f4f8; /* Light bluish silver */
-  color: #83a4d4; /* Bluish silver */
-  box-shadow: 0 0 8px rgba(131, 164, 212, 0.4) inset; /* Inner glow effect */
-}
-
-/* Mobile navigation styles */
+/* Hamburger menu and responsive adjustments */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -163,7 +149,7 @@
 .hamburger span {
   width: 100%;
   height: 2px;
-  background-color: var(--clr-primary, #a8c7fa);
+  background-color: #000000; /* Black hamburger bars */
   transition: all 0.3s ease;
 }
 
@@ -195,7 +181,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgba(10, 10, 20, 0.95);
+    background-color: rgba(0, 0, 0, 0.95); /* Darker menu background for mobile contrast */
     width: 100%;
     opacity: 0;
     visibility: hidden;
@@ -214,7 +200,7 @@
   .dropdown-menu {
     position: static;
     box-shadow: none;
-    background-color: rgba(168, 199, 250, 0.05);
+    background-color: rgba(209, 209, 209, 0.95);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     max-height: 0;
@@ -233,7 +219,7 @@
   }
   
   .dropdown.active .nav-link {
-    color: #83a4d4; /* Bluish silver color */
+    color: #000000;
   }
   
   .book-now {
@@ -242,7 +228,6 @@
     width: 90%;
   }
   
-  /* Add mobile dropdown toggle ability */
   .dropdown > .nav-link::after {
     content: '\25BC'; /* Down arrow */
     position: absolute;

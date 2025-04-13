@@ -22,33 +22,19 @@ export default function Footer() {
                 
           </p> {/* Closing p for Location & Hours */ }
           <p> Monday
-              11:00 am
-              -
-              5:00 pm<br />
+              11:00 am - 5:00 pm<br />
               Tuesday
-              11:00 am
-              -
-              5:00 pm<br/>
+              11:00 am - 5:00 pm<br/>
               Wednesday
-              11:00 am
-              -
-              4:00 pm<br />
+              11:00 am - 4:00 pm<br />
               Thursday
-              10:00 am
-              -
-              5:00 pm<br />
+              10:00 am - 5:00 pm<br />
               Friday
-              11:00 am
-              -
-              6:00 pm<br />
+              11:00 am - 6:00 pm<br />
               Saturday
-              10:00 am
-              -
-              3:00 pm<br />
+              10:00 am - 3:00 pm<br />
               Sunday
-              11:00 am
-              -
-              4:00 pm<br />
+              11:00 am - 4:00 pm<br />
           </p> {/* Closing p for hours */}
             {/* Section 3: Copyright */}
           
