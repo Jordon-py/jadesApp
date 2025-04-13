@@ -41,7 +41,7 @@
 }
 
 .footer-container {
-  background-color: rgb(223, 223, 223); /* Updated background color */
+  background-color: lch(90.24% 0.01 296.81); /* Updated background color */
   border-radius: 19px; /* Rounded corners */
   max-width: 1200px; /* Limit content width */
   width: 100%; /* Full width within container */
@@ -58,9 +58,12 @@
    max-height: fit-content; /* Limit height for wrapping */
    margin-bottom: 0; /* Add space below sections when wrapped */
   padding: 0; /* Remove padding for a cleaner look */
+  z-index: 10; /* Ensure footer is above other content */
 }
 
 .footer-section {
+  background-color: lch(90, 1, 250); /* Updated background color */
+  z-index: 10;
   display: flex;
   flex-direction: column; /* Stack title and links vertically */
   flex: 1 1 200px; /* Grow/shrink, base width 200px */

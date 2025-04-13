@@ -12,14 +12,14 @@ export const SERVICE_CATEGORIES = {
   // Array of service objects representing each service offered.
   // This flat structure is designed for consistency and easier sorting/filtering.
   // Additional properties include image paths, descriptions, durations, popularity, and optional highlight flags.
-export default function services() {
+export default function ServicesList() {
   return [
     // Brow Services
     {
       id: 1,
       name: 'Brow Wax',
       price: 30,
-      image: '/brow-wax.png',
+      image: 'BrowShape.png',
       description: 'Precision brow waxing to clean and shape your brows.',
       category: SERVICE_CATEGORIES.BROWS,
       duration: '20 min',

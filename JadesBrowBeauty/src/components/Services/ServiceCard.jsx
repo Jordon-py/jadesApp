@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Services.css'; // Import CSS
 import Button from '../Button/Button';
+import { useLocation } from 'react-router-dom'; // Import useLocation for navigation
 
 // Single Service Item Component
-function ServiceItem({ id, name, price, src, description, duration }) {
+function ServiceItem({ id, name, price, href, description, duration }) {
   // Determine image path based on service name or id
   const getImagePath = () => {
     // Map service IDs to appropriate images in public folder
     const imageMap = {
-      1: '/Brow Wax & Shape.png',
+      1: '/BrowShape.png',
       2: '/BrowtintShape.png',
       3: '/Browandlash.png',
       4: '/BrowtintShape.png', // Using tint shape for lamination as well
@@ -40,7 +41,13 @@ function ServiceItem({ id, name, price, src, description, duration }) {
         <h3 className="service-name">{name}</h3>
         <p className="service-price">${price}</p>
         {duration && <p className="service-duration">{duration}</p>}
-        {description && <p className="service-description">{description}</p>}
+        { description && <p className="service-description">{ description }</p> }
+        <Button
+          className="book-now-button"
+          onClick={() => window.open("https://book.squareup.com/appointments/22e54cea-00dd-45ab-ba40-225edc9d79db/location/C8VRR5692G797/services")}
+        >
+          Book Now
+        </Button> 
       </div>
     </li>
   );
@@ -54,7 +61,7 @@ export default function Services() {
     { id: 4,href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Brow Wax & Lamination", price: 100, duration: "45 min", description: "Achieve styled brows with waxing and lamination." },
     { id: 5,href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Brow Wax, Lamination & Tint", price: 120, duration: "45 min", description: "Complete brow transformation with wax, lamination and tint." },
     { id: 6,href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Brow & Lash Luxe", price: 140, duration: "1 hr", description: "A premium treatment combining brow and lash services." },
-    { id: 7,href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Brow & Lash Luxe + Jelly Mask & Globes", price: 160, duration: "1 hr 15 min", description: "Premium brow and lash treatment with hydrating jelly mask and cooling globes." },
+    { id: 7,href:"https://book.squareup.com/appointments/22e54cea-00dd-45ab-ba40-225edc9d79db/location/C8VRR5692G797/availability", name: "Brow & Lash Luxe + Jelly Mask & Globes", price: 160, duration: "1 hr 15 min", description: "Premium brow and lash treatment with hydrating jelly mask and cooling globes." },
     { id: 8,href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Full Face Waxing", price: 80, duration: "30 min", description: "Comprehensive waxing covering the entire face for a smooth finish." },
     { id: 9,href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Half Face Waxing", price: 60, duration: "20 min", description: "Partial facial waxing for unwanted hair removal." },
     { id: 10, href:"https://app.squareup.com/appointments/book/22e54cea-00dd-45ab-ba40-225edc9d79db/C8VRR5692G797/start ", name: "Nose Waxing", price: 15, duration: "10 min", description: "Gentle waxing to remove nasal hair with minimal discomfort." },

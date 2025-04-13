@@ -35,22 +35,23 @@
 	flex-direction: column; /* Stack items vertically */
 	align-items: center; /* Center items horizontally */
 	justify-content: center; /* Center items vertically */
-	background-color: silver;
+	background-color: rgba(0, 0, 0, 0.875);
+	border-radius: 12px; /* Rounded corners */
 	
 	font-family: 'Poppins', sans-serif; /* Consistent font family */
-	color: lch(32.24% 30.12 267.39); /* Text color for headings */
+	color: lch(73.68% 0.01 296.81); /* Text color for headings */
 	text-align: center;
-	border-bottom: 1px double lch(32.24% 30.12 267.39); /* Subtle underline effect */
+	border-bottom: 1px double lch(96.71% 42.28 103.69); /* Updated underline color */
 	margin: 0;
 	padding: 0;
 	font-size: 1rem; /* Adjusted for mobile readability */
-	box-shadow: 4px 19px 26px rgba(34, 105, 131, 0.158); /* Subtle shadow for depth */
+	box-shadow: 2px 1px 26px rgb(255, 245, 152); /* Subtle shadow for depth */
   }
 
   .home-content {
 	position: relative;
 	z-index: 1;
-	color: #fff;
+	color: #c6c6c6;
 	text-align: center;
 	padding: 0;
   }
