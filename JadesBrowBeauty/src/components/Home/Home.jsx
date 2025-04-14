@@ -6,13 +6,15 @@ export default function Home() {
   return (
     <>
       <div id="p" className="home-header">
-          <p id="p1">At Jade’s Brow Beauty, 
-              We specialize in precision eyebrow waxing, custom microblading, and full-body waxing services.
-               We offer a professional approach wrapped in genuine friendliness — so every appointment feels like catching up with a friend (who happens to be amazing at brows).
+        <img className="pic" src="underArm.png" alt="underarm" />
+        <p id="p1">At Jade’s Brow Beauty, 
+              We specialize in precision eyebrow waxing and full-body waxing services.<br />
+              <br /> We offer a professional approach wrapped in genuine friendliness — so every appointment feels like catching up with a friend (who happens to be amazing at brows).
           </p>
       </div>
-        <div className="home-container">
-          <section id="home" className="home-section">
+      <div className="home-container">
+        
+        <section id="home" className="home-section">
               {/* Fixed Background Video */}
               <video autoPlay muted playsInline className="background-video">
                 <source src="Ja.mp4" type="video/mp4" />

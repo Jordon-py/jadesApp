@@ -23,11 +23,42 @@
 	max-height: 100vh;          /* Ensures video never exceeds viewport height */
 	max-width: 100vw;           /* Ensures video never exceeds viewport width */
   }
-  .home-header{
+  .home-header {
 	display: flex;
-	gap: 10%; /* Updated gap to 30% */
+	flex-direction: column;
+	/* Keyword values */
+	mix-blend-mode: darken;
+	mix-blend-mode: lighten;
+	mix-blend-mode: color-dodge;
+	mix-blend-mode: color-burn;
+	mix-blend-mode: hard-light;
+	mix-blend-mode: soft-light;
+	mix-blend-mode: difference;
+	mix-blend-mode: exclusion;
+	mix-blend-mode: hue;
+	mix-blend-mode: saturation;
+	mix-blend-mode: color;
+	mix-blend-mode: luminosity;
+	mix-blend-mode: pass-through;
+	} 
+
+	#pic.home-header{
+	background-color: rgba(0, 0, 0, 0.875); /* Semi-transparent background for contrast */
+	border-radius: 12px; /* Rounded corners */
+	
+	border-style: double;
+	border-color: lch(88.71% 42.28 103.69); /* Updated border color */
+	border-width: 1rem; /* Thinner border for mobile */
+	border-radius: 4px; /* Rounded corners */
+	width: 30%;
+	height: 50%;
+	max-width: 35%;
+	max-height: 35%; /* Ensures image is responsive */	
+	display: flex;
+	gap: 30%; /* Updated gap to 30% */
 	padding: 0;
 	margin-top: 0;
+	flex-direction: column;
   } 
 
   #p1, #p2, #p3 {
