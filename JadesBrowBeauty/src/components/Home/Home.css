@@ -7,9 +7,10 @@
 	display: flex;
 	flex-direction: column; /* Stack header and video vertically by default (mobile) */
 	align-items: center; /* Center items */
-	gap: 1rem; /* Space between header and video */
+	justify-content: center; /* Center items */
+	flex-wrap: wrap; /* Allow wrapping on smaller screens */ /* Space between header and video */
 	width: 100%;
-	max-width: 1200px; /* Max width for the content area */
+	max-width: 1000px; /* Max width for the content area */
 	margin: 0 auto; /* Center the wrapper */
 	padding: 1rem; /* Add padding */
 	background-color: lch(81.54% 27.22 21.64 / 0); /* Optional: ensure wrapper has base background */

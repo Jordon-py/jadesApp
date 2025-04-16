@@ -12,6 +12,8 @@
   z-index: 1000;
   width: 100%;
   padding: 0.5rem 1rem; /* Add some padding */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 /* Logo styles */
@@ -67,47 +69,47 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: lch(70 40 85 / 0.5); /* Example LCH gold underline */
+  background-color: var(--gradient-primary); /* Example LCH gold underline */
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease-out;
-}
+  }
 
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
+  nav-link:hover::after {
+    transform: scaleX(1);
+  }
 
-/* Book Now button styling */
-.book-now {
+  /* Book Now button styling */
+  .book-now {
   background-color: var(--clr-silver-light); /* Use variable */
   color: var(--clr-text); /* Use variable */
   padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid var(--clr-silver-dark);  /* Use variable */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  }
 
-.book-now:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px lch(70 40 85 / 0.3); /* Example LCH gold glow on hover */
-  color: var(--clr-text); /* Ensure text color doesn't change */
-  background-color: var(--clr-silver); /* Slightly darker silver on hover */
-}
+  .book-now:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px lch(73.77% 41.5 23.38 / 0.627); /* Example LCH gold glow on hover */
+    color: var(--clr-text); /* Ensure text color doesn't change */
+    background-color: var(--clr-silver-dark); /* Slightly darker silver on hover */
+  }
 
-/* Hamburger menu and responsive adjustments */
-.hamburger {
-  display: none; /* Hidden by default */
-  flex-direction: column;
-  justify-content: space-around; /* Distribute space */
-  width: 24px; /* Smaller size */
-  height: 18px; /* Smaller size */
-  cursor: pointer;
-  z-index: 1001; /* Above nav links */
-  position: absolute; /* Position relative to nav */
-  top: 50%;
-  right: 1rem;
-  transform: translateY(-50%);
-}
+  /* Hamburger menu and responsive adjustments */
+  hamburger {
+   display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: space-around; /* Distribute space */
+    width: 24px; /* Smaller size */
+    height: 18px; /* Smaller size */
+    cursor: pointer;
+    z-index: 1001; /* Above nav links */
+    position: absolute; /* Position relative to nav */
+    top: 50%;
+   right: 1rem;
+    transform: translateY(-50%);
+  }
 
 .hamburger span {
   width: 100%;

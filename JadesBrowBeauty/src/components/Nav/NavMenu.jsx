@@ -40,7 +40,7 @@ export default function NavMenu({ Nav, ...props }) {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Removed isOpen dependency - resize should always check width
+  }, [isOpen]); // Removed isOpen dependency - resize should always check width
 
   // Pass down isOpen and toggleMenu if the Nav component expects them
   // If Nav handles its own state, these might not be needed.

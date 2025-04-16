@@ -55,12 +55,6 @@ body {
   line-height: inherit; /* Inherit line-height from :root */
 }
 
-/* Improve image defaults */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
 /* Remove default list styles */
 ul, ol {
   list-style: none;
@@ -93,7 +87,7 @@ h1, h2, h3, .cursive, .italianno-regular, .creative-cursive {
 
 h1 {
   font-size: clamp(2.5rem, 7vw, 4rem);
-  font-family: 'Dancing Script', 'Pacifico', 'Italianno', cursive, sans-serif;
+  font-family:'Italianno', cursive, sans-serif;
   font-weight: 700;
 }
 
@@ -107,7 +101,7 @@ h3 {
 
 /* Add a utility class for creative cursive anywhere */
 .creative-cursive {
-  font-family: 'Dancing Script', 'Pacifico', 'Italianno', cursive, sans-serif;
+  font-family:'Italianno', cursive, sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -120,6 +114,8 @@ button {
   box-sizing: border-box; /* Ensure padding/border are included in total size */
   display: inline-block; /* Allow setting width/height/padding */
   text-align: center;
+  border-radius: 20px;
+ 
 }
 
 /* Animation on dropdown/elements */

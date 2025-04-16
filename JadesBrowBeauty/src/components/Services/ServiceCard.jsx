@@ -41,7 +41,7 @@ const getImagePath = (id) => {
 function ServiceItem({ id, name, price, href, description, duration }) {
   const handleBookNow = () => {
     // Use the provided href or a default booking link
-    const bookingLink = href || "https://book.squareup.com/appointments/22e54cea-00dd-45ab-ba40-225edc9d79db/location/C8VRR5692G797/services";
+    const bookingLink = href || `https://book.squareup.com/appointments/22e54cea-00dd-45ab-ba40-225edc9d79db/location/C8VRR5692G797/services/${name}`;
     window.open(bookingLink, '_blank'); // Open in new tab
   };
 

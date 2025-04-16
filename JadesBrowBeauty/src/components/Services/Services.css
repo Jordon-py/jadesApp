@@ -74,17 +74,18 @@ p.home-intro-text{
   
   /* Hover state: Lifts the card, scales slightly, and adds an accent shadow */
   .service-item:hover {
-	transform: translateY(-15px) scale(1.02); /* Lift and slightly scale up on hover */
-	box-shadow: 0 5px 20px lch(from var(--clr-primary) l c h / 0.20); /* Dynamic shadow using LCH function */
-	border-color: transparent; /* Hide border on hover */
+	transform: translateY(-8px) scale(1.5); /* Lift and slightly scale up on hover */
+	box-shadow: 3px 22px 40px -15px lch(62.29% 30.85 252.03); /* Dynamic shadow using LCH function */
+	border-color: fadeInSlide ease; /* Hide border on hover */
 	background-image: var(--gradient-primary); /* Apply gradient on hover */
-	color: var(--sidebar-text-hover, lch(95 0 250)); /* Adjust text color */
+	color: var(--sidebar-text-hover, lch(62.29% 30.85 252.03 / 0.809)); /* Adjust text color */
+	transition: transform 0.5s ease-out, box-shadow 0.5s ease-in-out, border-color 0.5s ease; /* Smooth transition */
   }
 
   /* Adjust text colors inside the card on hover */
   .service-item:hover .service-name,
   .service-item:hover .service-price {
-	color: var(--sidebar-text-hover, lch(95 0 250));
+	color: var(--sidebar-text-hover, lch(62.29% 30.85 252.03 / 0.809));
   }
   
   /* Active state: Provides tactile feedback on click/tap */
@@ -94,7 +95,7 @@ p.home-intro-text{
   }
   
   /* Optional: Pulse effect for featured or highlighted items (if used with a .highlight class) */
-  /*
+  
   @keyframes pulse {
 	0%, 100% { transform: scale(1); }
 	50% { transform: scale(1.03); }
@@ -102,17 +103,16 @@ p.home-intro-text{
   .service-item.highlight:hover {
 	animation: pulse 1s infinite;
   }
-  */
+  
   
   /* -------------------------------------------------------------
 	 Service Image: Responsive image with a subtle zoom effect.
   ------------------------------------------------------------- */
   .service-image {
 	width: 100%; /* Full width of container */
-	height: 100%;
-	min-height: 150px; /* Ensures a consistent minimum height */
+	height: 100%;/* Ensures a consistent minimum height */
 	object-fit: cover; /* Fills space while preserving aspect ratio */
-	border-radius: 19px 19px 0 0; /* Only round top corners if gradient is background */
+	border-radius: 19px; /* Only round top corners if gradient is background */
 	margin-bottom: 1rem;
 	transition: transform 0.5s ease-in-out; /* Smooth zoom transition */
   }

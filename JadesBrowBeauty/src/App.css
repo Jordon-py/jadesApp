@@ -97,6 +97,7 @@
 /* Add a main content area that can grow */
 .main-content {
   position: relative;
+  cursor: pointer;
   flex-grow: 1; /* Allows this section to take up available space */
   padding: 0.5rem; /* Add padding here or within specific page components */
   width: 100%; /* Ensure it takes full width within #root */
