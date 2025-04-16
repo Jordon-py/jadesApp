@@ -38,20 +38,14 @@ export default function ServicesSection({ services = [] }) {
             <p>No featured services available at this moment.</p>
           )}
         </section>
-        <div className='home-header'>
-        <div className='home-header-images'>
-          {/* Ensure alt text is descriptive */}
-         
-          
-        </div>
+      
         <p className='home-intro-text'>
           At Jade’s Brow Beauty, we specialize in precision eyebrow waxing and full-body waxing services.
           <br /><br />
           We offer a professional approach wrapped in genuine friendliness — so every appointment feels like catching up with a friend (who happens to be amazing at brows).
         </p>
       </div>
-    
-    </div>
+  
   );
 }
 
