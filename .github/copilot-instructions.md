@@ -1,62 +1,72 @@
-# ✅ GitHub Copilot Instructions for React + Express Full Stack Projects
+# ✅ GitHub Copilot Instructions (Optimized with Reflexive Intelligence Matrix)
 
-- Color-Palette: Black or white silver for lettering and for the app color scheme utilize the lch already being used buttons and links. 
-You are tasked with generating a **reusable and scalable React component**.
+## Purpose
+This file serves as the rulebook for generating high-quality, maintainable, and scalable code. Do not modify it to ensure consistent results.
 
-Use:
-- Framework: React (JSX)
-- Styling: expertly structured css utlizing web dev best practices
-- State Management: React hooks (`useState`, `useEffect`)
+---
 
-Before generating the component, clarify the following if not provided:
-- What is the name and purpose of the component?
-- What data props (if any) should be accepted?
-- Does it need user interaction (e.g., input, modal toggle)?
+### 🎨 Color & Styling Guidelines
+- Use **only `lch` color values** throughout the entire application.
+- All UI elements (buttons, links, headings) must adhere to the established LCH color palette.
+- CSS should be clean, modular, and follow modern best practices.
 
-Guidelines:
-- Use functional components only
-- Prioritize clean layout and reusability
-- Apply responsive classes for mobile and desktop views
-- Ensure minimal logic duplication and maximize readability
-- Ensure concise and educational comments throughout application explaining logic and syntax for students
+---
 
-Examples:
-- Form component with user input and validation
-- Modal that accepts visibility and dynamic content via props
-- Image gallery component with automatic rotation and manual controls
+### ⚛️ React Component Standards
+- Use **functional components** exclusively—class components are prohibited.
+- Apply **React Hooks** (`useState`, `useEffect`) for state and side effects.
+- Prioritize **clarity, reusability, and minimal logic duplication**.
+- Ensure **responsive design** (mobile + desktop) using TailwindCSS utility classes.
+- Insert concise, instructive comments explaining key logic for students.
+- Decompose logic into reusable components or hooks wherever possible.
+- Separate **UI rendering** from **business logic**.
+- Avoid inline styles; use Tailwind utility classes for all styling.
 
-## 🚀 General Code Generation
-- Always use React functional components (no class components).
-- Always use React hooks like `useState`, `useEffect` appropriately.
-- All styling must use TailwindCSS.
-- Use 2-space indentation and single quotes in JSX and JS.
-- Generated files must contain a top-level comment: `// path to app.jsx from that file `.
-- Use `import` statements for all dependencies and components.
-- Use `export default` for components and named exports for utility functions.
-- Always update a paths file when creating a new component or utility function. (generate one at root level of the project if there isn't already one)
+---
 
+### 📋 Pre-Generation Checklist
+Before generating any component, confirm:
+- What is the component’s **name** and **purpose**?
+- Which **props or data inputs** are expected?
+- Will it require **user interaction** (e.g., toggles, modals)?
 
-## 🖥️ Frontend (React)
-- Decompose logic into clean, reusable hooks and components.
-- Maintain strict separation of UI and logic.
-- Prefer semantic Tailwind utility classes and avoid inline styles.
-- Always use prop-types or TypeScript interfaces where appropriate.
+---
 
-## 🔐 Backend (Express)
-- Always use `async/await` syntax — avoid `.then()` chaining.
-- Modularize code by separating routes, controllers, services.
-- Implement JWT authentication and token verification.
-- Input validation and error handling must be present in every route.
+### ✨ Examples of Ideal Components
+- Form with real-time validation
+- Modal with dynamic content passed via props
+- Visual image gallery with both auto-rotation and manual controls
+- Fully responsive navigation bar with dropdowns
 
+---
 
-## 📋 Code Review or any time /fix is used.
-- Check for unused imports, variables, and side effects.
-- Flag inconsistent naming, unhandled promises, and hardcoded values; suggest clear solutions.
-- Ensure hooks and component lifecycles follow React best practices.
-- Validate that all API routes are properly documented and have helpful comments
+### 📁 Project Structure and File Management
+- Maintain a file at project root: `css_changes.md`.
+  - Log class names, ID names, and the folders in which they're used.
+- All generated files must begin with a top-level comment indicating their relative path to `app.jsx`.
 
-## 📜 Commit Messages
-- Follow this commit format: `<type>(scope): description`  
-  Example: `feat(auth): add JWT middleware to API routes`
-- Use semantic prefixes: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`
-- Capitalize the description and do not end with a period.
+---
+
+### 🚀 Code Generation Best Practices
+- Never leave a component half finished always check if properly implimented
+- Never Use TailwindCSS only Custom css
+Include documentaion on each file consice and educational incude logic and syntax for advanced comprehension
+- Follow 2-space indentation; use **single quotes** for all strings in JS/JSX.
+- Use `import` for all modules; use `export default` for components and named exports for utilities.
+- Update the **paths file** whenever a new component or utility is created. (Create one at the root if missing.)
+
+---
+
+### 🧠 Code Review & /fix Usage
+- Eliminate unused imports, variables, or side effects.
+- Flag hardcoded values, unhandled promises, and naming inconsistencies.
+- Ensure that React lifecycle patterns are correctly applied.
+- Verify that **API routes** are fully documented and include helpful comments.
+
+---
+
+### 📦 Commit Message Conventions
+- Use this format: `<type>(scope): Description`
+  - Example: `feat(auth): Add JWT middleware to API routes`
+- Allowed prefixes: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`
+- Capitalize the description and avoid trailing punctuation.

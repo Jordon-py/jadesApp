@@ -2,7 +2,7 @@
 .btn {
 	display: inline-block; /* Allow padding and margins */
 	padding: 0.8em 1.6em;
-	border: 2px solid transparent; /* Start with transparent border */
+	border: 2px solid var(--clr-transparent); /* Use LCH variable */
 	border-radius: 8px;
 	font-size: 1em;
 	font-weight: 500;
@@ -13,7 +13,10 @@
 	outline: none; /* Remove default focus outline */
 	position: relative; /* For potential pseudo-elements */
 	overflow: hidden; /* Hide effects that might go outside */
-  
+	animation: fadeInSlide 0.5s ease-in-out forwards; /* Add animation */
+	opacity: 0; /* Start transparent for animation */
+	animation-delay: 0.1s; /* Optional delay */
+
 	/* --- Micro-interaction Transitions --- */
 	transition:
 	  background-color 0.25s ease-out,
@@ -21,51 +24,56 @@
 	  transform 0.15s ease-out,
 	  border-color 0.25s ease-out,
 	  box-shadow 0.25s ease-out;
-  
+
 	will-change: transform, background-color, border-color; /* Performance hint */
   }
-  
+
   /* Primary Button Styles */
   .btn-primary {
-	background-color: var(--clr-primary);
-	color: var(--clr-background); /* High contrast text */
-	border-color: var(--clr-primary);
+	background-color: var(--clr-primary); /* Use LCH variable */
+	color: var(--clr-background); /* Use LCH variable */
+	border-color: var(--clr-primary); /* Use LCH variable */
   }
-  
+
   .btn-primary:hover {
-	background-color: var(--clr-primary-hover);
-	border-color: var(--clr-primary-hover);
+	background-image: var(--gradient-primary); /* Apply gradient on hover */
+	color: var(--sidebar-text-hover, lch(95 0 250)); /* Adjust text color for gradient */
+	border-color: transparent; /* Hide border when gradient is shown */
 	transform: translateY(-2px); /* Subtle lift */
-	box-shadow: 0 4px 10px lch(from var(--clr-primary) l c h / 0.3); /* Soft shadow using color */
+	box-shadow: 0 4px 10px lch(from var(--clr-primary) l c h / 0.3); /* Use LCH function */
   }
-  
+
   .btn-primary:active {
 	transform: translateY(0px); /* Push down on click */
-	background-color: lch(from var(--clr-primary) calc(l - 5%) c h); /* Slightly darker */
+	background-image: var(--gradient-primary); /* Keep gradient on active */
+	background-color: transparent; /* Ensure gradient shows */
+	filter: brightness(0.9); /* Slightly darken gradient on active */
 	box-shadow: none; /* Remove shadow on active */
   }
-  
+
   /* Secondary Button Styles (Example) */
   .btn-secondary {
-	background-color: transparent;
-	color: var(--clr-primary);
-	border-color: var(--clr-primary);
+	background-color: var(--clr-transparent); /* Use LCH variable */
+	color: var(--clr-primary); /* Use LCH variable */
+	border-color: var(--clr-primary); /* Use LCH variable */
   }
-  
+
   .btn-secondary:hover {
-	background-color: lch(from var(--clr-primary) l c h / 0.1); /* Subtle background fill */
-	color: var(--clr-primary-hover);
-	border-color: var(--clr-primary-hover);
+	background-image: var(--gradient-primary); /* Apply gradient on hover */
+	color: var(--sidebar-text-hover, lch(95 0 250)); /* Adjust text color */
+	border-color: transparent; /* Hide border */
 	transform: translateY(-2px);
   }
-  
+
   .btn-secondary:active {
 	transform: translateY(0px);
-	background-color: lch(from var(--clr-primary) l c h / 0.2);
+	background-image: var(--gradient-primary); /* Keep gradient on active */
+	background-color: transparent;
+	filter: brightness(0.9);
   }
-  
+
   /* Focus state for accessibility */
   .btn:focus-visible {
-	outline: 2px solid var(--clr-accent);
+	outline: 2px solid var(--clr-accent); /* Use LCH variable */
 	outline-offset: 2px;
   }

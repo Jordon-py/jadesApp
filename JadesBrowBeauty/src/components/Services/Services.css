@@ -3,18 +3,28 @@
 /* -------------------------------------------------------------
    Main Container: Defines the section appearance and layout.
 ------------------------------------------------------------- */
+p.home-intro-text{
+	  font-size: 2rem; /* Slightly larger font */
+  line-height: 1.6;
+  text-align: center;
+  max-width: 600px; /* Limit text width for readability */
+  margin: 0 auto; /* Center text block */
+  font-family:'Italianno', cursive, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
 .services-section {
 	
 	padding: 1rem; /* Vertical padding for breathing room */
 	text-align: center;
   }
-  h2.italianno-regular {
+   h2.italianno-regular {
 	color: lch(77.7% 0.01 296.81);
 	font-size: 6rem;
 	font-family: "Italianno", cursive;
 	font-weight: 400;
 	font-style: normal;
-	background-color: rgba(0, 0, 0, 0.904);
+	background-color: lch(0 0 0 / 0.904); /* Use LCH for black with alpha */
 	border-radius: 10px;
 	text-align: center;
 	padding: 0rem 0rem; /* Padding for the heading */
@@ -51,7 +61,12 @@
 	flex-direction: column; /* Stacks image and details vertically */
 	align-items: center;
 	width: 100%;
-  
+	overflow: hidden; /* Ensure gradient doesn't overflow */
+	position: relative; /* Needed for pseudo-elements if used */
+	animation: fadeInSlide 0.5s ease-in-out forwards; /* Add animation */
+	opacity: 0; /* Start transparent for animation */
+	animation-delay: calc(var(--animation-order, 0) * 0.1s); /* Stagger animation based on index */
+
 	/* Micro-interaction: Smooth transitions for transform and box-shadow */
 	transition: transform 0.5s ease-out, box-shadow 0.5s ease-in-out, border-color 0.5s ease;
 	will-change: transform, box-shadow, border-color; /* Performance hint for browsers */
@@ -61,13 +76,21 @@
   .service-item:hover {
 	transform: translateY(-15px) scale(1.02); /* Lift and slightly scale up on hover */
 	box-shadow: 0 5px 20px lch(from var(--clr-primary) l c h / 0.20); /* Dynamic shadow using LCH function */
-	border-color: var(--clr-primary); /* Highlight the border with the primary accent */
+	border-color: transparent; /* Hide border on hover */
+	background-image: var(--gradient-primary); /* Apply gradient on hover */
+	color: var(--sidebar-text-hover, lch(95 0 250)); /* Adjust text color */
+  }
+
+  /* Adjust text colors inside the card on hover */
+  .service-item:hover .service-name,
+  .service-item:hover .service-price {
+	color: var(--sidebar-text-hover, lch(95 0 250));
   }
   
   /* Active state: Provides tactile feedback on click/tap */
   .service-item:active {
 	transform: translateY(-5px) scale(1); /* A smaller lift to simulate a "press" effect */
-	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 3px 12px lch(0 0 0 / 0.15); /* Use LCH for black with alpha */
   }
   
   /* Optional: Pulse effect for featured or highlighted items (if used with a .highlight class) */
@@ -89,7 +112,7 @@
 	height: 100%;
 	min-height: 150px; /* Ensures a consistent minimum height */
 	object-fit: cover; /* Fills space while preserving aspect ratio */
-	border-radius: 19px; /* Matches container's rounded corners */
+	border-radius: 19px 19px 0 0; /* Only round top corners if gradient is background */
 	margin-bottom: 1rem;
 	transition: transform 0.5s ease-in-out; /* Smooth zoom transition */
   }
@@ -116,6 +139,8 @@
 	color: var(--clr-secondary); /* Secondary color from LCH palette */
 	margin-bottom: 0.5rem;
 	transition: color 0.3s ease; /* Smooth color transition on hover */
+	position: relative; /* Ensure text is above gradient */
+	z-index: 1;
   }
   
   /* Underline effect on hover for enhanced interactivity */
@@ -131,6 +156,8 @@
 	font-weight: bold;
 	color: var(--clr-accent); /* Accent color from LCH palette */
 	transition: transform 0.3s ease, color 0.3s ease;
+	position: relative; /* Ensure text is above gradient */
+	z-index: 1;
   }
   
   /* Subtle scale and color shift on hover for the price */
@@ -138,4 +165,10 @@
 	transform: scale(1.05);
 	color: var(--clr-primary);
   }
-  
+
+.services-title, .service-name {
+  font-family: 'Italianno', cursive, sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}

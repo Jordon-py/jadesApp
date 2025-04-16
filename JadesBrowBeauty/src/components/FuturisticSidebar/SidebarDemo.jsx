@@ -1,19 +1,22 @@
 // path to app.jsx: ../../App.jsx
 import React, { useState } from 'react';
 import FuturisticSidebar from './FuturisticSidebar';
+// Optional: Create and import a CSS file for demo-specific styles
+// import './SidebarDemo.css';
 
 /**
  * Demo component showing FuturisticSidebar implementation
- * 
+ *
  * This component demonstrates how to integrate and use the FuturisticSidebar
  * in a real application with example menu structure and click handling.
  */
 const SidebarDemo = () => {
-  // State to track the currently selected item
   const [selectedItem, setSelectedItem] = useState(null);
-  
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Control sidebar state for demo
+
   // Example menu structure
   const menuStructure = [
+    // ... (menu structure remains the same)
     {
       label: 'Dashboard',
       items: [
@@ -48,42 +51,54 @@ const SidebarDemo = () => {
       ]
     }
   ];
-  
+
   // Handle item click
   const handleItemClick = (item) => {
     console.log('Selected item:', item);
     setSelectedItem(item);
-    // Here you would typically handle navigation or other actions
+    // Close sidebar on mobile after selection
+    if (window.innerWidth <= 768) {
+      setSidebarOpen(false);
+    }
   };
-  
+
+  // Toggle sidebar state
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  // Add a class to the demo container based on sidebar state for content shifting
+  const demoContainerClass = `sidebar-demo ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`;
+
   return (
-    <div className="sidebar-demo">
+    // Use className for styling the container
+    <div className={demoContainerClass}>
       {/* Implement FuturisticSidebar */}
       <FuturisticSidebar
         menuItems={menuStructure}
-        logo="/Ja.svg"
-        title="Jade's Beauty"
+        logo='/Ja.svg'
+        title='Jade&#39;s Beauty' // Changed to single quotes
         onItemClick={handleItemClick}
+        isOpen={sidebarOpen} // Pass state
+        onToggle={toggleSidebar} // Pass toggle function
       />
-      
-      {/* Demo content area */}
-      <div className="demo-content" style={{
-        marginLeft: '280px', 
-        padding: '2rem',
-        transition: 'margin-left 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
-      }}>
+
+      {/* Demo content area - Styling moved to CSS */}
+      {/* Apply className for styling */}
+      <div className='demo-content'>
         <h1>FuturisticSidebar Demo</h1>
-        
+
         {selectedItem ? (
           <div>
             <h2>Selected: {selectedItem.label}</h2>
-            <p>Value: {selectedItem.value}</p>
+            <p>Value: {String(selectedItem.value)}</p> {/* Ensure value is string */}
           </div>
         ) : (
           <p>Select an item from the sidebar to see its details.</p>
         )}
-        
-        <div style={{ marginTop: '2rem' }}>
+
+        {/* Use className for styling */}
+        <div className='demo-features'>
           <h3>Component Features:</h3>
           <ul>
             <li>Animated toggle with smooth transitions</li>
@@ -100,3 +115,30 @@ const SidebarDemo = () => {
 };
 
 export default SidebarDemo;
+
+/*
+// Example SidebarDemo.css (Create this file if needed)
+.sidebar-demo {
+  // Styles for the main demo container
+}
+
+.demo-content {
+  padding: 2rem;
+  transition: margin-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-left: 0; // Default margin
+}
+
+.sidebar-open .demo-content {
+   margin-left: 240px; // Adjust based on sidebar width when open
+}
+
+.demo-features {
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .demo-content {
+    margin-left: 0 !important; // Ensure no margin shift on mobile
+  }
+}
+*/

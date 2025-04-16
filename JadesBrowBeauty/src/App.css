@@ -9,8 +9,35 @@
   margin: 0 auto; /* Center the content */
   padding: 0; /* Remove default padding, components will manage theirs */
 }
-/* Dropdown visible class */
-#dropdown-content.show {
+
+/* Styles for the sidebar toggle button (moved from inline) */
+.sidebar-toggle-button {
+  position: fixed; /* Position relative to the viewport */
+  top: 1rem;       /* Adjust as needed */
+  left: 1rem;      /* Adjust as needed */
+  z-index: 1001;   /* Ensure it's above sidebar backdrop, potentially above sidebar header */
+  background: var(--clr-silver-light);
+  border: 1px solid var(--clr-silver-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Adjust icon size */
+  color: var(--clr-text);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px lch(0 0 0 / 0.2); /* Optional shadow */
+}
+
+.sidebar-toggle-button:hover {
+  background: var(--clr-silver);
+}
+
+/* Styles related to the old dropdown - can likely be removed or repurposed */
+/* If .dropdown-content is still used elsewhere, update selectors and colors */
+.dropdown-content.show { /* Changed ID to class */
   position: sticky;
   display: flex;
   animation: fadeInSlide 0.5s ease-in-out;
@@ -20,18 +47,19 @@
   cursor: pointer;
 }
 
-/* Each dropdown content */
-#dropdown-content {
+.dropdown-content { /* Changed ID to class */
   padding: 10px 16px;
-  color: #dbcf96;
+  color: lch(85 30 85); /* Example LCH for #dbcf96 */
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.5s;
 }
-#name {
-  font-size: 3rem;  
-  color: lch(10 30% 250);
+
+/* If .app-title is used instead of #name */
+.app-title { /* Changed ID to class */
+  font-size: 3rem;
+  color: lch(10 30 250);
   text-decoration: none;
   font-weight: bold;
   text-align: center;
@@ -39,44 +67,32 @@
 }
 
 /* Hover effect with glow underline from left */
-#dropdown-content::after {
+.dropdown-content::after { /* Changed ID to class */
   content: '';
   position: absolute;
   left: 0;
   bottom: 4px;
   width: 0;
   height: 2px;
-  background: linear-gradient(100deg, #00ffcc, #027fd3);
-  box-shadow: 20 -10 10px lch(0 0% 22) inset;
+  /* Example LCH gradient */
+  background: linear-gradient(100deg, lch(80 100 150), lch(55 80 270));
+  box-shadow: 20 -10 10px lch(22 0 0) inset; /* Example LCH */
   transition: width 0.4s ease-in-out;
 }
 
-#dropdown-content:hover::after {
+.dropdown-content:hover::after { /* Changed ID to class */
   width: 100%;
 }
 
-#dropdown-content:hover {
-  background-color: lch(80 15 100%);
+.dropdown-content:hover { /* Changed ID to class */
+  background-color: lch(80 15 100); /* Example LCH */
   transition: background-color 0.3s ease;
 }
 
-#dropdown-content:focus {
-  outline: 2px solid lch(0 0% 80%);
-  background-color: lch(0 0% 90%);
+.dropdown-content:focus { /* Changed ID to class */
+  outline: 2px solid lch(80 0 0); /* Example LCH */
+  background-color: lch(90 0 0); /* Example LCH */
 }
-
-/* Animation on dropdown */
-@keyframes fadeInSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 /* Add a main content area that can grow */
 .main-content {
@@ -85,7 +101,18 @@
   padding: 0.5rem; /* Add padding here or within specific page components */
   width: 100%; /* Ensure it takes full width within #root */
   box-sizing:border-box;
+  /* Add padding-left to prevent content from overlapping the fixed sidebar */
+  /* Adjust the value to match the sidebar width + some margin */
+  /* padding-left: 260px; /* Example: 240px sidebar + 20px margin */
+  /* transition: padding-left 0.4s cubic-bezier(0.16, 1, 0.3, 1); */
+  /* Consider adding this padding dynamically based on sidebar state if sidebar collapses */
 }
+
+/* Adjust main content padding when sidebar is collapsed (if applicable) */
+/* This requires a class on the body or main element controlled by sidebar state */
+/* .sidebar-collapsed .main-content {
+    padding-left: 20px; /* Smaller padding when collapsed */
+/* } */
 
 /* Keep logo styles if needed, but remove animations unless desired */
 .logo {
@@ -100,9 +127,7 @@
 
 /* Remove other styles like .card, .read-the-docs unless specifically used */
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  /* Removed empty ruleset for a:nth-of-type(2) .logo */
 }
 
 .card {
@@ -110,5 +135,18 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: var(--clr-silver-dark); /* Use LCH variable */
+}
+
+/* Responsive adjustments for main content padding */
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0.5rem; /* Reset padding-left on mobile as sidebar overlays */
+    padding-right: 0.5rem;
+  }
+  .sidebar-toggle-button {
+     /* Adjust position slightly if needed for mobile */
+     top: 0.8rem;
+     left: 0.8rem;
+  }
 }

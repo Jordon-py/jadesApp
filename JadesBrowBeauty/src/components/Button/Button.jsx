@@ -1,18 +1,28 @@
+// file path to app.jsx: ../../App.jsx
 import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import './Button.css'; // Import CSS
 
-// Accepts children for the button text/content, onClick handler,
-// and an optional 'variant' prop (e.g., 'primary', 'secondary')
-export default function Button({ children, onClick, variant = 'primary', type = 'button' }) {
-  const buttonClasses = `btn ${variant === 'primary' ? 'btn-primary' : 'btn-secondary'}`;
-  const onClickHandler = () => {
+/**
+ * Button Component
+ *
+ * A reusable button component with primary and secondary variants.
+ * Accepts children for text/content, an onClick handler, variant, and type.
+ * The specific action (e.g., navigation) should be defined in the onClick prop
+ * passed by the parent component.
+ */
+export default function Button({ children, onClick, variant = 'primary', type = 'button', className = '' }) {
+  // Combine base class, variant class, and any additional classes passed via props
+  const buttonClasses = `btn ${variant === 'primary' ? 'btn-primary' : 'btn-secondary'} ${className}`.trim();
+
+  // Handles the button click. Executes the passed onClick function if provided.
+  const onClickHandler = (event) => {
     if (onClick) {
-      onClick();
-    } else {
-      window.location.href = "https://book.squareup.com/appointments/22e54cea-00dd-45ab-ba40-225edc9d79db/location/C8VRR5692G797/services";
+      onClick(event); // Pass the event object to the handler
     }
+    // Removed hardcoded fallback navigation
     console.log('Button clicked!');
-  }
+  };
 
   return (
     <button type={type} className={buttonClasses} onClick={onClickHandler}>
@@ -20,3 +30,20 @@ export default function Button({ children, onClick, variant = 'primary', type = 
     </button>
   );
 }
+
+// Define PropTypes for the component
+Button.propTypes = {
+  children: PropTypes.node.isRequired, // Button content (text, icon, etc.)
+  onClick: PropTypes.func, // Optional click handler function
+  variant: PropTypes.oneOf(['primary', 'secondary']), // Style variant
+  type: PropTypes.string, // Button type (button, submit, reset)
+  className: PropTypes.string, // Allow passing additional CSS classes
+};
+
+// Define default props for optional ones
+Button.defaultProps = {
+  onClick: null,
+  variant: 'primary',
+  type: 'button',
+  className: '',
+};

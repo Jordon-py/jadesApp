@@ -1,31 +1,53 @@
 /* src/components/FuturisticSidebar/FuturisticSidebar.css */
 
+/* Using LCH variables defined in index.css or directly */
+:root {
+  /* Re-declare or ensure these are available from index.css */
+  --sidebar-bg: lch(10 5 250 / 0.75); /* Dark blue/purple tint */
+  --sidebar-border: lch(100 0 0 / 0.08); /* Faint white */
+  --sidebar-text: lch(90 0 250); /* Light purple/white */
+  --sidebar-text-dim: lch(80 0 250);
+  --sidebar-text-hover: lch(95 0 250);
+  --sidebar-header-border: lch(100 0 0 / 0.1);
+  --sidebar-item-hover-bg: lch(100 0 0 / 0.05);
+  --sidebar-item-active-bg: lch(80 30 260 / 0.15); /* Light blue/purple active */
+  --sidebar-indicator-start: lch(80 50 200 / 0.8); /* Cyan */
+  --sidebar-indicator-end: lch(70 50 280 / 0.8); /* Purple */
+  --sidebar-indicator-shadow: lch(80 50 200 / 0.6);
+  --sidebar-dropdown-bg: lch(5 5 250 / 0.6); /* Darker dropdown */
+  --sidebar-backdrop-bg: lch(5 5 250 / 0.5); /* Backdrop */
+  --sidebar-toggle-hover-bg: lch(100 0 0 / 0.1);
+  --sidebar-header-hover-bg: lch(100 0 0 / 0.1);
+  --sidebar-header-shadow: lch(70 50 280 / 0.2);
+}
+
 /* -------------------------------------------------------------
    Futuristic Sidebar: Main container with glassmorphism effect
 ------------------------------------------------------------- */
 .futuristic-sidebar {
   position: fixed;
   height: 100vh;
-  width: 280px;
+  width: 240px; /* Adjusted width */
   left: 0;
   top: 0;
-  background: rgba(10, 10, 20, 0.65); /* Dark semi-transparent background */
+  background: var(--sidebar-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid var(--sidebar-border);
   display: flex;
   flex-direction: column;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1000;
-  box-shadow: 0 0 25px rgba(0, 0, 10, 0.3);
+  z-index: 1000; /* Ensure sidebar is above other content */
+  box-shadow: 0 0 25px lch(0 0 0 / 0.3); /* Use LCH for shadow color */
   overflow-x: hidden;
   overflow-y: auto;
-  color: lch(90% 0 250); /* Using LCH color for text */
+  color: var(--sidebar-text);
+  transform: translateX(0); /* Start open by default */
 }
 
 /* Collapsed state - slide out of view */
 .futuristic-sidebar.collapsed {
-  transform: translateX(-240px); /* Leave a hint visible */
+  transform: translateX(-100%); /* Fully hide when collapsed */
 }
 
 /* -------------------------------------------------------------
@@ -35,21 +57,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem; /* Adjusted padding */
+  border-bottom: 1px solid var(--sidebar-header-border);
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .sidebar-logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.1rem; /* Adjusted font size */
   font-weight: 600;
-  color: lch(90% 0 250);
+  color: var(--sidebar-text);
 }
 
 .sidebar-logo img {
-  max-height: 2.5rem;
+  max-height: 1.5rem; /* Adjusted logo size */
   width: auto;
 }
 
@@ -57,57 +80,51 @@
    Sidebar Toggle: Animated hamburger button
 ------------------------------------------------------------- */
 .sidebar-toggle {
-  width: 40px;
-  height: 40px;
+  /* Reset button styles */
+  all: unset;
+  box-sizing: border-box;
+
+  width: 36px; /* Adjusted size */
+  height: 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 5px; /* Adjusted gap */
   background: transparent;
   border: none;
   cursor: pointer;
   position: relative;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease; /* Added transition */
   overflow: hidden;
   outline: none;
+  border-radius: 50%; /* Make it circular */
 }
 
-.sidebar-toggle:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transform: scale(0);
-  transition: transform 0.3s ease;
-}
-
-.sidebar-toggle:hover:before {
-  transform: scale(1);
+.sidebar-toggle:hover {
+  background-color: var(--sidebar-toggle-hover-bg); /* Subtle hover background */
 }
 
 .sidebar-toggle span {
   display: block;
-  width: 22px;
+  width: 20px; /* Adjusted line width */
   height: 2px;
-  background: lch(90% 0 250);
+  background: var(--sidebar-text);
   transition: all 0.4s ease;
   transform-origin: center;
   will-change: transform, opacity;
 }
 
-/* Animated toggle icon */
-.collapsed .sidebar-toggle span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+/* Animated toggle icon - applied when sidebar has 'collapsed' class */
+/* Removed empty ruleset for .futuristic-sidebar.collapsed .sidebar-toggle span:nth-child(1) */
+.futuristic-sidebar:not(.collapsed) .sidebar-toggle span:nth-child(1) {
+   transform: translateY(7px) rotate(45deg);
 }
-
-.collapsed .sidebar-toggle span:nth-child(2) {
-  opacity: 0;
+.futuristic-sidebar:not(.collapsed) .sidebar-toggle span:nth-child(2) {
+   opacity: 0;
 }
-
-.collapsed .sidebar-toggle span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+.futuristic-sidebar:not(.collapsed) .sidebar-toggle span:nth-child(3) {
+   transform: translateY(-7px) rotate(-45deg);
 }
 
 /* -------------------------------------------------------------
@@ -116,18 +133,19 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  padding: 1rem 0;
-  overflow: hidden;
-  flex: 1;
+  padding: 0.75rem; /* Adjusted padding */
+  overflow: hidden; /* Prevent content overflow */
+  flex-grow: 1; /* Allow menu to fill remaining space */
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
 }
 
 /* -------------------------------------------------------------
    Dropdown Container: Individual dropdown menu
 ------------------------------------------------------------- */
 .dropdown-container {
-  margin: 0.25rem 1rem;
-  border-radius: 12px;
-  overflow: hidden;
+  margin-bottom: 0.5rem; /* Space between dropdowns */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Clip content */
 }
 
 /* -------------------------------------------------------------
@@ -137,25 +155,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: lch(85% 0 250);
+  padding: 0.6rem 0.75rem; /* Adjusted padding */
+  background: var(--sidebar-item-hover-bg); /* Use hover bg for consistency */
+  color: var(--sidebar-text-dim);
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px; /* Slightly smaller radius */
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--sidebar-border);
 }
 
 .dropdown-header:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px rgba(120, 120, 250, 0.2);
-  color: lch(90% 0 250);
-  transform: translateY(-1px);
+  background: var(--sidebar-header-hover-bg);
+  box-shadow: 0 0 15px var(--sidebar-header-shadow);
+  color: var(--sidebar-text);
+  transform: translateY(-1px); /* Subtle lift */
 }
 
 /* The indicator arrow */
 .dropdown-header .icon {
   transition: transform 0.3s ease;
+  font-size: 0.8em; /* Smaller icon */
 }
 
 .dropdown-header .icon.open {
@@ -168,114 +187,112 @@
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-  background: rgba(0, 0, 30, 0.6);
-  border-radius: 0 0 8px 8px;
+  transition: max-height 0.5s ease-in-out; /* Use ease-in-out */
+  background: var(--sidebar-dropdown-bg);
+  border-radius: 0 0 6px 6px; /* Match header radius */
+  /* Borders applied only when open */
 }
 
 .dropdown-content.open {
-  max-height: 500px;
-  transition: max-height 0.5s ease;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  max-height: 500px; /* Allow enough space */
+  border-left: 1px solid var(--sidebar-border);
+  border-right: 1px solid var(--sidebar-border);
+  border-bottom: 1px solid var(--sidebar-border);
 }
 
 /* -------------------------------------------------------------
    Menu Items: Individual clickable options
 ------------------------------------------------------------- */
 .menu-item {
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.25rem; /* Adjusted padding */
   display: flex;
   align-items: center;
-  color: lch(80% 0 250);
+  color: var(--sidebar-text-dim);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  background: transparent; /* Start transparent */
 }
 
-.menu-item:before {
+/* Indicator line using pseudo-element */
+.menu-item::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
-  width: 4px;
+  width: 3px; /* Indicator width */
   height: 100%;
-  background: transparent;
-  transition: all 0.3s ease;
+  background: linear-gradient(180deg, var(--sidebar-indicator-start), var(--sidebar-indicator-end));
+  box-shadow: 0 0 8px var(--sidebar-indicator-shadow);
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
 }
 
 /* Neon glow effect on hover */
 .menu-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: lch(95% 0 250);
+  background: var(--sidebar-item-hover-bg);
+  color: var(--sidebar-text-hover);
 }
 
-.menu-item:hover:before {
-  background: linear-gradient(180deg, rgba(100, 220, 255, 0.8), rgba(120, 120, 255, 0.8));
-  box-shadow: 0 0 8px rgba(100, 200, 255, 0.6);
+.menu-item:hover::before {
+  opacity: 1; /* Show indicator on hover */
 }
 
 /* Active state for selected item */
 .menu-item.active {
-  background: rgba(100, 140, 255, 0.15);
-  color: lch(95% 0 250);
+  background: var(--sidebar-item-active-bg);
+  color: var(--sidebar-text-hover); /* Use hover color for active */
 }
 
-.menu-item.active:before {
-  background: linear-gradient(180deg, rgba(100, 220, 255, 1), rgba(120, 120, 255, 1));
-  box-shadow: 0 0 12px rgba(100, 200, 255, 0.8);
+.menu-item.active::before {
+  opacity: 1; /* Ensure indicator is visible */
+  /* Optionally make active indicator slightly stronger */
+  box-shadow: 0 0 12px var(--sidebar-indicator-shadow);
 }
 
 /* -------------------------------------------------------------
    Responsive Design: Adjustments for mobile
 ------------------------------------------------------------- */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0; /* Cover entire viewport */
+  background-color: var(--sidebar-backdrop-bg);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 999; /* Below sidebar but above content */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-backdrop.active {
+  opacity: 1;
+  pointer-events: auto; /* Allow clicking */
+}
+
 @media (max-width: 768px) {
   .futuristic-sidebar {
-    width: 260px;
+    /* On mobile, it starts fully hidden */
     transform: translateX(-100%);
   }
-  
-  .futuristic-sidebar.collapsed {
-    transform: translateX(0);
+
+  .futuristic-sidebar:not(.collapsed) {
+     /* When not collapsed (i.e., open on mobile), slide in */
+     transform: translateX(0);
   }
 
-  /* Mobile backdrop overlay */
-  .sidebar-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 20, 0.5);
-    backdrop-filter: blur(3px);
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .sidebar-backdrop.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  /* The toggle button logic remains the same, controlled by parent class */
 }
 
 /* -------------------------------------------------------------
-   Animation: Subtle pulse animation for selected elements
+   Animation: Subtle pulse animation (Optional)
 ------------------------------------------------------------- */
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(100, 200, 255, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(100, 200, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(100, 200, 255, 0);
-  }
+  0% { box-shadow: 0 0 0 0 lch(80 50 200 / 0.4); }
+  70% { box-shadow: 0 0 0 10px lch(80 50 200 / 0); }
+  100% { box-shadow: 0 0 0 0 lch(80 50 200 / 0); }
 }
 
 .pulse-animation {
